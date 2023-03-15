@@ -6,7 +6,12 @@ export default function Home() {
       <Head>
         <title>Devtools</title>
         <meta name="title" content="Devtools" key="title" />
+        <meta
+          name="description"
+          content="A collection of web development tools"
+        />
       </Head>
+
       <main>code here</main>
     </>
   );
