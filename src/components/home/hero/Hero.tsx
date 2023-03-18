@@ -32,12 +32,12 @@ export default function HomeHero() {
 
   const titleStyle: SxProps<Theme> = {
     fontSize: {
-      lg: theme.typography.h2.fontSize,
+      md: theme.typography.h2.fontSize,
       sm: theme.typography.h3.fontSize,
       xs: theme.typography.h4.fontSize,
     },
     maxWidth: { md: "none", sm: "600px", xs: "300px" },
-    mx: { lg: "0", xs: "auto" },
+    mx: { lg: 0, xs: "auto" },
   };
 
   const subtitleStyle: SxProps<Theme> = {

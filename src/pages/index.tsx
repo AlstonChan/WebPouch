@@ -8,6 +8,7 @@ import { SxProps } from "@mui/system";
 
 import NavBar from "@/components/navbar/NavBar";
 import HomeHero from "@/components/home/hero/Hero";
+import HomeAbout from "@/components/home/About";
 
 export default function Home() {
   const thurBackgroundStyle: SxProps<Theme> = {
@@ -15,7 +16,7 @@ export default function Home() {
     top: 0,
     right: 0,
     mt: { md: 0, xs: 0 },
-    width: { md: "42%", xs: "100%" },
+    width: { lg: "47%", md: "45%", xs: "100%" },
     height: {
       lg: "100vh",
       md: `calc(700px + calc(68.5px + 8px) )`,
@@ -48,6 +49,7 @@ export default function Home() {
 
       {/* Right side */}
       <HomeHero />
+      <HomeAbout />
     </>
   );
 }
