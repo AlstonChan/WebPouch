@@ -4,9 +4,11 @@ import Thur from "@/../public/home/thur.png";
 import Image from "next/image";
 
 import { Box } from "@mui/material";
+import { SxProps } from "@mui/system";
+import { Theme } from "@mui/material/styles";
 
 export default function HeroImage() {
-  const ImageContainerStyle = {
+  const imageContainerStyle: SxProps<Theme> = {
     flex: { md: "1 1 50%", xs: 0 },
     display: "flex",
     alignItems: "center",
@@ -14,7 +16,7 @@ export default function HeroImage() {
     position: "relative",
   };
 
-  const thurBackgroundStyle = {
+  const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
     top: 0,
 
@@ -28,7 +30,7 @@ export default function HeroImage() {
   };
 
   return (
-    <Box sx={ImageContainerStyle}>
+    <Box sx={imageContainerStyle}>
       <Box sx={thurBackgroundStyle} />
       {/* Product Structure image  */}
       <Image

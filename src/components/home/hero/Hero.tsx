@@ -1,12 +1,13 @@
 import { Box, Typography, Container, Button } from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, Theme } from "@mui/material/styles";
+import { SxProps } from "@mui/system";
 
 import HeroImage from "./HeroImage";
 
 export default function HomeHero() {
   const theme = useTheme();
 
-  const containerStyle = {
+  const containerStyle: SxProps<Theme> = {
     display: "flex",
     alignItems: "center",
     minHeight: {
@@ -18,7 +19,7 @@ export default function HomeHero() {
     mb: { md: 0, sm: 4 },
   };
 
-  const flexLeftStyle = {
+  const flexLeftStyle: SxProps<Theme> = {
     flex: { md: "1 2 50%", xs: 0 },
     pr: { lg: 6, md: 2, xs: 0 },
     display: "flex",
@@ -29,7 +30,7 @@ export default function HomeHero() {
     textAlign: { md: "left", xs: "center" },
   };
 
-  const titleStyle = {
+  const titleStyle: SxProps<Theme> = {
     fontSize: {
       lg: theme.typography.h2.fontSize,
       sm: theme.typography.h3.fontSize,
@@ -39,7 +40,7 @@ export default function HomeHero() {
     mx: { lg: "0", xs: "auto" },
   };
 
-  const subtitleStyle = {
+  const subtitleStyle: SxProps<Theme> = {
     color: theme.palette.grey["A400"],
     mt: 1,
     fontSize: {

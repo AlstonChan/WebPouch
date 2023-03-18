@@ -3,12 +3,14 @@ import Thur from "@/../public/home/thur.png";
 import Head from "next/head";
 
 import { Box } from "@mui/material";
+import { Theme } from "@mui/material/styles";
+import { SxProps } from "@mui/system";
 
 import NavBar from "@/components/navbar/NavBar";
 import HomeHero from "@/components/home/hero/Hero";
 
 export default function Home() {
-  const thurBackgroundStyle = {
+  const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
     top: 0,
     right: 0,
