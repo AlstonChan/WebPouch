@@ -6,6 +6,8 @@ import { Box, Container, Typography } from "@mui/material";
 import { useTheme, Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
 
+import SectionTitle from "../common/SectionTitle";
+
 export default function HomeAbout() {
   const theme = useTheme();
 
@@ -21,15 +23,6 @@ export default function HomeAbout() {
 
   const flexLeftStyle: SxProps<Theme> = {
     flex: "1 1 60%",
-  };
-  const titleStyle: SxProps<Theme> = {
-    mb: 2,
-    fontSize: {
-      lg: theme.typography.h3.fontSize,
-      md: theme.typography.h4.fontSize,
-      sm: theme.typography.h3.fontSize,
-      xs: theme.typography.h4.fontSize,
-    },
   };
   const bodyStyle: SxProps<Theme> = {
     textIndent: "35px",
@@ -50,10 +43,8 @@ export default function HomeAbout() {
   return (
     <Container sx={containerStyles} maxWidth="xl">
       <Box sx={flexLeftStyle}>
-        <Typography component="h2" variant="h3" sx={titleStyle}>
-          What is Entripel
-        </Typography>
-        <Typography component="p" variant="h6" sx={bodyStyle}>
+        <SectionTitle text="What is Entripel" />
+        <Typography paragraph variant="h6" sx={bodyStyle}>
           Entripel is a comprehensive platform that offers web developers a
           collection of web development tools and services, such as PaaS, BaaS,
           Identity-as-a-service, and more. We provide developers to discover a
@@ -61,7 +52,7 @@ export default function HomeAbout() {
           easily compare and contrast different options easily.
         </Typography>
         <br />
-        <Typography component="p" variant="h6" sx={bodyStyle}>
+        <Typography paragraph variant="h6" sx={bodyStyle}>
           Our focus on free-tier services makes it an ideal tool for developers
           on a budget. The platform's user-friendly interface enables developers
           to view and compare different services based on various criteria such

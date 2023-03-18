@@ -60,7 +60,7 @@ export default function HomeHero() {
         </Typography>
 
         {/* Subtitle  */}
-        <Typography variant="h5" component="p" sx={subtitleStyle}>
+        <Typography variant="h5" paragraph sx={subtitleStyle}>
           Accelerate Your Web Dev Workflow with a curated list of useful tools.
           Discover a plethora of site and products to enhance your developer
           experience.
