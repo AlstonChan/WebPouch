@@ -1,3 +1,4 @@
+import styles from "./dropdown.module.scss";
 import logo from "@/../public/logo.png";
 
 import Image from "next/image";
@@ -11,55 +12,79 @@ import {
   Typography,
   Menu,
   Container,
-  Avatar,
   Button,
-  Tooltip,
   MenuItem,
 } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
-import AdbIcon from "@mui/icons-material/Adb";
+import { useTheme } from "@mui/material/styles";
 
-const pages = ["Products", "Pricing", "Blog"];
-const settings = ["Profile", "Account", "Dashboard", "Logout"];
+const pages = ["Home", "Tools", "Flow"];
 
 export default function NavBar() {
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = useState<null | HTMLElement>(null);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
   };
 
   const handleCloseNavMenu = () => {
     setAnchorElNav(null);
   };
 
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
-
   return (
-    <AppBar position="static">
+    <AppBar //header tag
+      position="static"
+      color="transparent"
+      sx={{ boxShadow: "none", mb: 1 }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <Image src={logo} alt="Entripel" width="140" />
+          {/* Page logo on left side  */}
+          <Box sx={{ display: "flex", mr: 1, verticalAlign: "middle" }}>
+            <Image src={logo} alt="Entripel" width="140" />
+          </Box>
 
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+          <Box
+            sx={{
+              flexGrow: 1,
+              justifyContent: "right",
+              display: { xs: "flex", sm: "none" },
+            }}
+          >
             <IconButton
-              size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
+              aria-label="Menu of navigation item"
+              id="navigation-bar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              className={styles.hamburger}
+              sx={{
+                backgroundColor: theme.palette.secondary.main,
+                "&:hover": { backgroundColor: theme.palette.secondary.dark },
+              }}
             >
-              <MenuIcon />
+              <svg
+                className={`${styles.ham} ${styles.hamRotate} ${
+                  styles.hamAnimate
+                } ${anchorElNav ? styles.activeMenu : ""}`}
+                viewBox="0 0 100 100"
+                width="40"
+              >
+                <path
+                  className={`${styles.line} ${styles.top}`}
+                  d="m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40"
+                />
+                <path
+                  className={`${styles.line} ${styles.middle}`}
+                  d="m 30,50 h 40"
+                />
+                <path
+                  className={`${styles.line} ${styles.bottom}`}
+                  d="m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40"
+                />
+              </svg>
             </IconButton>
             <Menu
-              id="menu-appbar"
+              id="navigation-bar"
               anchorEl={anchorElNav}
               anchorOrigin={{
                 vertical: "bottom",
@@ -73,7 +98,7 @@ export default function NavBar() {
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                display: { xs: "block", md: "none" },
+                display: { xs: "block", sm: "none" },
               }}
             >
               {pages.map((page) => (
@@ -83,65 +108,33 @@ export default function NavBar() {
               ))}
             </Menu>
           </Box>
-          <AdbIcon sx={{ display: { xs: "flex", md: "none" }, mr: 1 }} />
-          <Typography
-            variant="h5"
-            noWrap
-            component="a"
-            href=""
+
+          <Box
             sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
               flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
+              justifyContent: "right",
+              display: { xs: "none", sm: "flex" },
             }}
           >
-            LOGO
-          </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              id="menu-appbar"
-              anchorEl={anchorElUser}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                my: 2,
+                px: 1,
+                borderRadius: 2,
+                backgroundColor: theme.palette.secondary.main,
               }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={handleCloseNavMenu}
+                  sx={{ color: "white", display: "block" }}
+                >
+                  {page}
+                </Button>
               ))}
-            </Menu>
+            </Box>
           </Box>
         </Toolbar>
       </Container>

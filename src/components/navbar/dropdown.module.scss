@@ -1,0 +1,52 @@
+.hamburger {
+  cursor: pointer;
+  appearance: none;
+  border: none;
+  background-color: var(--purple-color);
+  padding: 10px 11px;
+  border-radius: 8px;
+
+  margin-left: auto;
+  transition: transform 150ms ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+
+  .ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    user-select: none;
+    cursor: pointer;
+    margin: -10px -10px -12px -10px;
+    color: #fff;
+  }
+  .hamRotate.activeMenu {
+    transform: rotate(45deg);
+  }
+  .hamRotate180.activeMenu {
+    transform: rotate(180deg);
+  }
+  .line {
+    fill: none;
+    transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+    stroke: #fff;
+    stroke-width: 5.5;
+    stroke-linecap: round;
+  }
+  .hamAnimate {
+    & .top {
+      stroke-dasharray: 40 139;
+    }
+    & .bottom {
+      stroke-dasharray: 40 180;
+    }
+    &.activeMenu .top {
+      stroke-dashoffset: -98px;
+    }
+    &.activeMenu .bottom {
+      stroke-dashoffset: -138px;
+    }
+  }
+}

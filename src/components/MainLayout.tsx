@@ -1,20 +1,13 @@
 import Head from "next/head";
-import { McLaren } from "next/font/google";
 
 import { ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
-import { ThemeProvider } from "@emotion/react";
 import generalTheme from "@/lib/MuiTheme";
+import { ThemeProvider } from "@emotion/react";
 
 interface Props {
   children: ReactNode;
 }
-
-const McLarenFont = McLaren({
-  weight: "400",
-  subsets: ["latin"],
-  variable: "--McLaren",
-});
 
 export default function MainLayout({ children }: Props) {
   return (
@@ -24,7 +17,7 @@ export default function MainLayout({ children }: Props) {
       </Head>
       <ThemeProvider theme={generalTheme}>
         <CssBaseline />
-        <main className={McLarenFont.className}>{children}</main>
+        {children}
       </ThemeProvider>
     </>
   );
