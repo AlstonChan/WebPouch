@@ -54,10 +54,11 @@ export default function HomeAbout() {
         <br />
         <Typography paragraph variant="h6" sx={bodyStyle}>
           Our focus on free-tier services makes it an ideal tool for developers
-          on a budget. The platform's user-friendly interface enables developers
-          to view and compare different services based on various criteria such
-          as pricing, features, and support, helping them in making informed
-          decisions based on their specific project requirements.
+          on a budget. The platform&apos;s user-friendly interface enables
+          developers to view and compare different services based on various
+          criteria such as pricing, features, and support, helping them in
+          making informed decisions based on their specific project
+          requirements.
         </Typography>
       </Box>
       <Box sx={flexRightStyle}>

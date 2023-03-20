@@ -1,9 +1,10 @@
 import styles from "./dropdown.module.scss";
 import logo from "@/../public/logo.png";
 
+import { useRouter } from "next/router";
 import Image from "next/image";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   AppBar,
   Box,
@@ -17,18 +18,54 @@ import {
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-const pages = ["Home", "Tools", "Flow"];
+type Navigation = "home" | "tools" | "flow";
+
+const pages: Navigation[] = ["home", "tools", "flow"];
 
 export default function NavBar() {
   const theme = useTheme();
+  const router = useRouter();
+
   const [anchorElNav, setAnchorElNav] = useState<null | HTMLElement>(null);
+  const [currentPage, setCurrentPage] = useState<null | Navigation>(null);
+
+  useEffect(() => {
+    router.prefetch("/");
+    router.prefetch("/tools");
+    router.prefetch("/flow");
+
+    if (router.route === "/") {
+      setCurrentPage("home");
+    } else {
+      const route: any = router.route.slice(1);
+      setCurrentPage(route);
+    }
+  }, [router]);
 
   const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page?: Navigation) => {
     setAnchorElNav(null);
+
+    if (window) {
+      const currentPath = window.location.pathname;
+      switch (page) {
+        case "home":
+          if (currentPath === "/") return;
+          router.push("/");
+          break;
+        case "tools":
+          if (currentPath === "/tools") return;
+          router.push("/tools");
+          break;
+        case "flow":
+          if (currentPath === "/flow") return;
+          router.push("/flow");
+          break;
+      }
+    }
   };
 
   return (
@@ -57,10 +94,11 @@ export default function NavBar() {
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
               className={styles.hamburger}
-              sx={{
-                backgroundColor: theme.palette.secondary.main,
-                "&:hover": { backgroundColor: theme.palette.secondary.dark },
-              }}
+              color="info"
+              // sx={{
+              //   backgroundColor: theme.palette.secondary.main,
+              //   "&:hover": { backgroundColor: theme.palette.secondary.dark },
+              // }}
             >
               <svg
                 className={`${styles.ham} ${styles.hamRotate} ${
@@ -96,14 +134,24 @@ export default function NavBar() {
                 horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => handleCloseNavMenu()}
               sx={{
                 display: { xs: "block", sm: "none" },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem
+                  component="a"
+                  key={page}
+                  onClick={() => handleCloseNavMenu(page)}
+                  // sx={{
+                  //   backgroundColor: page === currentPage ? "#15616D" : "",
+                  // }}
+                  selected={page === currentPage ? true : false}
+                >
+                  <Typography textAlign="center">
+                    {page.charAt(0).toUpperCase() + page.slice(1)}
+                  </Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -128,8 +176,8 @@ export default function NavBar() {
               {pages.map((page) => (
                 <Button
                   key={page}
-                  onClick={handleCloseNavMenu}
-                  sx={{ color: "white", display: "block" }}
+                  onClick={() => handleCloseNavMenu(page)}
+                  color="inherit"
                 >
                   {page}
                 </Button>

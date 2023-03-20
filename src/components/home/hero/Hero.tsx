@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { Box, Typography, Container, Button } from "@mui/material";
 import { useTheme, Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
@@ -6,6 +8,7 @@ import HeroImage from "./HeroImage";
 
 export default function HomeHero() {
   const theme = useTheme();
+  const router = useRouter();
 
   const containerStyle: SxProps<Theme> = {
     display: "flex",
@@ -73,6 +76,7 @@ export default function HomeHero() {
           size="large"
           variant="contained"
           sx={{ mt: 2, mr: { md: "auto", xs: 0 } }}
+          onClick={() => router.push("/tools")}
         >
           Browse tools
         </Button>

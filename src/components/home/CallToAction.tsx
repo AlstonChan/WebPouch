@@ -6,6 +6,7 @@ import pattern5 from "@/../public/home/patterns/asset5.png";
 import leaf from "@/../public/home/patterns/leaf.svg";
 
 import Image, { StaticImageData } from "next/image";
+import { useRouter } from "next/router";
 
 import {
   Container,
@@ -20,6 +21,7 @@ import { CSSProperties } from "react";
 
 export default function HomeCallToAction() {
   const theme = useTheme();
+  const router = useRouter();
   const matches = useMediaQuery("(max-width:580px)");
 
   const floatingPatterns: { link: StaticImageData; css: CSSProperties }[] = [
@@ -114,6 +116,7 @@ export default function HomeCallToAction() {
         color="info"
         size="large"
         sx={{ width: "fit-content", mx: "auto", zIndex: 4000 }}
+        onClick={() => router.push("/tools")}
       >
         Get started
       </Button>

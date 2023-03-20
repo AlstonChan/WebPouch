@@ -40,7 +40,7 @@ export default function Home() {
         <meta name="title" content="Devtools" key="title" />
         <meta
           name="description"
-          content="A collection of web development tools"
+          content="Entripel is a platform for web developers to easily access and compare different cloud services such as PaaS, IaaS, and DaaS. Its focus on free-tier services makes it an ideal tool for developers on a budget."
         />
       </Head>
       {/* Left side */}
