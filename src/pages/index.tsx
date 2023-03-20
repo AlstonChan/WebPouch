@@ -6,11 +6,12 @@ import { Box } from "@mui/material";
 import { Theme } from "@mui/material/styles";
 import { SxProps } from "@mui/system";
 
-import NavBar from "@/components/navbar/NavBar";
+import NavBar from "@/components/common/navbar/NavBar";
 import HomeHero from "@/components/home/hero/Hero";
 import HomeAbout from "@/components/home/About";
 import HomeFeatures from "@/components/home/features/Features";
 import HomeCallToAction from "@/components/home/CallToAction";
+import Footer from "@/components/common/footer/Footer";
 
 export default function Home() {
   const thurBackgroundStyle: SxProps<Theme> = {
@@ -54,6 +55,8 @@ export default function Home() {
       <HomeAbout />
       <HomeFeatures />
       <HomeCallToAction />
+
+      <Footer />
     </>
   );
 }

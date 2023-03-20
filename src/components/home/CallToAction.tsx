@@ -49,7 +49,7 @@ export default function HomeCallToAction() {
       md: "400px",
       xs: "280px",
     },
-    my: {
+    mt: {
       lg: theme.spacing(12),
       md: theme.spacing(8),
       xs: theme.spacing(12),
