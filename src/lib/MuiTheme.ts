@@ -32,6 +32,16 @@ const generalTheme = createTheme({
   typography: {
     fontFamily: mclaren.style.fontFamily,
   },
+  components: {
+    MuiDrawer: {
+      styleOverrides: {
+        paper: {
+          backgroundColor: " #002744",
+          backgroundImage: "none",
+        },
+      },
+    },
+  },
 });
 
 export default generalTheme;
