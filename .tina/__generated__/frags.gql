@@ -1,0 +1,71 @@
+fragment AuthenticationParts on Authentication {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment DeploymentParts on Deployment {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment DatabasesParts on Databases {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment BaasParts on Baas {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment CloudProvidersParts on CloudProviders {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment FrameworksParts on Frameworks {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment SecurityParts on Security {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
+
+fragment StorageParts on Storage {
+  title
+  description
+  siteLink
+  pricingPage
+  features
+  thumbnail
+}
