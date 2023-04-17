@@ -1,4 +1,4 @@
-import Thur from "@/../public/home/thur.png";
+import Thur from "@/public/home/thur.png";
 
 import Head from "next/head";
 

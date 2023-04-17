@@ -1,5 +1,5 @@
-import ProductStructure from "@/../public/home/product.png";
-import Thur from "@/../public/home/thur.png";
+import ProductStructure from "@/public/home/product.png";
+import Thur from "@/public/home/thur.png";
 
 import Image from "next/image";
 

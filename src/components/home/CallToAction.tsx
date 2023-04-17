@@ -1,9 +1,9 @@
-import pattern1 from "@/../public/home/patterns/asset1.png";
-import pattern2 from "@/../public/home/patterns/asset2.png";
-import pattern3 from "@/../public/home/patterns/asset3.png";
-import pattern4 from "@/../public/home/patterns/asset4.png";
-import pattern5 from "@/../public/home/patterns/asset5.png";
-import leaf from "@/../public/home/patterns/leaf.svg";
+import pattern1 from "@/public/home/patterns/asset1.png";
+import pattern2 from "@/public/home/patterns/asset2.png";
+import pattern3 from "@/public/home/patterns/asset3.png";
+import pattern4 from "@/public/home/patterns/asset4.png";
+import pattern5 from "@/public/home/patterns/asset5.png";
+import leaf from "@/public/home/patterns/leaf.svg";
 
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/router";

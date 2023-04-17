@@ -1,5 +1,5 @@
 import styles from "./dropdown.module.scss";
-import logo from "@/../public/logo.png";
+import logo from "@/public/logo.png";
 
 import { useRouter } from "next/router";
 import Image from "next/image";

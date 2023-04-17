@@ -1,4 +1,4 @@
-import illustration from "@/../public/home/about.png";
+import illustration from "@/public/home/about.png";
 
 import Image from "next/image";
 
