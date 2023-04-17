@@ -6,6 +6,7 @@ const baasSchema: Collection<false> = {
   label: "BaaS",
   path: "content/web-development/baas",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default baasSchema;

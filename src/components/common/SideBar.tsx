@@ -21,9 +21,8 @@ import {
   MiscellaneousServices,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import { useTheme, Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
-import { useState } from "react";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 
 export interface NavList {
   title: string;
@@ -121,7 +120,12 @@ export default function SideBar() {
     </div>
   );
 
-  const container = window !== undefined ? window.document.body : undefined;
+  let container = undefined;
+  useEffect(() => {
+    if (window !== undefined) {
+      container = window.document.body;
+    }
+  }, []);
 
   return (
     <Box

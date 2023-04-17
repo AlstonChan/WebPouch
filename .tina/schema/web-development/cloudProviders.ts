@@ -6,6 +6,7 @@ const cloudProvidersSchema: Collection<false> = {
   label: "Cloud Providers",
   path: "content/web-development/cloudProviders",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default cloudProvidersSchema;

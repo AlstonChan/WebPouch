@@ -6,6 +6,7 @@ const deploymentSchema: Collection<false> = {
   label: "Deployment",
   path: "content/web-development/deployment",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default deploymentSchema;

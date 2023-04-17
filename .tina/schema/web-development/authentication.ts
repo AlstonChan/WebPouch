@@ -6,6 +6,7 @@ const authenticationSchema: Collection<false> = {
   label: "Authentication",
   path: "content/web-development/authentication",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default authenticationSchema;

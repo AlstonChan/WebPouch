@@ -6,6 +6,7 @@ const databasesSchema: Collection<false> = {
   label: "Databases",
   path: "content/web-development/databases",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default databasesSchema;

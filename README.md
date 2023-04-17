@@ -14,14 +14,16 @@
     git clone https://github.com/AlstonChan/devtools.git
     ```
 
-2. Change directory into the repository by using `cd Devtools`, and install the required npm dependencies by running the following command in your terminal.
+2. Install [pnpm](https://pnpm.io/installation), we use pnp as our package manager instead of npm.
+
+3. Change directory into the repository by using `cd Devtools`, and install the required npm dependencies by running the following command in your terminal.
 
     ```bash
-    npm install
+    pnpm install
     ```
 
-3. To run the site in your machine, run the following command in your terminal, and head to [localhost:3000](http://localhost:3000). You should see the site up and running.
+4. To run the site in your machine, run the following command in your terminal, and head to [localhost:3000](http://localhost:3000). You should see the site up and running.
 
     ```bash
-    npm run dev
+    pnpm run dev
     ```

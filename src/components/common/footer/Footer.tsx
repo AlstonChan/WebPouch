@@ -1,7 +1,6 @@
 import { Box, Container, Typography, IconButton } from "@mui/material";
-import { useTheme, Theme } from "@mui/material/styles";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { GitHub, Web } from "@mui/icons-material";
-import { SxProps } from "@mui/system";
 
 export default function Footer() {
   const theme = useTheme();

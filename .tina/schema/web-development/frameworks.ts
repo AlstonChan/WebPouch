@@ -6,6 +6,7 @@ const frameworksSchema: Collection<false> = {
   label: "Frameworks",
   path: "content/web-development/frameworks",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default frameworksSchema;

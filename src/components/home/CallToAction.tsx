@@ -15,8 +15,7 @@ import {
   Typography,
   useMediaQuery,
 } from "@mui/material";
-import { useTheme, Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { CSSProperties } from "react";
 
 export default function HomeCallToAction() {

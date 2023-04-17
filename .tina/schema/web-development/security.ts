@@ -6,6 +6,7 @@ const securitySchema: Collection<false> = {
   label: "Security",
   path: "content/web-development/security",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default securitySchema;

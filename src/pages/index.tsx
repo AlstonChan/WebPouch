@@ -3,8 +3,7 @@ import Thur from "@/../public/home/thur.png";
 import Head from "next/head";
 
 import { Box } from "@mui/material";
-import { Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
+import { Theme, SxProps } from "@mui/material/styles";
 
 import NavBar from "@/components/common/navbar/NavBar";
 import HomeHero from "@/components/home/hero/Hero";

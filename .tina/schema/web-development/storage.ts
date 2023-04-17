@@ -6,6 +6,7 @@ const storageSchema: Collection<false> = {
   label: "Storage",
   path: "content/web-development/storage",
   fields: [...commonFields],
+  format: "json",
 };
 
 export default storageSchema;

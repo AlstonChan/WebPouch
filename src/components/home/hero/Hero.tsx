@@ -1,8 +1,7 @@
 import { useRouter } from "next/router";
 
 import { Box, Typography, Container, Button } from "@mui/material";
-import { useTheme, Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 import HeroImage from "./HeroImage";
 
