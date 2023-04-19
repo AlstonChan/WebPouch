@@ -13,6 +13,12 @@ const description: TinaField = {
   label: "Description",
   required: true,
 };
+const freePlanDescription: TinaField = {
+  name: "descriptionOfFreePlan",
+  type: "string",
+  label: "Free Usage Description",
+  required: true,
+};
 const siteLink: TinaField = {
   name: "siteLink",
   type: "string",
@@ -24,16 +30,6 @@ const pricingPage: TinaField = {
   type: "string",
   label: "Pricing Page Link",
 };
-const features: TinaField = {
-  name: "features",
-  type: "string",
-  label: "Features",
-  required: true,
-  list: true,
-  ui: {
-    max: 5,
-  },
-};
 const thumbnail: TinaField = {
   name: "thumbnail",
   type: "image",
@@ -44,9 +40,9 @@ const thumbnail: TinaField = {
 const commonFields = [
   title,
   description,
+  freePlanDescription,
   siteLink,
   pricingPage,
-  features,
   thumbnail,
 ];
 export default commonFields;

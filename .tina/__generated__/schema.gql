@@ -105,9 +105,9 @@ union DocumentNode = Authentication | Deployment | Databases | Baas | CloudProvi
 type Authentication implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -131,9 +131,9 @@ input ImageFilter {
 input AuthenticationFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -151,9 +151,9 @@ type AuthenticationConnection implements Connection {
 type Deployment implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -163,9 +163,9 @@ type Deployment implements Node & Document {
 input DeploymentFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -183,9 +183,9 @@ type DeploymentConnection implements Connection {
 type Databases implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -195,9 +195,9 @@ type Databases implements Node & Document {
 input DatabasesFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -215,9 +215,9 @@ type DatabasesConnection implements Connection {
 type Baas implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -227,9 +227,9 @@ type Baas implements Node & Document {
 input BaasFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -247,9 +247,9 @@ type BaasConnection implements Connection {
 type CloudProviders implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -259,9 +259,9 @@ type CloudProviders implements Node & Document {
 input CloudProvidersFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -279,9 +279,9 @@ type CloudProvidersConnection implements Connection {
 type Frameworks implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -291,9 +291,9 @@ type Frameworks implements Node & Document {
 input FrameworksFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -311,9 +311,9 @@ type FrameworksConnection implements Connection {
 type Security implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -323,9 +323,9 @@ type Security implements Node & Document {
 input SecurityFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -343,9 +343,9 @@ type SecurityConnection implements Connection {
 type Storage implements Node & Document {
   title: String!
   description: String!
+  descriptionOfFreePlan: String!
   siteLink: String!
   pricingPage: String
-  features: [String!]!
   thumbnail: String!
   id: ID!
   _sys: SystemInfo!
@@ -355,9 +355,9 @@ type Storage implements Node & Document {
 input StorageFilter {
   title: StringFilter
   description: StringFilter
+  descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
-  features: StringFilter
   thumbnail: ImageFilter
 }
 
@@ -421,72 +421,72 @@ input DocumentMutation {
 input AuthenticationMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input DeploymentMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input DatabasesMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input BaasMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input CloudProvidersMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input FrameworksMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input SecurityMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 
 input StorageMutation {
   title: String
   description: String
+  descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
-  features: [String]
   thumbnail: String
 }
 

@@ -285,9 +285,9 @@ export type Authentication = Node & Document & {
   __typename?: 'Authentication';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -311,9 +311,9 @@ export type ImageFilter = {
 export type AuthenticationFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -334,9 +334,9 @@ export type Deployment = Node & Document & {
   __typename?: 'Deployment';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -346,9 +346,9 @@ export type Deployment = Node & Document & {
 export type DeploymentFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -369,9 +369,9 @@ export type Databases = Node & Document & {
   __typename?: 'Databases';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -381,9 +381,9 @@ export type Databases = Node & Document & {
 export type DatabasesFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -404,9 +404,9 @@ export type Baas = Node & Document & {
   __typename?: 'Baas';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -416,9 +416,9 @@ export type Baas = Node & Document & {
 export type BaasFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -439,9 +439,9 @@ export type CloudProviders = Node & Document & {
   __typename?: 'CloudProviders';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -451,9 +451,9 @@ export type CloudProviders = Node & Document & {
 export type CloudProvidersFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -474,9 +474,9 @@ export type Frameworks = Node & Document & {
   __typename?: 'Frameworks';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -486,9 +486,9 @@ export type Frameworks = Node & Document & {
 export type FrameworksFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -509,9 +509,9 @@ export type Security = Node & Document & {
   __typename?: 'Security';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -521,9 +521,9 @@ export type Security = Node & Document & {
 export type SecurityFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -544,9 +544,9 @@ export type Storage = Node & Document & {
   __typename?: 'Storage';
   title: Scalars['String'];
   description: Scalars['String'];
+  descriptionOfFreePlan: Scalars['String'];
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
-  features: Array<Scalars['String']>;
   thumbnail: Scalars['String'];
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -556,9 +556,9 @@ export type Storage = Node & Document & {
 export type StorageFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
+  descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
-  features?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
 };
 
@@ -748,97 +748,97 @@ export type DocumentMutation = {
 export type AuthenticationMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type DeploymentMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type DatabasesMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type BaasMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type CloudProvidersMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type FrameworksMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type SecurityMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
 export type StorageMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
+  descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
-  features?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
-export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type DeploymentPartsFragment = { __typename?: 'Deployment', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type DeploymentPartsFragment = { __typename?: 'Deployment', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type DatabasesPartsFragment = { __typename?: 'Databases', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type DatabasesPartsFragment = { __typename?: 'Databases', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type BaasPartsFragment = { __typename?: 'Baas', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type BaasPartsFragment = { __typename?: 'Baas', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type CloudProvidersPartsFragment = { __typename?: 'CloudProviders', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type CloudProvidersPartsFragment = { __typename?: 'CloudProviders', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type FrameworksPartsFragment = { __typename?: 'Frameworks', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type FrameworksPartsFragment = { __typename?: 'Frameworks', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type SecurityPartsFragment = { __typename?: 'Security', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type SecurityPartsFragment = { __typename?: 'Security', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type StoragePartsFragment = { __typename?: 'Storage', title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string };
+export type StoragePartsFragment = { __typename?: 'Storage', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
 export type AuthenticationQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type AuthenticationConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -850,14 +850,14 @@ export type AuthenticationConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type DeploymentQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type DeploymentQuery = { __typename?: 'Query', deployment: { __typename?: 'Deployment', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type DeploymentQuery = { __typename?: 'Query', deployment: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type DeploymentConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -869,14 +869,14 @@ export type DeploymentConnectionQueryVariables = Exact<{
 }>;
 
 
-export type DeploymentConnectionQuery = { __typename?: 'Query', deploymentConnection: { __typename?: 'DeploymentConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DeploymentConnectionEdges', cursor: string, node?: { __typename?: 'Deployment', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type DeploymentConnectionQuery = { __typename?: 'Query', deploymentConnection: { __typename?: 'DeploymentConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DeploymentConnectionEdges', cursor: string, node?: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type DatabasesQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type DatabasesQuery = { __typename?: 'Query', databases: { __typename?: 'Databases', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type DatabasesQuery = { __typename?: 'Query', databases: { __typename?: 'Databases', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type DatabasesConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -888,14 +888,14 @@ export type DatabasesConnectionQueryVariables = Exact<{
 }>;
 
 
-export type DatabasesConnectionQuery = { __typename?: 'Query', databasesConnection: { __typename?: 'DatabasesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DatabasesConnectionEdges', cursor: string, node?: { __typename?: 'Databases', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type DatabasesConnectionQuery = { __typename?: 'Query', databasesConnection: { __typename?: 'DatabasesConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DatabasesConnectionEdges', cursor: string, node?: { __typename?: 'Databases', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type BaasQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type BaasQuery = { __typename?: 'Query', baas: { __typename?: 'Baas', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type BaasQuery = { __typename?: 'Query', baas: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type BaasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -907,14 +907,14 @@ export type BaasConnectionQueryVariables = Exact<{
 }>;
 
 
-export type BaasConnectionQuery = { __typename?: 'Query', baasConnection: { __typename?: 'BaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'BaasConnectionEdges', cursor: string, node?: { __typename?: 'Baas', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type BaasConnectionQuery = { __typename?: 'Query', baasConnection: { __typename?: 'BaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'BaasConnectionEdges', cursor: string, node?: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type CloudProvidersQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type CloudProvidersQuery = { __typename?: 'Query', cloudProviders: { __typename?: 'CloudProviders', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type CloudProvidersQuery = { __typename?: 'Query', cloudProviders: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type CloudProvidersConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -926,14 +926,14 @@ export type CloudProvidersConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CloudProvidersConnectionQuery = { __typename?: 'Query', cloudProvidersConnection: { __typename?: 'CloudProvidersConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CloudProvidersConnectionEdges', cursor: string, node?: { __typename?: 'CloudProviders', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type CloudProvidersConnectionQuery = { __typename?: 'Query', cloudProvidersConnection: { __typename?: 'CloudProvidersConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CloudProvidersConnectionEdges', cursor: string, node?: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type FrameworksQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type FrameworksQuery = { __typename?: 'Query', frameworks: { __typename?: 'Frameworks', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type FrameworksQuery = { __typename?: 'Query', frameworks: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type FrameworksConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -945,14 +945,14 @@ export type FrameworksConnectionQueryVariables = Exact<{
 }>;
 
 
-export type FrameworksConnectionQuery = { __typename?: 'Query', frameworksConnection: { __typename?: 'FrameworksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'FrameworksConnectionEdges', cursor: string, node?: { __typename?: 'Frameworks', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type FrameworksConnectionQuery = { __typename?: 'Query', frameworksConnection: { __typename?: 'FrameworksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'FrameworksConnectionEdges', cursor: string, node?: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type SecurityQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type SecurityQuery = { __typename?: 'Query', security: { __typename?: 'Security', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type SecurityQuery = { __typename?: 'Query', security: { __typename?: 'Security', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type SecurityConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -964,14 +964,14 @@ export type SecurityConnectionQueryVariables = Exact<{
 }>;
 
 
-export type SecurityConnectionQuery = { __typename?: 'Query', securityConnection: { __typename?: 'SecurityConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SecurityConnectionEdges', cursor: string, node?: { __typename?: 'Security', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type SecurityConnectionQuery = { __typename?: 'Query', securityConnection: { __typename?: 'SecurityConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SecurityConnectionEdges', cursor: string, node?: { __typename?: 'Security', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export type StorageQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type StorageQuery = { __typename?: 'Query', storage: { __typename?: 'Storage', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type StorageQuery = { __typename?: 'Query', storage: { __typename?: 'Storage', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
 
 export type StorageConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -983,15 +983,15 @@ export type StorageConnectionQueryVariables = Exact<{
 }>;
 
 
-export type StorageConnectionQuery = { __typename?: 'Query', storageConnection: { __typename?: 'StorageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'StorageConnectionEdges', cursor: string, node?: { __typename?: 'Storage', id: string, title: string, description: string, siteLink: string, pricingPage?: string | null, features: Array<string>, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type StorageConnectionQuery = { __typename?: 'Query', storageConnection: { __typename?: 'StorageConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'StorageConnectionEdges', cursor: string, node?: { __typename?: 'Storage', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
 
 export const AuthenticationPartsFragmentDoc = gql`
     fragment AuthenticationParts on Authentication {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -999,9 +999,9 @@ export const DeploymentPartsFragmentDoc = gql`
     fragment DeploymentParts on Deployment {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1009,9 +1009,9 @@ export const DatabasesPartsFragmentDoc = gql`
     fragment DatabasesParts on Databases {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1019,9 +1019,9 @@ export const BaasPartsFragmentDoc = gql`
     fragment BaasParts on Baas {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1029,9 +1029,9 @@ export const CloudProvidersPartsFragmentDoc = gql`
     fragment CloudProvidersParts on CloudProviders {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1039,9 +1039,9 @@ export const FrameworksPartsFragmentDoc = gql`
     fragment FrameworksParts on Frameworks {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1049,9 +1049,9 @@ export const SecurityPartsFragmentDoc = gql`
     fragment SecurityParts on Security {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
@@ -1059,9 +1059,9 @@ export const StoragePartsFragmentDoc = gql`
     fragment StorageParts on Storage {
   title
   description
+  descriptionOfFreePlan
   siteLink
   pricingPage
-  features
   thumbnail
 }
     `;
