@@ -7,11 +7,7 @@ import {
   Pattern,
   MiscellaneousServices,
 } from "@mui/icons-material";
-
-export interface NavList {
-  title: string;
-  icon: JSX.Element;
-}
+import { NavList } from "./types";
 
 export const webDevelopment: NavList[] = [
   { title: "Authentication", icon: <LockPerson /> },
@@ -24,8 +20,8 @@ export const webDevelopment: NavList[] = [
   { title: "Security", icon: <Security /> },
   { title: "BaaS", icon: <Work /> },
 ];
-export const design = [
-  { title: "illustrator", icon: <Create /> },
+export const design: NavList[] = [
+  { title: "Illustrator", icon: <Create /> },
   { title: "CSS", icon: <Css /> },
   { title: "Icons", icon: <GridView /> },
   { title: "Stock Photos", icon: <Collections /> },

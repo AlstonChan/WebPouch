@@ -67,7 +67,11 @@ export default function ToolsCard({ data }: CardProps) {
         sx={CardHeaderStyle}
       />
       <CardContent sx={{ pt: theme.spacing(0.5) }}>
-        <Typography variant="body2" color="text.secondary">
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ lineHeight: "1.6rem" }}
+        >
           {data.description}
         </Typography>
       </CardContent>

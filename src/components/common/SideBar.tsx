@@ -15,11 +15,8 @@ import { Menu as MenuIcon } from "@mui/icons-material";
 import { Theme, SxProps } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { design, webDevelopment } from "data/toolsRoute";
-
-export interface NavList {
-  title: string;
-  icon: JSX.Element;
-}
+import { toLink } from "data/toolsItemDetails";
+import { NavList } from "data/types";
 
 const drawerWidth = 230;
 
@@ -28,13 +25,6 @@ export default function SideBar() {
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  };
-
-  const toLink = (text: string): string => {
-    const lowerCaseText = text.toLowerCase();
-    const noSpacing = lowerCaseText.replace(" ", "-");
-    const result = `/tools/${noSpacing}`;
-    return result;
   };
 
   const drawerStyles: SxProps<Theme> = {
@@ -64,7 +54,7 @@ export default function SideBar() {
           </ListSubheader>
         }
       >
-        {webDevelopment.map((item) => (
+        {webDevelopment.map((item: NavList) => (
           <ListItem key={item.title} dense disablePadding>
             <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -86,7 +76,7 @@ export default function SideBar() {
           </ListSubheader>
         }
       >
-        {design.map((item) => (
+        {design.map((item: NavList) => (
           <ListItem key={item.title} dense disablePadding>
             <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
