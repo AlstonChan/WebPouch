@@ -1,4 +1,4 @@
-import logo from "@/../public/logo.png";
+import logo from "@/public/logo.png";
 
 import Image from "next/image";
 
@@ -21,9 +21,8 @@ import {
   MiscellaneousServices,
   Menu as MenuIcon,
 } from "@mui/icons-material";
-import { useTheme, Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
-import { useState } from "react";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import { useEffect, useState } from "react";
 
 export interface NavList {
   title: string;
@@ -62,6 +61,13 @@ export default function SideBar() {
     setMobileOpen(!mobileOpen);
   };
 
+  const toLink = (text: string): string => {
+    const lowerCaseText = text.toLowerCase();
+    const noSpacing = lowerCaseText.replace(" ", "-");
+    const result = `/tools/${noSpacing}`;
+    return result;
+  };
+
   const drawerStyles: SxProps<Theme> = {
     "& .MuiDrawer-paper": {
       boxSizing: "border-box",
@@ -69,8 +75,10 @@ export default function SideBar() {
     },
   };
 
+  const listSubHeaderStyle: SxProps<Theme> = { backgroundColor: "transparent" };
+
   const drawer = (
-    <div>
+    <>
       <Toolbar>
         <Image src={logo} alt="Entripel" width="140" />
       </Toolbar>
@@ -81,7 +89,7 @@ export default function SideBar() {
           <ListSubheader
             component="div"
             id="Web Development"
-            sx={{ backgroundColor: " #002744" }}
+            sx={listSubHeaderStyle}
           >
             Web Development
           </ListSubheader>
@@ -89,7 +97,7 @@ export default function SideBar() {
       >
         {webDevelopment.map((item) => (
           <ListItem key={item.title} dense disablePadding>
-            <ListItemButton>
+            <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>
@@ -103,7 +111,7 @@ export default function SideBar() {
           <ListSubheader
             component="div"
             id="UI/UX Design"
-            sx={{ backgroundColor: " #002744" }}
+            sx={listSubHeaderStyle}
           >
             UI/UX Design
           </ListSubheader>
@@ -111,17 +119,22 @@ export default function SideBar() {
       >
         {design.map((item) => (
           <ListItem key={item.title} dense disablePadding>
-            <ListItemButton>
+            <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-    </div>
+    </>
   );
 
-  const container = window !== undefined ? window.document.body : undefined;
+  let container = undefined;
+  useEffect(() => {
+    if (window !== undefined) {
+      container = window.document.body;
+    }
+  }, []);
 
   return (
     <Box

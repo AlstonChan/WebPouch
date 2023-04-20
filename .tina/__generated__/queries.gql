@@ -1,0 +1,423 @@
+query authentication($relativePath: String!) {
+  authentication(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...AuthenticationParts
+  }
+}
+
+query authenticationConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AuthenticationFilter) {
+  authenticationConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...AuthenticationParts
+      }
+    }
+  }
+}
+
+query deployment($relativePath: String!) {
+  deployment(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...DeploymentParts
+  }
+}
+
+query deploymentConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: DeploymentFilter) {
+  deploymentConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...DeploymentParts
+      }
+    }
+  }
+}
+
+query databases($relativePath: String!) {
+  databases(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...DatabasesParts
+  }
+}
+
+query databasesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: DatabasesFilter) {
+  databasesConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...DatabasesParts
+      }
+    }
+  }
+}
+
+query baas($relativePath: String!) {
+  baas(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...BaasParts
+  }
+}
+
+query baasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: BaasFilter) {
+  baasConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...BaasParts
+      }
+    }
+  }
+}
+
+query cloudProviders($relativePath: String!) {
+  cloudProviders(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...CloudProvidersParts
+  }
+}
+
+query cloudProvidersConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CloudProvidersFilter) {
+  cloudProvidersConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...CloudProvidersParts
+      }
+    }
+  }
+}
+
+query frameworks($relativePath: String!) {
+  frameworks(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FrameworksParts
+  }
+}
+
+query frameworksConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FrameworksFilter) {
+  frameworksConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FrameworksParts
+      }
+    }
+  }
+}
+
+query security($relativePath: String!) {
+  security(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...SecurityParts
+  }
+}
+
+query securityConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SecurityFilter) {
+  securityConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...SecurityParts
+      }
+    }
+  }
+}
+
+query storage($relativePath: String!) {
+  storage(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...StorageParts
+  }
+}
+
+query storageConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: StorageFilter) {
+  storageConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...StorageParts
+      }
+    }
+  }
+}

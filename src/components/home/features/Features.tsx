@@ -1,6 +1,5 @@
 import { Box, Container } from "@mui/material";
-import { useTheme, Theme } from "@mui/material/styles";
-import { SxProps } from "@mui/system";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { MoneyOff, GitHub, Difference } from "@mui/icons-material";
 
 import SectionTitle from "../../common/SectionTitle";

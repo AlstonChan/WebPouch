@@ -1,11 +1,10 @@
-import ProductStructure from "@/../public/home/product.png";
-import Thur from "@/../public/home/thur.png";
+import ProductStructure from "@/public/home/product.png";
+import Thur from "@/public/home/thur.png";
 
 import Image from "next/image";
 
 import { Box } from "@mui/material";
-import { SxProps } from "@mui/system";
-import { Theme } from "@mui/material/styles";
+import { Theme, SxProps } from "@mui/material/styles";
 
 export default function HeroImage() {
   const imageContainerStyle: SxProps<Theme> = {
