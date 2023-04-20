@@ -7,6 +7,15 @@ const mclaren = McLaren({
   subsets: ["latin"],
 });
 
+declare module "@mui/material/styles" {
+  interface Palette {
+    brightLink: Palette["primary"];
+  }
+  interface PaletteOptions {
+    brightLink: PaletteOptions["primary"];
+  }
+}
+
 const generalTheme = createTheme({
   breakpoints: {
     values: {
@@ -21,9 +30,14 @@ const generalTheme = createTheme({
     mode: "dark",
     primary: {
       main: "#002744",
+      contrastText: "#fff",
     },
     secondary: {
       main: "#15616D",
+      contrastText: "#fff",
+    },
+    brightLink: {
+      main: "#00d1ff",
     },
     background: {
       default: "#002744",

@@ -61,6 +61,13 @@ export default function SideBar() {
     setMobileOpen(!mobileOpen);
   };
 
+  const toLink = (text: string): string => {
+    const lowerCaseText = text.toLowerCase();
+    const noSpacing = lowerCaseText.replace(" ", "-");
+    const result = `/tools/${noSpacing}`;
+    return result;
+  };
+
   const drawerStyles: SxProps<Theme> = {
     "& .MuiDrawer-paper": {
       boxSizing: "border-box",
@@ -68,8 +75,10 @@ export default function SideBar() {
     },
   };
 
+  const listSubHeaderStyle: SxProps<Theme> = { backgroundColor: "transparent" };
+
   const drawer = (
-    <div>
+    <>
       <Toolbar>
         <Image src={logo} alt="Entripel" width="140" />
       </Toolbar>
@@ -80,7 +89,7 @@ export default function SideBar() {
           <ListSubheader
             component="div"
             id="Web Development"
-            sx={{ backgroundColor: " #002744" }}
+            sx={listSubHeaderStyle}
           >
             Web Development
           </ListSubheader>
@@ -88,7 +97,7 @@ export default function SideBar() {
       >
         {webDevelopment.map((item) => (
           <ListItem key={item.title} dense disablePadding>
-            <ListItemButton>
+            <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>
@@ -102,7 +111,7 @@ export default function SideBar() {
           <ListSubheader
             component="div"
             id="UI/UX Design"
-            sx={{ backgroundColor: " #002744" }}
+            sx={listSubHeaderStyle}
           >
             UI/UX Design
           </ListSubheader>
@@ -110,14 +119,14 @@ export default function SideBar() {
       >
         {design.map((item) => (
           <ListItem key={item.title} dense disablePadding>
-            <ListItemButton>
+            <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.title} />
             </ListItemButton>
           </ListItem>
         ))}
       </List>
-    </div>
+    </>
   );
 
   let container = undefined;

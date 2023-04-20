@@ -1,8 +1,8 @@
 import Head from "next/head";
 
-import { Box, Container } from "@mui/material";
-
-import SideBar from "@/components/common/SideBar";
+import { Container } from "@mui/material";
+import ToolsLayout from "@/components/ToolsLayout";
+import { ReactElement } from "react";
 
 export default function Tools() {
   return (
@@ -16,10 +16,11 @@ export default function Tools() {
         />
       </Head>
 
-      <Box sx={{ display: "flex" }}>
-        <SideBar />
-        <Container>tools</Container>
-      </Box>
+      <Container>tools</Container>
     </>
   );
 }
+
+Tools.getLayout = (page: ReactElement) => {
+  return <ToolsLayout>{page}</ToolsLayout>;
+};
