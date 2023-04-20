@@ -11,50 +11,19 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { LockPerson, Rocket, Code, Cloud, Storage } from "@mui/icons-material";
-import { Analytics, Image as ImageIcon, Security } from "@mui/icons-material";
-import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
-import {
-  FontDownload,
-  Palette,
-  Pattern,
-  MiscellaneousServices,
-  Menu as MenuIcon,
-} from "@mui/icons-material";
-import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { Theme, SxProps } from "@mui/material/styles";
 import { useEffect, useState } from "react";
+import { design, webDevelopment } from "data/toolsRoute";
 
 export interface NavList {
   title: string;
   icon: JSX.Element;
 }
 
-const webDevelopment: NavList[] = [
-  { title: "Authentication", icon: <LockPerson /> },
-  { title: "Deployment", icon: <Rocket /> },
-  { title: "Frameworks", icon: <Code /> },
-  { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Databases", icon: <Storage /> },
-  { title: "Analytics", icon: <Analytics /> },
-  { title: "Images", icon: <ImageIcon /> },
-  { title: "Security", icon: <Security /> },
-  { title: "BaaS", icon: <Work /> },
-];
-const design = [
-  { title: "illustrator", icon: <Create /> },
-  { title: "CSS", icon: <Css /> },
-  { title: "Icons", icon: <GridView /> },
-  { title: "Stock Photos", icon: <Collections /> },
-  { title: "Fonts", icon: <FontDownload /> },
-  { title: "Colors", icon: <Palette /> },
-  { title: "Pattern", icon: <Pattern /> },
-  { title: "Miscellaneous", icon: <MiscellaneousServices /> },
-];
-
 const drawerWidth = 230;
 
 export default function SideBar() {
-  const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const handleDrawerToggle = () => {
