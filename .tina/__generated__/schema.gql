@@ -148,6 +148,23 @@ type AuthenticationConnection implements Connection {
   edges: [AuthenticationConnectionEdges]
 }
 
+type DeploymentComparisonInfo {
+  siteLimit: String
+  freeBandwidth: String
+  additionalBandwidthCost: String
+  freeBuildMinutes: String
+  concurrentBuilds: String
+  deploymentPreview: Boolean
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  edgeFunctionExecution: String
+  globalCdn: Boolean
+  customHeaders: Boolean
+  https: Boolean
+  ddosProtection: Boolean
+}
+
 type Deployment implements Node & Document {
   title: String!
   description: String!
@@ -155,9 +172,32 @@ type Deployment implements Node & Document {
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  comparisonInfo: DeploymentComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input DeploymentComparisonInfoFilter {
+  siteLimit: StringFilter
+  freeBandwidth: StringFilter
+  additionalBandwidthCost: StringFilter
+  freeBuildMinutes: StringFilter
+  concurrentBuilds: StringFilter
+  deploymentPreview: BooleanFilter
+  serverlessFunctionExecution: StringFilter
+  serverlessFunctionInvocations: StringFilter
+  serverlessFunctionExecutionTimeout: StringFilter
+  edgeFunctionExecution: StringFilter
+  globalCdn: BooleanFilter
+  customHeaders: BooleanFilter
+  https: BooleanFilter
+  ddosProtection: BooleanFilter
 }
 
 input DeploymentFilter {
@@ -167,6 +207,7 @@ input DeploymentFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  comparisonInfo: DeploymentComparisonInfoFilter
 }
 
 type DeploymentConnectionEdges {
@@ -427,6 +468,23 @@ input AuthenticationMutation {
   thumbnail: String
 }
 
+input DeploymentComparisonInfoMutation {
+  siteLimit: String
+  freeBandwidth: String
+  additionalBandwidthCost: String
+  freeBuildMinutes: String
+  concurrentBuilds: String
+  deploymentPreview: Boolean
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  edgeFunctionExecution: String
+  globalCdn: Boolean
+  customHeaders: Boolean
+  https: Boolean
+  ddosProtection: Boolean
+}
+
 input DeploymentMutation {
   title: String
   description: String
@@ -434,6 +492,7 @@ input DeploymentMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  comparisonInfo: DeploymentComparisonInfoMutation
 }
 
 input DatabasesMutation {

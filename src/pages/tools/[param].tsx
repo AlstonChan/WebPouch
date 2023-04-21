@@ -4,8 +4,9 @@ import { ReactElement } from "react";
 import { client } from "@/tina/__generated__/client";
 import tools, { toLink } from "data/toolsItemDetails";
 // MaterialUI Import
-import { Box, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import Grid2 from "@mui/material/Unstable_Grid2";
 
 // type import
 import type { NextPageWithLayout } from "../_app";
@@ -18,6 +19,7 @@ import type {
 // component and layout import
 import ToolsCard from "@/components/tools/ToolsCards";
 import ToolsLayout from "@/components/ToolsLayout";
+import ToolsTable from "@/components/tools/table/ToolsTable";
 
 const ToolsParam: NextPageWithLayout = ({
   data,
@@ -27,9 +29,6 @@ const ToolsParam: NextPageWithLayout = ({
   const theme = useTheme();
 
   const BoxStyle: SxProps<Theme> = {
-    display: "flex",
-    gap: "30px",
-    flexWrap: "wrap",
     my: theme.spacing(3),
   };
 
@@ -55,13 +54,25 @@ const ToolsParam: NextPageWithLayout = ({
       >
         {pageData.subTitle}
       </Typography>
-      <Box sx={BoxStyle}>
+      <Grid2 container spacing={2.5} sx={BoxStyle}>
         {data
-          ? data.map((deploy: any) => {
-              return <ToolsCard data={deploy} key={deploy.title} />;
+          ? data.map((single: any) => {
+              return (
+                <Grid2
+                  xl-lg={3}
+                  lg-md={4}
+                  md={6}
+                  sm={12}
+                  xs={12}
+                  key={single.title}
+                >
+                  <ToolsCard data={single} />
+                </Grid2>
+              );
             })
           : null}
-      </Box>
+      </Grid2>
+      <ToolsTable data={data} />
     </>
   );
 };

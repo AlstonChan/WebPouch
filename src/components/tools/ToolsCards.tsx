@@ -6,6 +6,7 @@ import {
   CardContent,
   Typography,
   Link,
+  Box,
 } from "@mui/material/";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
@@ -18,7 +19,8 @@ export default function ToolsCard({ data }: CardProps) {
 
   const CardStyle: SxProps<Theme> = {
     maxWidth: 345,
-    minWidth: 300,
+    height: "100%",
+    mx: "auto",
     backgroundColor: theme.palette.secondary.dark,
     borderRadius: theme.spacing(1.5),
   };
@@ -31,7 +33,7 @@ export default function ToolsCard({ data }: CardProps) {
   };
 
   const subHeaderLink = (
-    <>
+    <Box sx={{ mt: theme.spacing(0.3) }}>
       <Link
         color={theme.palette.brightLink.main}
         href={data.siteLink}
@@ -49,7 +51,7 @@ export default function ToolsCard({ data }: CardProps) {
       >
         Pricing Page
       </Link>
-    </>
+    </Box>
   );
 
   return (
@@ -68,7 +70,7 @@ export default function ToolsCard({ data }: CardProps) {
       />
       <CardContent sx={{ pt: theme.spacing(0.5) }}>
         <Typography
-          variant="body2"
+          variant="body1"
           color="text.secondary"
           sx={{ lineHeight: "1.6rem" }}
         >

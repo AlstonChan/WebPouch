@@ -330,6 +330,24 @@ export type AuthenticationConnection = Connection & {
   edges?: Maybe<Array<Maybe<AuthenticationConnectionEdges>>>;
 };
 
+export type DeploymentComparisonInfo = {
+  __typename?: 'DeploymentComparisonInfo';
+  siteLimit?: Maybe<Scalars['String']>;
+  freeBandwidth?: Maybe<Scalars['String']>;
+  additionalBandwidthCost?: Maybe<Scalars['String']>;
+  freeBuildMinutes?: Maybe<Scalars['String']>;
+  concurrentBuilds?: Maybe<Scalars['String']>;
+  deploymentPreview?: Maybe<Scalars['Boolean']>;
+  serverlessFunctionExecution?: Maybe<Scalars['String']>;
+  serverlessFunctionInvocations?: Maybe<Scalars['String']>;
+  serverlessFunctionExecutionTimeout?: Maybe<Scalars['String']>;
+  edgeFunctionExecution?: Maybe<Scalars['String']>;
+  globalCdn?: Maybe<Scalars['Boolean']>;
+  customHeaders?: Maybe<Scalars['Boolean']>;
+  https?: Maybe<Scalars['Boolean']>;
+  ddosProtection?: Maybe<Scalars['Boolean']>;
+};
+
 export type Deployment = Node & Document & {
   __typename?: 'Deployment';
   title: Scalars['String'];
@@ -338,9 +356,32 @@ export type Deployment = Node & Document & {
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
   thumbnail: Scalars['String'];
+  comparisonInfo?: Maybe<DeploymentComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
+};
+
+export type BooleanFilter = {
+  eq?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type DeploymentComparisonInfoFilter = {
+  siteLimit?: InputMaybe<StringFilter>;
+  freeBandwidth?: InputMaybe<StringFilter>;
+  additionalBandwidthCost?: InputMaybe<StringFilter>;
+  freeBuildMinutes?: InputMaybe<StringFilter>;
+  concurrentBuilds?: InputMaybe<StringFilter>;
+  deploymentPreview?: InputMaybe<BooleanFilter>;
+  serverlessFunctionExecution?: InputMaybe<StringFilter>;
+  serverlessFunctionInvocations?: InputMaybe<StringFilter>;
+  serverlessFunctionExecutionTimeout?: InputMaybe<StringFilter>;
+  edgeFunctionExecution?: InputMaybe<StringFilter>;
+  globalCdn?: InputMaybe<BooleanFilter>;
+  customHeaders?: InputMaybe<BooleanFilter>;
+  https?: InputMaybe<BooleanFilter>;
+  ddosProtection?: InputMaybe<BooleanFilter>;
 };
 
 export type DeploymentFilter = {
@@ -350,6 +391,7 @@ export type DeploymentFilter = {
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
+  comparisonInfo?: InputMaybe<DeploymentComparisonInfoFilter>;
 };
 
 export type DeploymentConnectionEdges = {
@@ -754,6 +796,23 @@ export type AuthenticationMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
+export type DeploymentComparisonInfoMutation = {
+  siteLimit?: InputMaybe<Scalars['String']>;
+  freeBandwidth?: InputMaybe<Scalars['String']>;
+  additionalBandwidthCost?: InputMaybe<Scalars['String']>;
+  freeBuildMinutes?: InputMaybe<Scalars['String']>;
+  concurrentBuilds?: InputMaybe<Scalars['String']>;
+  deploymentPreview?: InputMaybe<Scalars['Boolean']>;
+  serverlessFunctionExecution?: InputMaybe<Scalars['String']>;
+  serverlessFunctionInvocations?: InputMaybe<Scalars['String']>;
+  serverlessFunctionExecutionTimeout?: InputMaybe<Scalars['String']>;
+  edgeFunctionExecution?: InputMaybe<Scalars['String']>;
+  globalCdn?: InputMaybe<Scalars['Boolean']>;
+  customHeaders?: InputMaybe<Scalars['Boolean']>;
+  https?: InputMaybe<Scalars['Boolean']>;
+  ddosProtection?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type DeploymentMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
@@ -761,6 +820,7 @@ export type DeploymentMutation = {
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;
+  comparisonInfo?: InputMaybe<DeploymentComparisonInfoMutation>;
 };
 
 export type DatabasesMutation = {
@@ -819,7 +879,7 @@ export type StorageMutation = {
 
 export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
-export type DeploymentPartsFragment = { __typename?: 'Deployment', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
+export type DeploymentPartsFragment = { __typename?: 'Deployment', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, comparisonInfo?: { __typename: 'DeploymentComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null };
 
 export type DatabasesPartsFragment = { __typename?: 'Databases', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
 
@@ -857,7 +917,7 @@ export type DeploymentQueryVariables = Exact<{
 }>;
 
 
-export type DeploymentQuery = { __typename?: 'Query', deployment: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type DeploymentQuery = { __typename?: 'Query', deployment: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, comparisonInfo?: { __typename: 'DeploymentComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } };
 
 export type DeploymentConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -869,7 +929,7 @@ export type DeploymentConnectionQueryVariables = Exact<{
 }>;
 
 
-export type DeploymentConnectionQuery = { __typename?: 'Query', deploymentConnection: { __typename?: 'DeploymentConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DeploymentConnectionEdges', cursor: string, node?: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type DeploymentConnectionQuery = { __typename?: 'Query', deploymentConnection: { __typename?: 'DeploymentConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'DeploymentConnectionEdges', cursor: string, node?: { __typename?: 'Deployment', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, comparisonInfo?: { __typename: 'DeploymentComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } | null } | null> | null } };
 
 export type DatabasesQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1003,6 +1063,23 @@ export const DeploymentPartsFragmentDoc = gql`
   siteLink
   pricingPage
   thumbnail
+  comparisonInfo {
+    __typename
+    siteLimit
+    freeBandwidth
+    additionalBandwidthCost
+    freeBuildMinutes
+    concurrentBuilds
+    deploymentPreview
+    serverlessFunctionExecution
+    serverlessFunctionInvocations
+    serverlessFunctionExecutionTimeout
+    edgeFunctionExecution
+    globalCdn
+    customHeaders
+    https
+    ddosProtection
+  }
 }
     `;
 export const DatabasesPartsFragmentDoc = gql`

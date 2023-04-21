@@ -14,6 +14,23 @@ fragment DeploymentParts on Deployment {
   siteLink
   pricingPage
   thumbnail
+  comparisonInfo {
+    __typename
+    siteLimit
+    freeBandwidth
+    additionalBandwidthCost
+    freeBuildMinutes
+    concurrentBuilds
+    deploymentPreview
+    serverlessFunctionExecution
+    serverlessFunctionInvocations
+    serverlessFunctionExecutionTimeout
+    edgeFunctionExecution
+    globalCdn
+    customHeaders
+    https
+    ddosProtection
+  }
 }
 
 fragment DatabasesParts on Databases {

@@ -4,5 +4,21 @@
   "descriptionOfFreePlan": "Free static site hosting and web service hosting with 100GB free bandwidth per month",
   "siteLink": "https://render.com/",
   "pricingPage": "https://render.com/pricing",
-  "thumbnail": "/webdev/deployment/render.png"
+  "thumbnail": "/webdev/deployment/render.png",
+  "comparisonInfo": {
+    "siteLimit": "Didn't Specified",
+    "freeBandwidth": "100 GB",
+    "additionalBandwidthCost": "$0.10/GB",
+    "freeBuildMinutes": "500/month",
+    "concurrentBuilds": 1,
+    "deploymentPreview": true,
+    "serverlessFunctionExecution": "none",
+    "serverlessFunctionInvocations": "none",
+    "serverlessFunctionExecutionTimeout": "none",
+    "edgeFunctionExecution": "none",
+    "globalCdn": true,
+    "customHeaders": true,
+    "https": true,
+    "ddosProtection": true
+  }
 }
