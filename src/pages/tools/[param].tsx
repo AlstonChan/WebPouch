@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 import { client } from "@/tina/__generated__/client";
 import tools, { toLink } from "data/toolsItemDetails";
 // MaterialUI Import
-import { Typography } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import Grid2 from "@mui/material/Unstable_Grid2";
 
@@ -20,6 +20,7 @@ import type {
 import ToolsCard from "@/components/tools/ToolsCards";
 import ToolsLayout from "@/components/ToolsLayout";
 import ToolsTable from "@/components/tools/table/ToolsTable";
+import ToolsMobileStepper from "@/components/tools/ToolsMobileStepper";
 
 const ToolsParam: NextPageWithLayout = ({
   data,
@@ -28,8 +29,21 @@ const ToolsParam: NextPageWithLayout = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const theme = useTheme();
 
+  // styling
   const BoxStyle: SxProps<Theme> = {
     my: theme.spacing(3),
+  };
+  const BodyTextStyle: SxProps<Theme> = {
+    mt: theme.spacing(1.5),
+    lineHeight: "1.7rem",
+    maxWidth: 1200,
+  };
+  const TableTextStyle: SxProps<Theme> = {
+    mt: {
+      lg: theme.spacing(6),
+      md: theme.spacing(3),
+      xs: theme.spacing(1),
+    },
   };
 
   // tsx return statement
@@ -48,11 +62,7 @@ const ToolsParam: NextPageWithLayout = ({
       <Typography component="h1" variant="h3">
         {pageData.title}
       </Typography>
-      <Typography
-        variant="body1"
-        maxWidth={1200}
-        sx={{ mt: theme.spacing(1.5), lineHeight: "1.7rem" }}
-      >
+      <Typography variant="body1" sx={BodyTextStyle}>
         {pageData.subTitle}
       </Typography>
       <Grid2 container spacing={2.5} sx={BoxStyle}>
@@ -73,7 +83,21 @@ const ToolsParam: NextPageWithLayout = ({
             })
           : null}
       </Grid2>
+      <Box sx={TableTextStyle}>
+        <Typography component="h2" variant="h4">
+          Feature Comparison Table
+        </Typography>
+        <Typography paragraph variant="body1" sx={BodyTextStyle}>
+          Here we listed some common feature for you compare and evaluate each
+          tools side-by-side. You can then quickly identify the pros and cons of
+          different options and make informed decisions based on your project
+          needs. Do note that not all feature are listed here, some service and
+          tool might have some additional function or add-ons that may just be
+          what you want, so you&apos;d have to do your own research as well
+        </Typography>
+      </Box>
       <ToolsTable data={data} />
+      <ToolsMobileStepper query={query} />
     </>
   );
 };

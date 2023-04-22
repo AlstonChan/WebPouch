@@ -47,7 +47,7 @@ export default function ToolsTable({ data }: ToolsTableProps) {
 
   // tsx return statement
   return (
-    <TableContainer component={Paper} sx={{ overflowX: "auto" }}>
+    <TableContainer component={Paper} sx={{ overflowX: "auto", boxShadow: 0 }}>
       <Table aria-label="Comparison Table for site deployment platform">
         <TableHead>
           <TableRow>

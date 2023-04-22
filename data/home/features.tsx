@@ -1,6 +1,6 @@
 import { MoneyOff, GitHub, Difference } from "@mui/icons-material";
 
-interface Features {
+export interface Features {
   icon: JSX.Element;
   title: string;
   description: string;

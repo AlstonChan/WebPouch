@@ -3,7 +3,7 @@ import logo from "@/public/logo.png";
 import Image from "next/image";
 import Link from "next/link";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { design, webDevelopment } from "data/toolsRoute";
 import { toLink } from "data/toolsItemDetails";
 // MaterialUI Import
@@ -20,6 +20,7 @@ const drawerWidth = 230;
 
 export default function SideBar() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const containerRef = useRef<null | HTMLElement>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
@@ -93,10 +94,9 @@ export default function SideBar() {
     </>
   );
 
-  let container = undefined;
   useEffect(() => {
     if (window !== undefined) {
-      container = window.document.body;
+      containerRef.current = window.document.body;
     }
   }, []);
 
@@ -117,7 +117,7 @@ export default function SideBar() {
       </IconButton>
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Drawer
-        container={container}
+        container={containerRef.current}
         variant="temporary"
         open={mobileOpen}
         onClose={handleDrawerToggle}
