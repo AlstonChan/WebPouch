@@ -5,6 +5,19 @@ fragment AuthenticationParts on Authentication {
   siteLink
   pricingPage
   thumbnail
+  comparisonInfo {
+    __typename
+    monthlyActiveUsers
+    emailAndPasswordAuth
+    magicLinks
+    socialLogins
+    phoneNumberAuth
+    anonymousAuthentication
+    multiFactorAuthentication
+    userInterfaceProvided
+    customDomain
+    noBrandWatermark
+  }
 }
 
 fragment DeploymentParts on Deployment {

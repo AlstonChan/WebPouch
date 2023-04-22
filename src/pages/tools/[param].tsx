@@ -35,7 +35,7 @@ const ToolsParam: NextPageWithLayout = ({
   return (
     <>
       <Head>
-        <title>{pageData.title} - Devtools</title>
+        <title>{`${pageData.title} - Devtools`}</title>
         <meta
           name="title"
           content={`${pageData.title} - Devtools`}

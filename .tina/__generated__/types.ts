@@ -281,6 +281,20 @@ export type CollectionDocumentsArgs = {
 
 export type DocumentNode = Authentication | Deployment | Databases | Baas | CloudProviders | Frameworks | Security | Storage;
 
+export type AuthenticationComparisonInfo = {
+  __typename?: 'AuthenticationComparisonInfo';
+  monthlyActiveUsers?: Maybe<Scalars['String']>;
+  emailAndPasswordAuth?: Maybe<Scalars['Boolean']>;
+  magicLinks?: Maybe<Scalars['Boolean']>;
+  socialLogins?: Maybe<Scalars['String']>;
+  phoneNumberAuth?: Maybe<Scalars['String']>;
+  anonymousAuthentication?: Maybe<Scalars['Boolean']>;
+  multiFactorAuthentication?: Maybe<Scalars['Boolean']>;
+  userInterfaceProvided?: Maybe<Scalars['Boolean']>;
+  customDomain?: Maybe<Scalars['Boolean']>;
+  noBrandWatermark?: Maybe<Scalars['Boolean']>;
+};
+
 export type Authentication = Node & Document & {
   __typename?: 'Authentication';
   title: Scalars['String'];
@@ -289,6 +303,7 @@ export type Authentication = Node & Document & {
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
   thumbnail: Scalars['String'];
+  comparisonInfo?: Maybe<AuthenticationComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
@@ -308,6 +323,24 @@ export type ImageFilter = {
   in?: InputMaybe<Array<InputMaybe<Scalars['String']>>>;
 };
 
+export type BooleanFilter = {
+  eq?: InputMaybe<Scalars['Boolean']>;
+  exists?: InputMaybe<Scalars['Boolean']>;
+};
+
+export type AuthenticationComparisonInfoFilter = {
+  monthlyActiveUsers?: InputMaybe<StringFilter>;
+  emailAndPasswordAuth?: InputMaybe<BooleanFilter>;
+  magicLinks?: InputMaybe<BooleanFilter>;
+  socialLogins?: InputMaybe<StringFilter>;
+  phoneNumberAuth?: InputMaybe<StringFilter>;
+  anonymousAuthentication?: InputMaybe<BooleanFilter>;
+  multiFactorAuthentication?: InputMaybe<BooleanFilter>;
+  userInterfaceProvided?: InputMaybe<BooleanFilter>;
+  customDomain?: InputMaybe<BooleanFilter>;
+  noBrandWatermark?: InputMaybe<BooleanFilter>;
+};
+
 export type AuthenticationFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
@@ -315,6 +348,7 @@ export type AuthenticationFilter = {
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
+  comparisonInfo?: InputMaybe<AuthenticationComparisonInfoFilter>;
 };
 
 export type AuthenticationConnectionEdges = {
@@ -360,11 +394,6 @@ export type Deployment = Node & Document & {
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
-};
-
-export type BooleanFilter = {
-  eq?: InputMaybe<Scalars['Boolean']>;
-  exists?: InputMaybe<Scalars['Boolean']>;
 };
 
 export type DeploymentComparisonInfoFilter = {
@@ -787,6 +816,19 @@ export type DocumentMutation = {
   storage?: InputMaybe<StorageMutation>;
 };
 
+export type AuthenticationComparisonInfoMutation = {
+  monthlyActiveUsers?: InputMaybe<Scalars['String']>;
+  emailAndPasswordAuth?: InputMaybe<Scalars['Boolean']>;
+  magicLinks?: InputMaybe<Scalars['Boolean']>;
+  socialLogins?: InputMaybe<Scalars['String']>;
+  phoneNumberAuth?: InputMaybe<Scalars['String']>;
+  anonymousAuthentication?: InputMaybe<Scalars['Boolean']>;
+  multiFactorAuthentication?: InputMaybe<Scalars['Boolean']>;
+  userInterfaceProvided?: InputMaybe<Scalars['Boolean']>;
+  customDomain?: InputMaybe<Scalars['Boolean']>;
+  noBrandWatermark?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type AuthenticationMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
@@ -794,6 +836,7 @@ export type AuthenticationMutation = {
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;
+  comparisonInfo?: InputMaybe<AuthenticationComparisonInfoMutation>;
 };
 
 export type DeploymentComparisonInfoMutation = {
@@ -877,7 +920,7 @@ export type StorageMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
 };
 
-export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string };
+export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null };
 
 export type DeploymentPartsFragment = { __typename?: 'Deployment', title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, comparisonInfo?: { __typename: 'DeploymentComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null };
 
@@ -898,7 +941,7 @@ export type AuthenticationQueryVariables = Exact<{
 }>;
 
 
-export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } };
+export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null } };
 
 export type AuthenticationConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -910,7 +953,7 @@ export type AuthenticationConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string } } | null } | null> | null } };
+export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan: string, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null } | null } | null> | null } };
 
 export type DeploymentQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1053,6 +1096,19 @@ export const AuthenticationPartsFragmentDoc = gql`
   siteLink
   pricingPage
   thumbnail
+  comparisonInfo {
+    __typename
+    monthlyActiveUsers
+    emailAndPasswordAuth
+    magicLinks
+    socialLogins
+    phoneNumberAuth
+    anonymousAuthentication
+    multiFactorAuthentication
+    userInterfaceProvided
+    customDomain
+    noBrandWatermark
+  }
 }
     `;
 export const DeploymentPartsFragmentDoc = gql`

@@ -7,8 +7,15 @@ const deployment: ToolsDetail = {
   metaDescription:
     "Compare popular options like Netlify, Vercel, and Cloudflare Pages here to find the best fit for your web application.",
 };
+const authentication: ToolsDetail = {
+  title: "Authentication",
+  subTitle:
+    "Creating your own Authentication and Authorization system isn't an easy task, using trustworthy Identity-as-a-service (IDaaS) can streamline your development process and ensure your application security. You don't have to keep up with security vulnerabilities every day and can sleep peacefully knowing it will get handled and patch.",
+  metaDescription:
+    "Compare and contrast various options available and choose the one that best meets your specific authentication needs",
+};
 
-const tools: { [key: string]: ToolsDetail } = { deployment };
+const tools: { [key: string]: ToolsDetail } = { deployment, authentication };
 export default tools;
 
 // convert ToolsTitle to ToolsTitleSlug

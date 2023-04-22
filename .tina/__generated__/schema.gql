@@ -102,6 +102,19 @@ type Collection {
 
 union DocumentNode = Authentication | Deployment | Databases | Baas | CloudProviders | Frameworks | Security | Storage
 
+type AuthenticationComparisonInfo {
+  monthlyActiveUsers: String
+  emailAndPasswordAuth: Boolean
+  magicLinks: Boolean
+  socialLogins: String
+  phoneNumberAuth: String
+  anonymousAuthentication: Boolean
+  multiFactorAuthentication: Boolean
+  userInterfaceProvided: Boolean
+  customDomain: Boolean
+  noBrandWatermark: Boolean
+}
+
 type Authentication implements Node & Document {
   title: String!
   description: String!
@@ -109,6 +122,7 @@ type Authentication implements Node & Document {
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  comparisonInfo: AuthenticationComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -128,6 +142,24 @@ input ImageFilter {
   in: [String]
 }
 
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input AuthenticationComparisonInfoFilter {
+  monthlyActiveUsers: StringFilter
+  emailAndPasswordAuth: BooleanFilter
+  magicLinks: BooleanFilter
+  socialLogins: StringFilter
+  phoneNumberAuth: StringFilter
+  anonymousAuthentication: BooleanFilter
+  multiFactorAuthentication: BooleanFilter
+  userInterfaceProvided: BooleanFilter
+  customDomain: BooleanFilter
+  noBrandWatermark: BooleanFilter
+}
+
 input AuthenticationFilter {
   title: StringFilter
   description: StringFilter
@@ -135,6 +167,7 @@ input AuthenticationFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  comparisonInfo: AuthenticationComparisonInfoFilter
 }
 
 type AuthenticationConnectionEdges {
@@ -176,11 +209,6 @@ type Deployment implements Node & Document {
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
-}
-
-input BooleanFilter {
-  eq: Boolean
-  exists: Boolean
 }
 
 input DeploymentComparisonInfoFilter {
@@ -459,6 +487,19 @@ input DocumentMutation {
   storage: StorageMutation
 }
 
+input AuthenticationComparisonInfoMutation {
+  monthlyActiveUsers: String
+  emailAndPasswordAuth: Boolean
+  magicLinks: Boolean
+  socialLogins: String
+  phoneNumberAuth: String
+  anonymousAuthentication: Boolean
+  multiFactorAuthentication: Boolean
+  userInterfaceProvided: Boolean
+  customDomain: Boolean
+  noBrandWatermark: Boolean
+}
+
 input AuthenticationMutation {
   title: String
   description: String
@@ -466,6 +507,7 @@ input AuthenticationMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  comparisonInfo: AuthenticationComparisonInfoMutation
 }
 
 input DeploymentComparisonInfoMutation {
