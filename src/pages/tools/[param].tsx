@@ -32,6 +32,7 @@ const ToolsParam: NextPageWithLayout = ({
     my: theme.spacing(3),
   };
 
+  // tsx return statement
   return (
     <>
       <Head>

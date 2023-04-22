@@ -10,6 +10,7 @@ import SectionTitle from "../common/SectionTitle";
 export default function HomeAbout() {
   const theme = useTheme();
 
+  // styling
   const containerStyles: SxProps<Theme> = {
     display: "flex",
     flexDirection: { md: "row", xs: "column" },
@@ -19,7 +20,6 @@ export default function HomeAbout() {
       xs: theme.spacing(12),
     },
   };
-
   const flexLeftStyle: SxProps<Theme> = {
     flex: "1 1 60%",
   };
@@ -39,6 +39,7 @@ export default function HomeAbout() {
     ml: theme.spacing(2),
   };
 
+  // tsx return statement
   return (
     <Container sx={containerStyles} maxWidth="xl">
       <Box sx={flexLeftStyle}>

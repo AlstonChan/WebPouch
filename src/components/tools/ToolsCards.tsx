@@ -1,13 +1,7 @@
 import { Deployment } from ".tina/__generated__/types";
-import {
-  Card,
-  CardHeader,
-  CardMedia,
-  CardContent,
-  Typography,
-  Link,
-  Box,
-} from "@mui/material/";
+// MaterialUI Import
+import { Card, CardHeader, CardMedia, CardContent } from "@mui/material/";
+import { Typography, Link, Box } from "@mui/material/";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 interface CardProps {
@@ -17,6 +11,7 @@ interface CardProps {
 export default function ToolsCard({ data }: CardProps) {
   const theme = useTheme();
 
+  // styling
   const CardStyle: SxProps<Theme> = {
     maxWidth: 345,
     height: "100%",
@@ -32,6 +27,7 @@ export default function ToolsCard({ data }: CardProps) {
     textAlign: "center",
   };
 
+  // component
   const subHeaderLink = (
     <Box sx={{ mt: theme.spacing(0.3) }}>
       <Link
@@ -54,6 +50,7 @@ export default function ToolsCard({ data }: CardProps) {
     </Box>
   );
 
+  // tsx return statement
   return (
     <Card sx={CardStyle}>
       <CardMedia

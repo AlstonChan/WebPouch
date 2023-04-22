@@ -1,12 +1,9 @@
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 import { useEffect, useState } from "react";
-
+// MaterialUI Import
+import { Table, TableBody, TableContainer } from "@mui/material";
+import { TableHead, TableRow, Paper } from "@mui/material";
 import { Done, Close } from "@mui/icons-material";
+
 import { StickyTableCell, StyledTableCell, StyledTableRow } from "./style";
 
 interface ToolsTableProps {
@@ -48,6 +45,7 @@ export default function ToolsTable({ data }: ToolsTableProps) {
     });
   }, [data]);
 
+  // tsx return statement
   return (
     <TableContainer component={Paper} sx={{ overflowX: "auto" }}>
       <Table aria-label="Comparison Table for site deployment platform">

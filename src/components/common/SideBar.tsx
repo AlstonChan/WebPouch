@@ -1,22 +1,20 @@
 import logo from "@/public/logo.png";
 
 import Image from "next/image";
+import Link from "next/link";
 
-import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
-import {
-  List,
-  ListSubheader,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
-import { Theme, SxProps } from "@mui/material/styles";
 import { useEffect, useState } from "react";
 import { design, webDevelopment } from "data/toolsRoute";
 import { toLink } from "data/toolsItemDetails";
-import { NavList } from "data/types";
+// MaterialUI Import
+import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
+import { List, ListSubheader, ListItem } from "@mui/material";
+import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { Theme, SxProps } from "@mui/material/styles";
+
+// type import
+import type { NavList } from "data/types";
 
 const drawerWidth = 230;
 
@@ -39,7 +37,14 @@ export default function SideBar() {
   const drawer = (
     <>
       <Toolbar>
-        <Image src={logo} alt="Entripel" width="140" />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="Entripel"
+            width="140"
+            style={{ verticalAlign: "middle" }}
+          />
+        </Link>
       </Toolbar>
       <Divider />
       <List
