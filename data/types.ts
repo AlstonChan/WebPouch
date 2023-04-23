@@ -11,7 +11,7 @@ type ToSlug<S extends string> = Lowercase<Replace<S, " ", "-">>;
 
 export type WebDev =
   | "Authentication"
-  | "Deployment"
+  | "Web Hosting"
   | "Frameworks"
   | "Cloud Providers"
   | "Databases"

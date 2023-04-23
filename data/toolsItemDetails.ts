@@ -21,3 +21,7 @@ export const toLink = (text: ToolsTitle, basePath: boolean = true): string => {
   }
   return result;
 };
+
+export const kebabToCamelCase = (str: string): string => {
+  return str.replace(/-([a-z])/g, (match, letter) => letter.toUpperCase());
+};

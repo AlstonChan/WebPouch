@@ -2,9 +2,9 @@ import { Collection } from "tinacms";
 import commonFields from "../commonFields";
 
 const deploymentSchema: Collection<false> = {
-  name: "deployment",
-  label: "Deployment",
-  path: "content/web-development/deployment",
+  name: "webHosting",
+  label: "Web Hosting",
+  path: "content/web-development/webHosting",
   format: "json",
   fields: [
     ...commonFields,

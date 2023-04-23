@@ -30,7 +30,7 @@ fragment AuthenticationParts on Authentication {
   }
 }
 
-fragment DeploymentParts on Deployment {
+fragment WebHostingParts on WebHosting {
   title
   description
   descriptionOfFreePlan
@@ -161,7 +161,26 @@ fragment SecurityParts on Security {
   }
 }
 
-fragment StorageParts on Storage {
+fragment ImagesParts on Images {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+}
+
+fragment AnalyticsParts on Analytics {
   title
   description
   descriptionOfFreePlan

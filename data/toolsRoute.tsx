@@ -11,7 +11,7 @@ import { NavList } from "./types";
 
 export const webDevelopment: NavList[] = [
   { title: "Authentication", icon: <LockPerson /> },
-  { title: "Deployment", icon: <Rocket /> },
+  { title: "Web Hosting", icon: <Rocket /> },
   { title: "Frameworks", icon: <Code /> },
   { title: "Cloud Providers", icon: <Cloud /> },
   { title: "Databases", icon: <Storage /> },

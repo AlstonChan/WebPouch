@@ -2,7 +2,7 @@ import Head from "next/head";
 
 import { ReactElement } from "react";
 import { client } from "@/tina/__generated__/client";
-import tools, { toLink } from "data/toolsItemDetails";
+import tools, { toLink, kebabToCamelCase } from "data/toolsItemDetails";
 // MaterialUI Import
 import { Box, Typography } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
@@ -47,7 +47,7 @@ const ToolsParam: NextPageWithLayout = ({
   };
 
   // component
-  const showTableIfDataExists = data[0].comparisonInfo ? (
+  const showTableIfDataExists = data[0]?.comparisonInfo && (
     <>
       <Box sx={TableTextStyle}>
         <Typography component="h2" variant="h4">
@@ -65,7 +65,7 @@ const ToolsParam: NextPageWithLayout = ({
 
       <ToolsTable data={data} />
     </>
-  ) : null;
+  );
 
   // tsx return statement
   return (
@@ -147,7 +147,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     // TODO; have proper type definitions
     // I surrender getting the correct type definition here
     try {
-      const queryString: string = `${requestedDocument}Connection`;
+      const camelCase = kebabToCamelCase(requestedDocument);
+      const queryString: string = `${camelCase}Connection`;
       const tinaConnection = (client.queries as any)[`${queryString}`];
 
       const rawDocument = await tinaConnection();

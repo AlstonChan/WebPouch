@@ -1,7 +1,7 @@
 import { ToolsDetail } from "data/types";
 
-const deployment: ToolsDetail = {
-  title: "Deployment",
+const webHosting: ToolsDetail = {
+  title: "Web Hosting",
   subTitle:
     "Once you've finished building your web application on your local machine, it's time to take it live and share it with the world. This section features a list of web hosting services, each with its own unique pros and features. Compare popular options like Netlify, Vercel, and Cloudflare Pages to find the best fit for your web application.",
   metaDescription:
@@ -25,33 +25,33 @@ const cloudProviders: ToolsDetail = {
   metaDescription: "Placeholder",
 };
 const databases: ToolsDetail = {
-  title: "Cloud Providers",
+  title: "Databases",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
 const analytics: ToolsDetail = {
-  title: "Cloud Providers",
+  title: "Analytics",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
 const images: ToolsDetail = {
-  title: "Cloud Providers",
+  title: "Images",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
 const security: ToolsDetail = {
-  title: "Cloud Providers",
+  title: "Security",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
 const baas: ToolsDetail = {
-  title: "Cloud Providers",
+  title: "BaaS",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
 
 const webDev: { [key: string]: ToolsDetail } = {
-  deployment,
+  "web-hosting": webHosting,
   authentication,
   frameworks,
   "cloud-providers": cloudProviders,
