@@ -1,0 +1,24 @@
+{
+  "title": "DigitalOcean App Platform",
+  "description": "Build, deploy, and scale apps quickly using a simple, fully managed solution. DigitalOcean handle the infrastructure, app runtimes, and dependencies, so you can focus on your code.",
+  "descriptionOfFreePlan": " Build and deploy 3 static sites with Global CDN",
+  "siteLink": "https://www.digitalocean.com/products/app-platform",
+  "pricingPage": "https://www.digitalocean.com/pricing/app-platform",
+  "thumbnail": "/webdev/deployment/digital-ocean.png",
+  "comparisonInfo": {
+    "siteLimit": "3",
+    "freeBandwidth": "1 GiB per apps",
+    "additionalBandwidthCost": "$0.10 per GiB",
+    "freeBuildMinutes": "Didn't Specified",
+    "concurrentBuilds": "Didn't Specified",
+    "deploymentPreview": false,
+    "serverlessFunctionExecution": "90,000 GiB-seconds",
+    "serverlessFunctionInvocations": "Unlimited",
+    "serverlessFunctionExecutionTimeout": "Didn't Specified",
+    "edgeFunctionExecution": "None",
+    "globalCdn": true,
+    "customHeaders": true,
+    "https": true,
+    "ddosProtection": true
+  }
+}

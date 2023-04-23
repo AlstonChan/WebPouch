@@ -1,0 +1,24 @@
+{
+  "title": "Cloudflare Pages",
+  "description": "A JAMstack platform for frontend developers to collaborate and deploy websites.",
+  "descriptionOfFreePlan": "Unlimited Sites, Unlimited bandwidth with global CDN to improve performace",
+  "siteLink": "https://pages.cloudflare.com/",
+  "pricingPage": "https://pages.cloudflare.com/#pricing",
+  "thumbnail": "/webdev/deployment/cloudflare-pages.png",
+  "comparisonInfo": {
+    "siteLimit": "Unlimited",
+    "freeBandwidth": "Unlimited",
+    "additionalBandwidthCost": "0",
+    "freeBuildMinutes": "500 builds per month",
+    "concurrentBuilds": 1,
+    "deploymentPreview": true,
+    "serverlessFunctionExecution": "Didn't Specified",
+    "serverlessFunctionInvocations": "100,000 / day",
+    "serverlessFunctionExecutionTimeout": "10ms CPU time",
+    "edgeFunctionExecution": "None",
+    "globalCdn": true,
+    "customHeaders": true,
+    "https": true,
+    "ddosProtection": true
+  }
+}

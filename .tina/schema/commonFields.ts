@@ -17,7 +17,6 @@ const freePlanDescription: TinaField = {
   name: "descriptionOfFreePlan",
   type: "string",
   label: "Free Usage Description",
-  required: true,
 };
 const siteLink: TinaField = {
   name: "siteLink",
@@ -37,6 +36,40 @@ const thumbnail: TinaField = {
   required: true,
 };
 
+const addOnThumbnailTitle: TinaField = {
+  name: "title",
+  type: "string",
+  label: "Small Thumbnail alt text",
+};
+const addOnThumbnailImage: TinaField = {
+  name: "image",
+  type: "image",
+  label: "Small Thumbnail",
+};
+const addOnThumbnail: TinaField = {
+  label: "Small Thumbnail",
+  name: "addOnThumbnail",
+  type: "object",
+  fields: [addOnThumbnailTitle, addOnThumbnailImage],
+};
+
+const githubStars: TinaField = {
+  name: "githubStars",
+  type: "string",
+  label: "GitHub Stars",
+};
+const githubLink: TinaField = {
+  name: "githubLink",
+  type: "string",
+  label: "GitHub Repository Link",
+};
+const githubInfo: TinaField = {
+  name: "githubInfo",
+  label: "GitHub Info",
+  type: "object",
+  fields: [githubLink, githubStars],
+};
+
 const commonFields = [
   title,
   description,
@@ -44,5 +77,7 @@ const commonFields = [
   siteLink,
   pricingPage,
   thumbnail,
+  addOnThumbnail,
+  githubInfo,
 ];
 export default commonFields;

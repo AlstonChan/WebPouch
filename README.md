@@ -25,5 +25,5 @@
 4. To run the site in your machine, run the following command in your terminal, and head to [localhost:3000](http://localhost:3000). You should see the site up and running.
 
     ```bash
-    pnpm run dev
+    pnpm dev
     ```

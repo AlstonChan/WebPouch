@@ -1,8 +1,0 @@
-{
-  "title": "Render",
-  "description": "A unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.",
-  "descriptionOfFreePlan": "Free static site hosting and web service hosting with 100GB free bandwidth per month",
-  "siteLink": "https://render.com/",
-  "pricingPage": "https://render.com/pricing",
-  "thumbnail": "/webdev/deployment/render.png"
-}

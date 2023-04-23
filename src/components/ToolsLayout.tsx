@@ -15,7 +15,10 @@ export default function ToolsLayout({ children }: Props) {
   return (
     <Box sx={{ display: "flex" }}>
       <SideBar />
-      <Container maxWidth="xl" sx={{ mt: theme.spacing(2) }}>
+      <Container
+        maxWidth="xl"
+        sx={{ mt: theme.spacing(2), overflowX: "hidden" }}
+      >
         {children}
       </Container>
     </Box>

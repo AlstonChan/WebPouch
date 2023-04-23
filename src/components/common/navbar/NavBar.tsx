@@ -5,21 +5,12 @@ import { useRouter } from "next/router";
 import Image from "next/image";
 
 import { useEffect, useState } from "react";
-import {
-  AppBar,
-  Box,
-  Toolbar,
-  IconButton,
-  Typography,
-  Menu,
-  Container,
-  Button,
-  MenuItem,
-} from "@mui/material";
-import { useTheme } from "@mui/material/styles";
+// MaterialUI Import
+import { AppBar, Box, Toolbar, IconButton, Typography } from "@mui/material";
+import { Menu, Container, Button, MenuItem } from "@mui/material";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 type Navigation = "home" | "tools" | "flow";
-
 const pages: Navigation[] = ["home", "tools", "flow"];
 
 export default function NavBar() {
@@ -68,26 +59,59 @@ export default function NavBar() {
     }
   };
 
+  // styling
+  const appBarStyle: SxProps<Theme> = { boxShadow: "none", mb: 1 };
+  const logoContainerStyle: SxProps<Theme> = {
+    display: "flex",
+    mr: 1,
+    verticalAlign: "middle",
+  };
+  const hamburgerDropdownContainerStyle: SxProps<Theme> = {
+    flexGrow: 1,
+    justifyContent: "right",
+    display: { xs: "flex", sm: "none" },
+  };
+  const hamburgerDropdownMenuStyle: SxProps<Theme> = {
+    display: { xs: "block", sm: "none" },
+    "& .MuiMenu-paper": {
+      backgroundColor: theme.palette.secondary.main,
+    },
+  };
+  const hamburgerDropdownMenuItemStyle: SxProps<Theme> = {
+    "&.Mui-selected": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
+  };
+  const navigationPanelContainer: SxProps<Theme> = {
+    flexGrow: 1,
+    justifyContent: "right",
+    display: { xs: "none", sm: "flex" },
+  };
+  const navigationPanel: SxProps<Theme> = {
+    display: { xs: "none", sm: "flex" },
+    my: 2,
+    px: 1,
+    borderRadius: 2,
+    backgroundColor: theme.palette.secondary.main,
+  };
+  const navigationPanelButton: SxProps<Theme> = {
+    fontSize: theme.typography.body1.fontSize,
+    px: theme.spacing(2),
+  };
+
+  // tsx return statement
   return (
-    <AppBar //header tag
-      position="static"
-      color="transparent"
-      sx={{ boxShadow: "none", mb: 1 }}
-    >
+    // header tag
+    <AppBar position="static" color="transparent" sx={appBarStyle}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* Page logo on left side  */}
-          <Box sx={{ display: "flex", mr: 1, verticalAlign: "middle" }}>
+          <Box sx={logoContainerStyle}>
             <Image src={logo} alt="Entripel" width="140" />
           </Box>
 
-          <Box
-            sx={{
-              flexGrow: 1,
-              justifyContent: "right",
-              display: { xs: "flex", sm: "none" },
-            }}
-          >
+          <Box sx={hamburgerDropdownContainerStyle}>
+            {/* hamburger icon */}
             <IconButton
               aria-label="Menu of navigation item"
               id="navigation-bar"
@@ -95,10 +119,6 @@ export default function NavBar() {
               onClick={handleOpenNavMenu}
               className={styles.hamburger}
               color="info"
-              // sx={{
-              //   backgroundColor: theme.palette.secondary.main,
-              //   "&:hover": { backgroundColor: theme.palette.secondary.dark },
-              // }}
             >
               <svg
                 className={`${styles.ham} ${styles.hamRotate} ${
@@ -121,6 +141,8 @@ export default function NavBar() {
                 />
               </svg>
             </IconButton>
+
+            {/* hamburger dropdown menu */}
             <Menu
               id="navigation-bar"
               anchorEl={anchorElNav}
@@ -135,18 +157,14 @@ export default function NavBar() {
               }}
               open={Boolean(anchorElNav)}
               onClose={() => handleCloseNavMenu()}
-              sx={{
-                display: { xs: "block", sm: "none" },
-              }}
+              sx={hamburgerDropdownMenuStyle}
             >
               {pages.map((page) => (
                 <MenuItem
                   component="a"
                   key={page}
                   onClick={() => handleCloseNavMenu(page)}
-                  // sx={{
-                  //   backgroundColor: page === currentPage ? "#15616D" : "",
-                  // }}
+                  sx={hamburgerDropdownMenuItemStyle}
                   selected={page === currentPage ? true : false}
                 >
                   <Typography textAlign="center">
@@ -157,27 +175,15 @@ export default function NavBar() {
             </Menu>
           </Box>
 
-          <Box
-            sx={{
-              flexGrow: 1,
-              justifyContent: "right",
-              display: { xs: "none", sm: "flex" },
-            }}
-          >
-            <Box
-              sx={{
-                display: { xs: "none", sm: "flex" },
-                my: 2,
-                px: 1,
-                borderRadius: 2,
-                backgroundColor: theme.palette.secondary.main,
-              }}
-            >
+          {/* normal navigation panel */}
+          <Box sx={navigationPanelContainer}>
+            <Box sx={navigationPanel}>
               {pages.map((page) => (
                 <Button
                   key={page}
                   onClick={() => handleCloseNavMenu(page)}
                   color="inherit"
+                  sx={navigationPanelButton}
                 >
                   {page}
                 </Button>

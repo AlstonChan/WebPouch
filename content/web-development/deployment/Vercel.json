@@ -1,8 +1,0 @@
-{
-  "title": "Vercel",
-  "description": "A platform that provides web applications hosting, serverless function, CDN caching to improve speed.",
-  "descriptionOfFreePlan": "100GB bandwidth with 100 GB serverless function execution with unlimited invocation for website hosting",
-  "siteLink": "https://vercel.com/",
-  "pricingPage": "https://vercel.com/pricing",
-  "thumbnail": "/webdev/deployment/vercel.png"
-}

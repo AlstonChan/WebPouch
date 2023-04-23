@@ -1,0 +1,10 @@
+{
+  "title": "Vue. Js",
+  "description": "An open-source progressive JavaScript framework that is approachable, performant and versatile for building web user interfaces. It has a huge community behind to support the project and lots of official plugin to add on.",
+  "siteLink": "https://vuejs.org/",
+  "thumbnail": "/webdev/frameworks/vuejs.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/vuejs/vue",
+    "githubStars": "203k"
+  }
+}

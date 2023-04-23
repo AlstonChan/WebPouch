@@ -1,0 +1,14 @@
+{
+  "title": "Nuxt. Js",
+  "description": "Nuxt.js is an open-source web application framework based on Vue.js. It provides file system routing, several rendering modes, data fetching with zero configuration required, spend more time on building sites",
+  "siteLink": "https://nuxtjs.org/",
+  "thumbnail": "/webdev/frameworks/nuxt.png",
+  "addOnThumbnail": {
+    "title": "Vue. Js",
+    "image": "/webdev/frameworks/vuejs.png"
+  },
+  "githubInfo": {
+    "githubLink": "https://github.com/nuxt/nuxt",
+    "githubStars": "44.9k"
+  }
+}

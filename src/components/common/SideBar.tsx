@@ -1,71 +1,29 @@
 import logo from "@/public/logo.png";
 
 import Image from "next/image";
+import Link from "next/link";
 
+import { useEffect, useRef, useState } from "react";
+import { design, webDevelopment } from "data/toolsRoute";
+import { toLink } from "data/toolsItemDetails";
+// MaterialUI Import
 import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
-import {
-  List,
-  ListSubheader,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-import { LockPerson, Rocket, Code, Cloud, Storage } from "@mui/icons-material";
-import { Analytics, Image as ImageIcon, Security } from "@mui/icons-material";
-import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
-import {
-  FontDownload,
-  Palette,
-  Pattern,
-  MiscellaneousServices,
-  Menu as MenuIcon,
-} from "@mui/icons-material";
-import { useTheme, Theme, SxProps } from "@mui/material/styles";
-import { useEffect, useState } from "react";
+import { List, ListSubheader, ListItem } from "@mui/material";
+import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
+import { Menu as MenuIcon } from "@mui/icons-material";
+import { Theme, SxProps } from "@mui/material/styles";
 
-export interface NavList {
-  title: string;
-  icon: JSX.Element;
-}
-
-const webDevelopment: NavList[] = [
-  { title: "Authentication", icon: <LockPerson /> },
-  { title: "Deployment", icon: <Rocket /> },
-  { title: "Frameworks", icon: <Code /> },
-  { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Databases", icon: <Storage /> },
-  { title: "Analytics", icon: <Analytics /> },
-  { title: "Images", icon: <ImageIcon /> },
-  { title: "Security", icon: <Security /> },
-  { title: "BaaS", icon: <Work /> },
-];
-const design = [
-  { title: "illustrator", icon: <Create /> },
-  { title: "CSS", icon: <Css /> },
-  { title: "Icons", icon: <GridView /> },
-  { title: "Stock Photos", icon: <Collections /> },
-  { title: "Fonts", icon: <FontDownload /> },
-  { title: "Colors", icon: <Palette /> },
-  { title: "Pattern", icon: <Pattern /> },
-  { title: "Miscellaneous", icon: <MiscellaneousServices /> },
-];
+// type import
+import type { NavList } from "data/types";
 
 const drawerWidth = 230;
 
 export default function SideBar() {
-  const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const containerRef = useRef<null | HTMLElement>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
-  };
-
-  const toLink = (text: string): string => {
-    const lowerCaseText = text.toLowerCase();
-    const noSpacing = lowerCaseText.replace(" ", "-");
-    const result = `/tools/${noSpacing}`;
-    return result;
   };
 
   const drawerStyles: SxProps<Theme> = {
@@ -80,7 +38,14 @@ export default function SideBar() {
   const drawer = (
     <>
       <Toolbar>
-        <Image src={logo} alt="Entripel" width="140" />
+        <Link href="/">
+          <Image
+            src={logo}
+            alt="Entripel"
+            width="140"
+            style={{ verticalAlign: "middle" }}
+          />
+        </Link>
       </Toolbar>
       <Divider />
       <List
@@ -95,7 +60,7 @@ export default function SideBar() {
           </ListSubheader>
         }
       >
-        {webDevelopment.map((item) => (
+        {webDevelopment.map((item: NavList) => (
           <ListItem key={item.title} dense disablePadding>
             <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -117,7 +82,7 @@ export default function SideBar() {
           </ListSubheader>
         }
       >
-        {design.map((item) => (
+        {design.map((item: NavList) => (
           <ListItem key={item.title} dense disablePadding>
             <ListItemButton href={toLink(item.title)}>
               <ListItemIcon>{item.icon}</ListItemIcon>
@@ -129,10 +94,9 @@ export default function SideBar() {
     </>
   );
 
-  let container = undefined;
   useEffect(() => {
     if (window !== undefined) {
-      container = window.document.body;
+      containerRef.current = window.document.body;
     }
   }, []);
 
@@ -153,7 +117,7 @@ export default function SideBar() {
       </IconButton>
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Drawer
-        container={container}
+        container={containerRef.current}
         variant="temporary"
         open={mobileOpen}
         onClose={handleDrawerToggle}

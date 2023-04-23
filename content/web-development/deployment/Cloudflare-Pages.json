@@ -1,8 +1,0 @@
-{
-  "title": "Cloudflare Pages",
-  "description": "A JAMstack platform for frontend developers to collaborate and deploy websites.",
-  "descriptionOfFreePlan": "Unlimited Sites, Unlimited bandwidth with global CDN to improve performace",
-  "siteLink": "https://pages.cloudflare.com/",
-  "pricingPage": "https://pages.cloudflare.com/#pricing",
-  "thumbnail": "/webdev/deployment/cloudflare-pages.png"
-}

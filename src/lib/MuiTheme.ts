@@ -14,6 +14,11 @@ declare module "@mui/material/styles" {
   interface PaletteOptions {
     brightLink: PaletteOptions["primary"];
   }
+
+  interface BreakpointOverrides {
+    "xl-lg": true;
+    "lg-md": true;
+  }
 }
 
 const generalTheme = createTheme({
@@ -22,7 +27,9 @@ const generalTheme = createTheme({
       xs: 0,
       sm: 600,
       md: 900,
+      "lg-md": 1100,
       lg: 1200,
+      "xl-lg": 1450,
       xl: 1536,
     },
   },

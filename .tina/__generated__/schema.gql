@@ -50,8 +50,8 @@ type Query {
   document(collection: String, relativePath: String): DocumentNode!
   authentication(relativePath: String): Authentication!
   authenticationConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AuthenticationFilter): AuthenticationConnection!
-  deployment(relativePath: String): Deployment!
-  deploymentConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: DeploymentFilter): DeploymentConnection!
+  webHosting(relativePath: String): WebHosting!
+  webHostingConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WebHostingFilter): WebHostingConnection!
   databases(relativePath: String): Databases!
   databasesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: DatabasesFilter): DatabasesConnection!
   baas(relativePath: String): Baas!
@@ -62,19 +62,22 @@ type Query {
   frameworksConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: FrameworksFilter): FrameworksConnection!
   security(relativePath: String): Security!
   securityConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SecurityFilter): SecurityConnection!
-  storage(relativePath: String): Storage!
-  storageConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: StorageFilter): StorageConnection!
+  images(relativePath: String): Images!
+  imagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ImagesFilter): ImagesConnection!
+  analytics(relativePath: String): Analytics!
+  analyticsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AnalyticsFilter): AnalyticsConnection!
 }
 
 input DocumentFilter {
   authentication: AuthenticationFilter
-  deployment: DeploymentFilter
+  webHosting: WebHostingFilter
   databases: DatabasesFilter
   baas: BaasFilter
   cloudProviders: CloudProvidersFilter
   frameworks: FrameworksFilter
   security: SecurityFilter
-  storage: StorageFilter
+  images: ImagesFilter
+  analytics: AnalyticsFilter
 }
 
 type DocumentConnectionEdges {
@@ -100,15 +103,41 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
-union DocumentNode = Authentication | Deployment | Databases | Baas | CloudProviders | Frameworks | Security | Storage
+union DocumentNode = Authentication | WebHosting | Databases | Baas | CloudProviders | Frameworks | Security | Images | Analytics
+
+type AuthenticationAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type AuthenticationGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type AuthenticationComparisonInfo {
+  monthlyActiveUsers: String
+  emailAndPasswordAuth: Boolean
+  magicLinks: Boolean
+  socialLogins: String
+  phoneNumberAuth: String
+  anonymousAuthentication: Boolean
+  multiFactorAuthentication: Boolean
+  userInterfaceProvided: Boolean
+  customDomain: Boolean
+  noBrandWatermark: Boolean
+}
 
 type Authentication implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: AuthenticationAddOnThumbnail
+  githubInfo: AuthenticationGithubInfo
+  comparisonInfo: AuthenticationComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -128,6 +157,34 @@ input ImageFilter {
   in: [String]
 }
 
+input AuthenticationAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input AuthenticationGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input BooleanFilter {
+  eq: Boolean
+  exists: Boolean
+}
+
+input AuthenticationComparisonInfoFilter {
+  monthlyActiveUsers: StringFilter
+  emailAndPasswordAuth: BooleanFilter
+  magicLinks: BooleanFilter
+  socialLogins: StringFilter
+  phoneNumberAuth: StringFilter
+  anonymousAuthentication: BooleanFilter
+  multiFactorAuthentication: BooleanFilter
+  userInterfaceProvided: BooleanFilter
+  customDomain: BooleanFilter
+  noBrandWatermark: BooleanFilter
+}
+
 input AuthenticationFilter {
   title: StringFilter
   description: StringFilter
@@ -135,6 +192,9 @@ input AuthenticationFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: AuthenticationAddOnThumbnailFilter
+  githubInfo: AuthenticationGithubInfoFilter
+  comparisonInfo: AuthenticationComparisonInfoFilter
 }
 
 type AuthenticationConnectionEdges {
@@ -148,48 +208,130 @@ type AuthenticationConnection implements Connection {
   edges: [AuthenticationConnectionEdges]
 }
 
-type Deployment implements Node & Document {
+type WebHostingAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type WebHostingGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type WebHostingComparisonInfo {
+  siteLimit: String
+  freeBandwidth: String
+  additionalBandwidthCost: String
+  freeBuildMinutes: String
+  concurrentBuilds: String
+  deploymentPreview: Boolean
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  edgeFunctionExecution: String
+  globalCdn: Boolean
+  customHeaders: Boolean
+  https: Boolean
+  ddosProtection: Boolean
+}
+
+type WebHosting implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: WebHostingAddOnThumbnail
+  githubInfo: WebHostingGithubInfo
+  comparisonInfo: WebHostingComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input DeploymentFilter {
+input WebHostingAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input WebHostingGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input WebHostingComparisonInfoFilter {
+  siteLimit: StringFilter
+  freeBandwidth: StringFilter
+  additionalBandwidthCost: StringFilter
+  freeBuildMinutes: StringFilter
+  concurrentBuilds: StringFilter
+  deploymentPreview: BooleanFilter
+  serverlessFunctionExecution: StringFilter
+  serverlessFunctionInvocations: StringFilter
+  serverlessFunctionExecutionTimeout: StringFilter
+  edgeFunctionExecution: StringFilter
+  globalCdn: BooleanFilter
+  customHeaders: BooleanFilter
+  https: BooleanFilter
+  ddosProtection: BooleanFilter
+}
+
+input WebHostingFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: WebHostingAddOnThumbnailFilter
+  githubInfo: WebHostingGithubInfoFilter
+  comparisonInfo: WebHostingComparisonInfoFilter
 }
 
-type DeploymentConnectionEdges {
+type WebHostingConnectionEdges {
   cursor: String!
-  node: Deployment
+  node: WebHosting
 }
 
-type DeploymentConnection implements Connection {
+type WebHostingConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [DeploymentConnectionEdges]
+  edges: [WebHostingConnectionEdges]
+}
+
+type DatabasesAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type DatabasesGithubInfo {
+  githubLink: String
+  githubStars: String
 }
 
 type Databases implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: DatabasesAddOnThumbnail
+  githubInfo: DatabasesGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input DatabasesAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input DatabasesGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input DatabasesFilter {
@@ -199,6 +341,8 @@ input DatabasesFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: DatabasesAddOnThumbnailFilter
+  githubInfo: DatabasesGithubInfoFilter
 }
 
 type DatabasesConnectionEdges {
@@ -212,16 +356,38 @@ type DatabasesConnection implements Connection {
   edges: [DatabasesConnectionEdges]
 }
 
+type BaasAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type BaasGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Baas implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: BaasAddOnThumbnail
+  githubInfo: BaasGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input BaasAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input BaasGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input BaasFilter {
@@ -231,6 +397,8 @@ input BaasFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: BaasAddOnThumbnailFilter
+  githubInfo: BaasGithubInfoFilter
 }
 
 type BaasConnectionEdges {
@@ -244,16 +412,38 @@ type BaasConnection implements Connection {
   edges: [BaasConnectionEdges]
 }
 
+type CloudProvidersAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type CloudProvidersGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type CloudProviders implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: CloudProvidersAddOnThumbnail
+  githubInfo: CloudProvidersGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input CloudProvidersAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input CloudProvidersGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input CloudProvidersFilter {
@@ -263,6 +453,8 @@ input CloudProvidersFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: CloudProvidersAddOnThumbnailFilter
+  githubInfo: CloudProvidersGithubInfoFilter
 }
 
 type CloudProvidersConnectionEdges {
@@ -276,16 +468,38 @@ type CloudProvidersConnection implements Connection {
   edges: [CloudProvidersConnectionEdges]
 }
 
+type FrameworksAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type FrameworksGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Frameworks implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: FrameworksAddOnThumbnail
+  githubInfo: FrameworksGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input FrameworksAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input FrameworksGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input FrameworksFilter {
@@ -295,6 +509,8 @@ input FrameworksFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: FrameworksAddOnThumbnailFilter
+  githubInfo: FrameworksGithubInfoFilter
 }
 
 type FrameworksConnectionEdges {
@@ -308,16 +524,38 @@ type FrameworksConnection implements Connection {
   edges: [FrameworksConnectionEdges]
 }
 
+type SecurityAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type SecurityGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Security implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: SecurityAddOnThumbnail
+  githubInfo: SecurityGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input SecurityAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input SecurityGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input SecurityFilter {
@@ -327,6 +565,8 @@ input SecurityFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: SecurityAddOnThumbnailFilter
+  githubInfo: SecurityGithubInfoFilter
 }
 
 type SecurityConnectionEdges {
@@ -340,36 +580,116 @@ type SecurityConnection implements Connection {
   edges: [SecurityConnectionEdges]
 }
 
-type Storage implements Node & Document {
+type ImagesAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type ImagesGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type Images implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: ImagesAddOnThumbnail
+  githubInfo: ImagesGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input StorageFilter {
+input ImagesAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input ImagesGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input ImagesFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: ImagesAddOnThumbnailFilter
+  githubInfo: ImagesGithubInfoFilter
 }
 
-type StorageConnectionEdges {
+type ImagesConnectionEdges {
   cursor: String!
-  node: Storage
+  node: Images
 }
 
-type StorageConnection implements Connection {
+type ImagesConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [StorageConnectionEdges]
+  edges: [ImagesConnectionEdges]
+}
+
+type AnalyticsAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type AnalyticsGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type Analytics implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: AnalyticsAddOnThumbnail
+  githubInfo: AnalyticsGithubInfo
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input AnalyticsAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input AnalyticsGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input AnalyticsFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: AnalyticsAddOnThumbnailFilter
+  githubInfo: AnalyticsGithubInfoFilter
+}
+
+type AnalyticsConnectionEdges {
+  cursor: String!
+  node: Analytics
+}
+
+type AnalyticsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [AnalyticsConnectionEdges]
 }
 
 type Mutation {
@@ -379,8 +699,8 @@ type Mutation {
   createDocument(collection: String, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updateAuthentication(relativePath: String!, params: AuthenticationMutation!): Authentication!
   createAuthentication(relativePath: String!, params: AuthenticationMutation!): Authentication!
-  updateDeployment(relativePath: String!, params: DeploymentMutation!): Deployment!
-  createDeployment(relativePath: String!, params: DeploymentMutation!): Deployment!
+  updateWebHosting(relativePath: String!, params: WebHostingMutation!): WebHosting!
+  createWebHosting(relativePath: String!, params: WebHostingMutation!): WebHosting!
   updateDatabases(relativePath: String!, params: DatabasesMutation!): Databases!
   createDatabases(relativePath: String!, params: DatabasesMutation!): Databases!
   updateBaas(relativePath: String!, params: BaasMutation!): Baas!
@@ -391,31 +711,58 @@ type Mutation {
   createFrameworks(relativePath: String!, params: FrameworksMutation!): Frameworks!
   updateSecurity(relativePath: String!, params: SecurityMutation!): Security!
   createSecurity(relativePath: String!, params: SecurityMutation!): Security!
-  updateStorage(relativePath: String!, params: StorageMutation!): Storage!
-  createStorage(relativePath: String!, params: StorageMutation!): Storage!
+  updateImages(relativePath: String!, params: ImagesMutation!): Images!
+  createImages(relativePath: String!, params: ImagesMutation!): Images!
+  updateAnalytics(relativePath: String!, params: AnalyticsMutation!): Analytics!
+  createAnalytics(relativePath: String!, params: AnalyticsMutation!): Analytics!
 }
 
 input DocumentUpdateMutation {
   authentication: AuthenticationMutation
-  deployment: DeploymentMutation
+  webHosting: WebHostingMutation
   databases: DatabasesMutation
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
   security: SecurityMutation
-  storage: StorageMutation
+  images: ImagesMutation
+  analytics: AnalyticsMutation
   relativePath: String
 }
 
 input DocumentMutation {
   authentication: AuthenticationMutation
-  deployment: DeploymentMutation
+  webHosting: WebHostingMutation
   databases: DatabasesMutation
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
   security: SecurityMutation
-  storage: StorageMutation
+  images: ImagesMutation
+  analytics: AnalyticsMutation
+}
+
+input AuthenticationAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input AuthenticationGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input AuthenticationComparisonInfoMutation {
+  monthlyActiveUsers: String
+  emailAndPasswordAuth: Boolean
+  magicLinks: Boolean
+  socialLogins: String
+  phoneNumberAuth: String
+  anonymousAuthentication: Boolean
+  multiFactorAuthentication: Boolean
+  userInterfaceProvided: Boolean
+  customDomain: Boolean
+  noBrandWatermark: Boolean
 }
 
 input AuthenticationMutation {
@@ -425,15 +772,58 @@ input AuthenticationMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: AuthenticationAddOnThumbnailMutation
+  githubInfo: AuthenticationGithubInfoMutation
+  comparisonInfo: AuthenticationComparisonInfoMutation
 }
 
-input DeploymentMutation {
+input WebHostingAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input WebHostingGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input WebHostingComparisonInfoMutation {
+  siteLimit: String
+  freeBandwidth: String
+  additionalBandwidthCost: String
+  freeBuildMinutes: String
+  concurrentBuilds: String
+  deploymentPreview: Boolean
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  edgeFunctionExecution: String
+  globalCdn: Boolean
+  customHeaders: Boolean
+  https: Boolean
+  ddosProtection: Boolean
+}
+
+input WebHostingMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: WebHostingAddOnThumbnailMutation
+  githubInfo: WebHostingGithubInfoMutation
+  comparisonInfo: WebHostingComparisonInfoMutation
+}
+
+input DatabasesAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input DatabasesGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input DatabasesMutation {
@@ -443,6 +833,18 @@ input DatabasesMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: DatabasesAddOnThumbnailMutation
+  githubInfo: DatabasesGithubInfoMutation
+}
+
+input BaasAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input BaasGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input BaasMutation {
@@ -452,6 +854,18 @@ input BaasMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: BaasAddOnThumbnailMutation
+  githubInfo: BaasGithubInfoMutation
+}
+
+input CloudProvidersAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input CloudProvidersGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input CloudProvidersMutation {
@@ -461,6 +875,18 @@ input CloudProvidersMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: CloudProvidersAddOnThumbnailMutation
+  githubInfo: CloudProvidersGithubInfoMutation
+}
+
+input FrameworksAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input FrameworksGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input FrameworksMutation {
@@ -470,6 +896,18 @@ input FrameworksMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: FrameworksAddOnThumbnailMutation
+  githubInfo: FrameworksGithubInfoMutation
+}
+
+input SecurityAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input SecurityGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input SecurityMutation {
@@ -479,15 +917,50 @@ input SecurityMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: SecurityAddOnThumbnailMutation
+  githubInfo: SecurityGithubInfoMutation
 }
 
-input StorageMutation {
+input ImagesAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input ImagesGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input ImagesMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: ImagesAddOnThumbnailMutation
+  githubInfo: ImagesGithubInfoMutation
+}
+
+input AnalyticsAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input AnalyticsGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input AnalyticsMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: AnalyticsAddOnThumbnailMutation
+  githubInfo: AnalyticsGithubInfoMutation
 }
 
 schema {

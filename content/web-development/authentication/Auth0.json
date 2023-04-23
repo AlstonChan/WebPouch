@@ -1,0 +1,20 @@
+{
+  "title": "Auth0",
+  "description": "An easy to implement, adaptable authentication and authorization platform by Okta.",
+  "descriptionOfFreePlan": "7,000 monthly active user ",
+  "siteLink": "https://auth0.com/",
+  "pricingPage": "https://auth0.com/pricing",
+  "thumbnail": "/webdev/authentication/auth0.png",
+  "comparisonInfo": {
+    "monthlyActiveUsers": "7,000 Monthly ",
+    "emailAndPasswordAuth": true,
+    "magicLinks": false,
+    "socialLogins": "Choose 2 provider",
+    "phoneNumberAuth": "Not Provided",
+    "anonymousAuthentication": false,
+    "multiFactorAuthentication": false,
+    "userInterfaceProvided": true,
+    "customDomain": false,
+    "noBrandWatermark": true
+  }
+}

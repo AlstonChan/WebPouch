@@ -1,8 +1,0 @@
-{
-  "title": "Netlify",
-  "description": "A platform that provides web application hosting, forms, analytics, identity to improve developers productivity",
-  "descriptionOfFreePlan": "100GB Bandwidth, 1000 active user authentication and 3 million edge function invocation per month",
-  "siteLink": "https://www.netlify.com/",
-  "pricingPage": "https://www.netlify.com/pricing/",
-  "thumbnail": "/webdev/deployment/netlify.png"
-}

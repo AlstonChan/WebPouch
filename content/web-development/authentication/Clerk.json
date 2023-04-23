@@ -1,0 +1,20 @@
+{
+  "title": "Clerk",
+  "description": "Clerk is more than a “sign-in box”. Integrate complete user management UIs and APIs, purpose-built for React, Next.js, and the Modern Web.",
+  "descriptionOfFreePlan": "5,000 monthly active users with verifications email",
+  "siteLink": "https://clerk.com/",
+  "pricingPage": "https://clerk.com/pricing",
+  "thumbnail": "/webdev/authentication/clerk.png",
+  "comparisonInfo": {
+    "monthlyActiveUsers": "5,000 monthly",
+    "emailAndPasswordAuth": true,
+    "magicLinks": true,
+    "socialLogins": "Up to 3",
+    "phoneNumberAuth": "Not Provided",
+    "anonymousAuthentication": false,
+    "multiFactorAuthentication": false,
+    "userInterfaceProvided": true,
+    "customDomain": true,
+    "noBrandWatermark": false
+  }
+}

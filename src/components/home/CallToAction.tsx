@@ -8,15 +8,11 @@ import leaf from "@/public/home/patterns/leaf.svg";
 import Image, { StaticImageData } from "next/image";
 import { useRouter } from "next/router";
 
-import {
-  Container,
-  Button,
-  Box,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { CSSProperties } from "react";
+// MaterialUI Import
+import { Container, Button, Box } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 export default function HomeCallToAction() {
   const theme = useTheme();
@@ -39,6 +35,7 @@ export default function HomeCallToAction() {
     { link: pattern5, css: { bottom: 0, left: "0", width: "25%" } },
   ];
 
+  // styling
   const containerStyles: SxProps<Theme> = {
     position: "relative",
     display: "flex",
@@ -58,7 +55,6 @@ export default function HomeCallToAction() {
     backgroundColor: "#15616D",
     overflow: "visible",
   };
-
   const decoContainerStyle: SxProps<Theme> = {
     position: "absolute",
     left: 0,
@@ -104,6 +100,7 @@ export default function HomeCallToAction() {
     zIndex: 4000,
   };
 
+  // tsx return statement
   return (
     <Container maxWidth={false} sx={containerStyles}>
       <Typography component="h2" variant="h3" sx={mainTextStyle}>
@@ -112,7 +109,7 @@ export default function HomeCallToAction() {
       <Button
         variant="contained"
         disableElevation
-        color="info"
+        color="primary"
         size="large"
         sx={{ width: "fit-content", mx: "auto", zIndex: 4000 }}
         onClick={() => router.push("/tools")}

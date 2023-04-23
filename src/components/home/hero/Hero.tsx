@@ -9,6 +9,7 @@ export default function HomeHero() {
   const theme = useTheme();
   const router = useRouter();
 
+  // styling
   const containerStyle: SxProps<Theme> = {
     display: "flex",
     alignItems: "center",
@@ -20,7 +21,6 @@ export default function HomeHero() {
     flexDirection: { md: "row", xs: "column" },
     mb: { md: 0, sm: 4 },
   };
-
   const flexLeftStyle: SxProps<Theme> = {
     flex: { md: "1 2 50%", xs: 0 },
     pr: { lg: 6, md: 2, xs: 0 },
@@ -31,7 +31,6 @@ export default function HomeHero() {
     mb: { sm: 6, xs: 4 },
     textAlign: { md: "left", xs: "center" },
   };
-
   const titleStyle: SxProps<Theme> = {
     fontSize: {
       md: theme.typography.h2.fontSize,
@@ -41,7 +40,6 @@ export default function HomeHero() {
     maxWidth: { md: "none", sm: "600px", xs: "300px" },
     mx: { lg: 0, xs: "auto" },
   };
-
   const subtitleStyle: SxProps<Theme> = {
     color: theme.palette.grey["A400"],
     mt: 1,
@@ -52,6 +50,7 @@ export default function HomeHero() {
     maxWidth: { md: "none", sm: "550px", xs: "400px" },
   };
 
+  // tsx return statement
   return (
     <Container maxWidth="xl" sx={containerStyle}>
       {/* Flex 1, first half  */}

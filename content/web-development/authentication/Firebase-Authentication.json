@@ -1,0 +1,20 @@
+{
+  "title": "Firebase Authentication",
+  "description": "Firebase Authentication provides backend services, easy-to-use SDKs, and ready-made UI libraries to authenticate users to your app.",
+  "descriptionOfFreePlan": "50,000 monthly active user with 10,000 Phone auth free",
+  "siteLink": "https://firebase.google.com/docs/auth/",
+  "pricingPage": "https://firebase.google.com/pricing",
+  "thumbnail": "/webdev/authentication/firebase.png",
+  "comparisonInfo": {
+    "monthlyActiveUsers": "50,000 Monthly",
+    "emailAndPasswordAuth": true,
+    "magicLinks": false,
+    "socialLogins": "9",
+    "phoneNumberAuth": "10,000 Monthly",
+    "anonymousAuthentication": true,
+    "multiFactorAuthentication": false,
+    "userInterfaceProvided": true,
+    "customDomain": true,
+    "noBrandWatermark": true
+  }
+}

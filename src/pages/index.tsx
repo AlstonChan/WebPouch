@@ -13,6 +13,7 @@ import HomeCallToAction from "@/components/home/CallToAction";
 import Footer from "@/components/common/footer/Footer";
 
 export default function Home() {
+  // styling
   const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
     top: 0,
@@ -32,6 +33,7 @@ export default function Home() {
     borderRadius: "0 0 0 100px",
   };
 
+  // tsx return statement
   return (
     <>
       <Head>

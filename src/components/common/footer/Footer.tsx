@@ -11,6 +11,7 @@ export default function Footer() {
     flexDirection: "column",
     my: theme.spacing(2),
   };
+
   return (
     <Container component="footer" maxWidth={false} sx={containerStyles}>
       <Typography variant="h6" paragraph sx={{ mb: 0, textAlign: "center" }}>
