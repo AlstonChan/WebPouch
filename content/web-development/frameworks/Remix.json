@@ -1,0 +1,14 @@
+{
+  "title": "Remix",
+  "description": "Remix is a full stack web framework that lets you focus on the user interface and work back through web standards to deliver a fast, slick, and resilient user experience. It has built in data loading, form handling, routing that will streamline your development.",
+  "siteLink": "https://remix.run/",
+  "thumbnail": "/webdev/frameworks/remix.png",
+  "addOnThumbnail": {
+    "title": "React. Js",
+    "image": "/webdev/frameworks/reactjs.png"
+  },
+  "githubInfo": {
+    "githubLink": "https://github.com/remix-run/remix",
+    "githubStars": "23.2k"
+  }
+}

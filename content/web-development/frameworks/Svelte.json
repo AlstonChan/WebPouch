@@ -1,0 +1,10 @@
+{
+  "title": "Svelte",
+  "description": "Svelte is a radical new approach to building user interfaces. Unlike traditional frameworks that uses virtual DOM diffing, Svelte directly interact with the DOM.",
+  "siteLink": "https://svelte.dev/",
+  "thumbnail": "/webdev/frameworks/svelte.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/sveltejs/svelte",
+    "githubStars": "67.2k"
+  }
+}

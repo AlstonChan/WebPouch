@@ -1,0 +1,10 @@
+{
+  "title": "React. Js",
+  "description": "React is a open source JavaScript library for building user interfaces. React is fast by default , simplicity by design which provide flexibility, and performance to your application.",
+  "siteLink": "https://react.dev/",
+  "thumbnail": "/webdev/frameworks/reactjs.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/facebook/react",
+    "githubStars": "206k"
+  }
+}

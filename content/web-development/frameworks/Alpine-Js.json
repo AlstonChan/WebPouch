@@ -1,0 +1,10 @@
+{
+  "title": "Alpine. Js",
+  "description": "Alpine is a simple and lightweight Javascript framework that is like jQuery but for modern web. It only consists of 15 attributes, 6 properties, and 2 methods which makes it easy to learn.",
+  "siteLink": "https://alpinejs.dev/",
+  "thumbnail": "/webdev/frameworks/alpine.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/alpinejs/alpine",
+    "githubStars": "23.6k"
+  }
+}

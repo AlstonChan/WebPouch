@@ -1,0 +1,11 @@
+{
+  "title": "Angular",
+  "description": "Angular is a TypeScript-based opinionated open-source web application framework for creating efficient and sophisticated SPAs. it follows the Model-View-Controller (MVC) architecture pattern, and is opinionated on how you structure and organized your code.",
+  "descriptionOfFreePlan": "",
+  "siteLink": "https://angular.io/",
+  "thumbnail": "/webdev/frameworks/angular.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/angular/angular",
+    "githubStars": "87.6k"
+  }
+}

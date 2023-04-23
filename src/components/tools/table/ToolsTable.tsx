@@ -66,29 +66,28 @@ export default function ToolsTable({ data }: ToolsTableProps) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {tableRow
-            ? Object.keys(tableRow).map((row: any) => (
-                <StyledTableRow key={row}>
-                  <StickyTableCell component="th" scope="row">
-                    {formatCamelCase(row)}
-                  </StickyTableCell>
+          {tableRow &&
+            Object.keys(tableRow).map((row: any) => (
+              <StyledTableRow key={row}>
+                <StickyTableCell component="th" scope="row">
+                  {formatCamelCase(row)}
+                </StickyTableCell>
 
-                  {Object.keys(tableRow[row]).map((product: any) => (
-                    <StyledTableCell align="center" key={product}>
-                      {typeof tableRow[row][product] === "boolean" ? (
-                        tableRow[row][product] ? (
-                          <Done color="success" />
-                        ) : (
-                          <Close color="warning" />
-                        )
+                {Object.keys(tableRow[row]).map((product: any) => (
+                  <StyledTableCell align="center" key={product}>
+                    {typeof tableRow[row][product] === "boolean" ? (
+                      tableRow[row][product] ? (
+                        <Done color="success" />
                       ) : (
-                        tableRow[row][product]
-                      )}
-                    </StyledTableCell>
-                  ))}
-                </StyledTableRow>
-              ))
-            : null}
+                        <Close color="warning" />
+                      )
+                    ) : (
+                      tableRow[row][product]
+                    )}
+                  </StyledTableCell>
+                ))}
+              </StyledTableRow>
+            ))}
         </TableBody>
       </Table>
     </TableContainer>

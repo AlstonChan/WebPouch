@@ -5,6 +5,16 @@ fragment AuthenticationParts on Authentication {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
   comparisonInfo {
     __typename
     monthlyActiveUsers
@@ -27,6 +37,16 @@ fragment DeploymentParts on Deployment {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
   comparisonInfo {
     __typename
     siteLimit
@@ -53,6 +73,16 @@ fragment DatabasesParts on Databases {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }
 
 fragment BaasParts on Baas {
@@ -62,6 +92,16 @@ fragment BaasParts on Baas {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }
 
 fragment CloudProvidersParts on CloudProviders {
@@ -71,6 +111,16 @@ fragment CloudProvidersParts on CloudProviders {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }
 
 fragment FrameworksParts on Frameworks {
@@ -80,6 +130,16 @@ fragment FrameworksParts on Frameworks {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }
 
 fragment SecurityParts on Security {
@@ -89,6 +149,16 @@ fragment SecurityParts on Security {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }
 
 fragment StorageParts on Storage {
@@ -98,4 +168,14 @@ fragment StorageParts on Storage {
   siteLink
   pricingPage
   thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
 }

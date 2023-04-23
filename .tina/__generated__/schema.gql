@@ -102,6 +102,16 @@ type Collection {
 
 union DocumentNode = Authentication | Deployment | Databases | Baas | CloudProviders | Frameworks | Security | Storage
 
+type AuthenticationAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type AuthenticationGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type AuthenticationComparisonInfo {
   monthlyActiveUsers: String
   emailAndPasswordAuth: Boolean
@@ -118,10 +128,12 @@ type AuthenticationComparisonInfo {
 type Authentication implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: AuthenticationAddOnThumbnail
+  githubInfo: AuthenticationGithubInfo
   comparisonInfo: AuthenticationComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -140,6 +152,16 @@ input ImageFilter {
   eq: String
   exists: Boolean
   in: [String]
+}
+
+input AuthenticationAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input AuthenticationGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input BooleanFilter {
@@ -167,6 +189,8 @@ input AuthenticationFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: AuthenticationAddOnThumbnailFilter
+  githubInfo: AuthenticationGithubInfoFilter
   comparisonInfo: AuthenticationComparisonInfoFilter
 }
 
@@ -179,6 +203,16 @@ type AuthenticationConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
   edges: [AuthenticationConnectionEdges]
+}
+
+type DeploymentAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type DeploymentGithubInfo {
+  githubLink: String
+  githubStars: String
 }
 
 type DeploymentComparisonInfo {
@@ -201,14 +235,26 @@ type DeploymentComparisonInfo {
 type Deployment implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: DeploymentAddOnThumbnail
+  githubInfo: DeploymentGithubInfo
   comparisonInfo: DeploymentComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input DeploymentAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input DeploymentGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input DeploymentComparisonInfoFilter {
@@ -235,6 +281,8 @@ input DeploymentFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: DeploymentAddOnThumbnailFilter
+  githubInfo: DeploymentGithubInfoFilter
   comparisonInfo: DeploymentComparisonInfoFilter
 }
 
@@ -249,16 +297,38 @@ type DeploymentConnection implements Connection {
   edges: [DeploymentConnectionEdges]
 }
 
+type DatabasesAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type DatabasesGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Databases implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: DatabasesAddOnThumbnail
+  githubInfo: DatabasesGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input DatabasesAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input DatabasesGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input DatabasesFilter {
@@ -268,6 +338,8 @@ input DatabasesFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: DatabasesAddOnThumbnailFilter
+  githubInfo: DatabasesGithubInfoFilter
 }
 
 type DatabasesConnectionEdges {
@@ -281,16 +353,38 @@ type DatabasesConnection implements Connection {
   edges: [DatabasesConnectionEdges]
 }
 
+type BaasAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type BaasGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Baas implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: BaasAddOnThumbnail
+  githubInfo: BaasGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input BaasAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input BaasGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input BaasFilter {
@@ -300,6 +394,8 @@ input BaasFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: BaasAddOnThumbnailFilter
+  githubInfo: BaasGithubInfoFilter
 }
 
 type BaasConnectionEdges {
@@ -313,16 +409,38 @@ type BaasConnection implements Connection {
   edges: [BaasConnectionEdges]
 }
 
+type CloudProvidersAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type CloudProvidersGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type CloudProviders implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: CloudProvidersAddOnThumbnail
+  githubInfo: CloudProvidersGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input CloudProvidersAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input CloudProvidersGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input CloudProvidersFilter {
@@ -332,6 +450,8 @@ input CloudProvidersFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: CloudProvidersAddOnThumbnailFilter
+  githubInfo: CloudProvidersGithubInfoFilter
 }
 
 type CloudProvidersConnectionEdges {
@@ -345,16 +465,38 @@ type CloudProvidersConnection implements Connection {
   edges: [CloudProvidersConnectionEdges]
 }
 
+type FrameworksAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type FrameworksGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Frameworks implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: FrameworksAddOnThumbnail
+  githubInfo: FrameworksGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input FrameworksAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input FrameworksGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input FrameworksFilter {
@@ -364,6 +506,8 @@ input FrameworksFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: FrameworksAddOnThumbnailFilter
+  githubInfo: FrameworksGithubInfoFilter
 }
 
 type FrameworksConnectionEdges {
@@ -377,16 +521,38 @@ type FrameworksConnection implements Connection {
   edges: [FrameworksConnectionEdges]
 }
 
+type SecurityAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type SecurityGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Security implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: SecurityAddOnThumbnail
+  githubInfo: SecurityGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input SecurityAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input SecurityGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input SecurityFilter {
@@ -396,6 +562,8 @@ input SecurityFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: SecurityAddOnThumbnailFilter
+  githubInfo: SecurityGithubInfoFilter
 }
 
 type SecurityConnectionEdges {
@@ -409,16 +577,38 @@ type SecurityConnection implements Connection {
   edges: [SecurityConnectionEdges]
 }
 
+type StorageAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type StorageGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
 type Storage implements Node & Document {
   title: String!
   description: String!
-  descriptionOfFreePlan: String!
+  descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
+  addOnThumbnail: StorageAddOnThumbnail
+  githubInfo: StorageGithubInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
+}
+
+input StorageAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input StorageGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
 }
 
 input StorageFilter {
@@ -428,6 +618,8 @@ input StorageFilter {
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
+  addOnThumbnail: StorageAddOnThumbnailFilter
+  githubInfo: StorageGithubInfoFilter
 }
 
 type StorageConnectionEdges {
@@ -487,6 +679,16 @@ input DocumentMutation {
   storage: StorageMutation
 }
 
+input AuthenticationAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input AuthenticationGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
 input AuthenticationComparisonInfoMutation {
   monthlyActiveUsers: String
   emailAndPasswordAuth: Boolean
@@ -507,7 +709,19 @@ input AuthenticationMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: AuthenticationAddOnThumbnailMutation
+  githubInfo: AuthenticationGithubInfoMutation
   comparisonInfo: AuthenticationComparisonInfoMutation
+}
+
+input DeploymentAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input DeploymentGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input DeploymentComparisonInfoMutation {
@@ -534,7 +748,19 @@ input DeploymentMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: DeploymentAddOnThumbnailMutation
+  githubInfo: DeploymentGithubInfoMutation
   comparisonInfo: DeploymentComparisonInfoMutation
+}
+
+input DatabasesAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input DatabasesGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input DatabasesMutation {
@@ -544,6 +770,18 @@ input DatabasesMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: DatabasesAddOnThumbnailMutation
+  githubInfo: DatabasesGithubInfoMutation
+}
+
+input BaasAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input BaasGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input BaasMutation {
@@ -553,6 +791,18 @@ input BaasMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: BaasAddOnThumbnailMutation
+  githubInfo: BaasGithubInfoMutation
+}
+
+input CloudProvidersAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input CloudProvidersGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input CloudProvidersMutation {
@@ -562,6 +812,18 @@ input CloudProvidersMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: CloudProvidersAddOnThumbnailMutation
+  githubInfo: CloudProvidersGithubInfoMutation
+}
+
+input FrameworksAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input FrameworksGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input FrameworksMutation {
@@ -571,6 +833,18 @@ input FrameworksMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: FrameworksAddOnThumbnailMutation
+  githubInfo: FrameworksGithubInfoMutation
+}
+
+input SecurityAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input SecurityGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input SecurityMutation {
@@ -580,6 +854,18 @@ input SecurityMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: SecurityAddOnThumbnailMutation
+  githubInfo: SecurityGithubInfoMutation
+}
+
+input StorageAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input StorageGithubInfoMutation {
+  githubLink: String
+  githubStars: String
 }
 
 input StorageMutation {
@@ -589,6 +875,8 @@ input StorageMutation {
   siteLink: String
   pricingPage: String
   thumbnail: String
+  addOnThumbnail: StorageAddOnThumbnailMutation
+  githubInfo: StorageGithubInfoMutation
 }
 
 schema {
