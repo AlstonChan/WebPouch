@@ -3,13 +3,10 @@ import { defineConfig } from "tinacms";
 import {
   auth,
   webHosting,
-  db,
   baaS,
   cloud,
   frameworks,
   security,
-  images,
-  analytics,
 } from "./schema/web-development/webDevelopmentSchema";
 
 // Your hosting provider likely exposes this as an environment variable
@@ -30,16 +27,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [
-      auth,
-      webHosting,
-      db,
-      baaS,
-      cloud,
-      frameworks,
-      security,
-      images,
-      analytics,
-    ],
+    collections: [auth, webHosting, baaS, cloud, frameworks, security],
   },
 });

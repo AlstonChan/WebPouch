@@ -1,0 +1,45 @@
+{
+  "title": "Google Cloud Service",
+  "description": "Google Cloud Platform is a suite of cloud computing services provided by Google.",
+  "descriptionOfFreePlan": "Free virtual machine instances, cloud functions and app engine",
+  "siteLink": "https://cloud.google.com",
+  "pricingPage": "https://cloud.google.com/free/docs/free-cloud-features",
+  "thumbnail": "/webdev/cloudProviders/gcp.png",
+  "featuresInfo": [
+    {
+      "feature": "Cloud Source Repositories",
+      "description": "A object storing service",
+      "duration": "Alway Free",
+      "limitations": "Up to % users, 50 GB of storage and egress",
+      "_template": "feature"
+    },
+    {
+      "feature": "App Engine",
+      "description": "A fully managed, serverless platform for hosting web app",
+      "duration": "Always Free",
+      "limitations": "28 hours per day of \"F\" instances with 1 GB of egress per day",
+      "_template": "feature"
+    },
+    {
+      "feature": "Cloud Run",
+      "description": "A managed compute platform to run containers",
+      "duration": "Always Free",
+      "limitations": "2M requests per month, 360,000 GB-seconds of memory, 180,000 vCPU-seconds of compute time ",
+      "_template": "feature"
+    },
+    {
+      "feature": "Cloud Functions",
+      "description": "A serverless function",
+      "duration": "Always Free",
+      "limitations": "2M invocations per month, 400,000 GB-seconds, 200,000 GHz-seconds of compute time ",
+      "_template": "feature"
+    },
+    {
+      "feature": "Compute Engine",
+      "description": "A Virtual Machine",
+      "duration": "Free Forever",
+      "limitations": "One e2-micro instances on certain regions with 30GB standard persistent disk",
+      "_template": "feature"
+    }
+  ]
+}

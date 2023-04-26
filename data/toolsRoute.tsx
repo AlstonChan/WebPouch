@@ -1,5 +1,4 @@
-import { LockPerson, Rocket, Code, Cloud, Storage } from "@mui/icons-material";
-import { Analytics, Image as ImageIcon, Security } from "@mui/icons-material";
+import { LockPerson, Rocket, Code, Cloud, Security } from "@mui/icons-material";
 import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
 import {
   FontDownload,
@@ -14,9 +13,6 @@ export const webDevelopment: NavList[] = [
   { title: "Web Hosting", icon: <Rocket /> },
   { title: "Frameworks", icon: <Code /> },
   { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Databases", icon: <Storage /> },
-  { title: "Analytics", icon: <Analytics /> },
-  { title: "Images", icon: <ImageIcon /> },
   { title: "Security", icon: <Security /> },
   { title: "BaaS", icon: <Work /> },
 ];

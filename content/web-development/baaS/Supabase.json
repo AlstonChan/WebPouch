@@ -1,0 +1,45 @@
+{
+  "title": "Supabase",
+  "description": "Supabase is an open source Firebase alternative. Start your project with a Postgres database, Authentication, instant APIs, Edge Functions, Realtime subscriptions, and Storage.",
+  "descriptionOfFreePlan": "Up to 2GB bandwidth, 500MB database & 1GB file storage",
+  "siteLink": "https://supabase.com",
+  "pricingPage": "https://supabase.com/pricing#compare-plans",
+  "thumbnail": "/webdev/baas/supabase.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/supabase/supabase",
+    "githubStars": "49.1k"
+  },
+  "comparisonInfo": {
+    "authentication": {
+      "monthlyActiveUsers": "50,000 monthly",
+      "emailAndPasswordAuth": true,
+      "magicLinks": true,
+      "socialLogins": "true",
+      "phoneNumberAuth": "Integrate other SMS service",
+      "anonymousAuthentication": false,
+      "multiFactorAuthentication": true,
+      "userInterfaceProvided": false,
+      "customDomain": true,
+      "noBrandWatermark": true
+    },
+    "database": {
+      "databaseType": "Postgres",
+      "databaseSize": "500 MB",
+      "databaseEgress": "2 GB per month",
+      "realtimeDatabase": "200 connections"
+    },
+    "serverlessFunction": {
+      "serverlessFunctionExecution": "-",
+      "serverlessFunctionInvocations": "500K per month",
+      "serverlessFunctionExecutionTimeout": "Didn't Specified",
+      "numberOfFunctions": "10"
+    },
+    "storage": {
+      "storageSize": "1 GB",
+      "storageEgress": "2 GB per month",
+      "maxFileUploadSize": "50 MB"
+    },
+    "pushNotification": false,
+    "graphqlApi": true
+  }
+}

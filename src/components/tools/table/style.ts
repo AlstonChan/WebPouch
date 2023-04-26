@@ -1,11 +1,10 @@
-import { TableCell, TableRow, Theme } from "@mui/material";
+import { TableCell, TableRow, Theme, tableRowClasses } from "@mui/material";
 import { styled, tableCellClasses } from "@mui/material";
 
 const tableCellClassesHead = (theme: Theme) => {
   return {
     backgroundColor: theme.palette.secondary.dark,
     color: theme.palette.secondary.contrastText,
-    border: "none",
     fontSize: theme.typography.body1.fontSize,
   };
 };
@@ -31,6 +30,14 @@ export const StickyTableCell = styled(TableCell)(({ theme }) => ({
     left: 0,
     position: "sticky",
     zIndex: theme.zIndex.appBar + 1,
+    backgroundColor: "transparent",
+    borderBottom: "1px solid theme.palette.secondary.light",
+  },
+  [`&.${tableCellClasses.body}:only-child`]: {
+    fontSize: theme.typography.h5.fontSize,
+    borderBottom: "solid",
+    borderColor: theme.palette.secondary.light,
+    paddingTop: theme.spacing(5),
   },
 }));
 
@@ -46,5 +53,8 @@ export const StyledTableRow = styled(TableRow)(({ theme }) => ({
   // hide last border
   "&:last-child td, &:last-child th": {
     border: 0,
+  },
+  [`&.${tableRowClasses.root}:first-of-type > th`]: {
+    paddingTop: theme.spacing(2),
   },
 }));

@@ -14,9 +14,6 @@ export type WebDev =
   | "Web Hosting"
   | "Frameworks"
   | "Cloud Providers"
-  | "Databases"
-  | "Analytics"
-  | "Images"
   | "Security"
   | "BaaS";
 
