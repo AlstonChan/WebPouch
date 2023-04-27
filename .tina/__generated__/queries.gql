@@ -263,8 +263,8 @@ query frameworksConnection($before: String, $after: String, $first: Float, $last
   }
 }
 
-query security($relativePath: String!) {
-  security(relativePath: $relativePath) {
+query paas($relativePath: String!) {
+  paas(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -276,12 +276,12 @@ query security($relativePath: String!) {
       }
       id
     }
-    ...SecurityParts
+    ...PaasParts
   }
 }
 
-query securityConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SecurityFilter) {
-  securityConnection(
+query paasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PaasFilter) {
+  paasConnection(
     before: $before
     after: $after
     first: $first
@@ -310,7 +310,7 @@ query securityConnection($before: String, $after: String, $first: Float, $last: 
           }
           id
         }
-        ...SecurityParts
+        ...PaasParts
       }
     }
   }

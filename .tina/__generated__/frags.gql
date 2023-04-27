@@ -170,7 +170,7 @@ fragment FrameworksParts on Frameworks {
   }
 }
 
-fragment SecurityParts on Security {
+fragment PaasParts on Paas {
   title
   description
   descriptionOfFreePlan
@@ -186,5 +186,23 @@ fragment SecurityParts on Security {
     __typename
     githubLink
     githubStars
+  }
+  comparisonInfo {
+    __typename
+    hourlyLimit
+    appLimit
+    databaseLimit
+    requestLimit
+    freeBandwidth
+    cpu
+    ram
+    supportedLanguage
+    supportedDatabase
+    persistentStorage
+    https
+    edgeDeployment
+    deployFromAnyGithubRepo
+    customDomain
+    sleeps
   }
 }

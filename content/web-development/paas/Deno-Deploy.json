@@ -1,0 +1,25 @@
+{
+  "title": "Deno Deploy",
+  "description": "Serverless JavaScript hosting with zero config, worldwide.",
+  "descriptionOfFreePlan": "Automatic HTTPS / TLS with 100,000 requests per day",
+  "siteLink": "https://deno.com/deploy",
+  "pricingPage": "https://deno.com/deploy/pricing",
+  "thumbnail": "/webdev/paas/deno.png",
+  "comparisonInfo": {
+    "hourlyLimit": "false",
+    "appLimit": "Didn't Specified",
+    "databaseLimit": "false",
+    "requestLimit": "100k req/day, 1000 req/min",
+    "freeBandwidth": "100 GiB per month",
+    "cpu": "10 ms per request",
+    "ram": "512 MB",
+    "supportedLanguage": "JavaScript, TypeScript, and WebAssembly",
+    "supportedDatabase": "false",
+    "persistentStorage": "false",
+    "https": true,
+    "edgeDeployment": true,
+    "deployFromAnyGithubRepo": true,
+    "customDomain": true,
+    "sleeps": "Didn't Specified"
+  }
+}

@@ -26,8 +26,8 @@ const cloudProviders: ToolsDetail = {
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
-const security: ToolsDetail = {
-  title: "Security",
+const paas: ToolsDetail = {
+  title: "Paas",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
@@ -42,7 +42,7 @@ const webDev: { [key: string]: ToolsDetail } = {
   authentication,
   frameworks,
   "cloud-providers": cloudProviders,
-  security,
+  paas,
   baas,
 };
 

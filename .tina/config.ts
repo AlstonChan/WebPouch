@@ -6,7 +6,7 @@ import {
   baaS,
   cloud,
   frameworks,
-  security,
+  paas,
 } from "./schema/web-development/webDevelopmentSchema";
 
 // Your hosting provider likely exposes this as an environment variable
@@ -27,6 +27,6 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [auth, webHosting, baaS, cloud, frameworks, security],
+    collections: [auth, webHosting, baaS, cloud, frameworks, paas],
   },
 });

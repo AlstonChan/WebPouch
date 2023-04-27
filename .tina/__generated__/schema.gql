@@ -58,8 +58,8 @@ type Query {
   cloudProvidersConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CloudProvidersFilter): CloudProvidersConnection!
   frameworks(relativePath: String): Frameworks!
   frameworksConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: FrameworksFilter): FrameworksConnection!
-  security(relativePath: String): Security!
-  securityConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SecurityFilter): SecurityConnection!
+  paas(relativePath: String): Paas!
+  paasConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PaasFilter): PaasConnection!
 }
 
 input DocumentFilter {
@@ -68,7 +68,7 @@ input DocumentFilter {
   baas: BaasFilter
   cloudProviders: CloudProvidersFilter
   frameworks: FrameworksFilter
-  security: SecurityFilter
+  paas: PaasFilter
 }
 
 type DocumentConnectionEdges {
@@ -94,7 +94,7 @@ type Collection {
   documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
 }
 
-union DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Security
+union DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Paas
 
 type AuthenticationAddOnThumbnail {
   title: String
@@ -567,60 +567,98 @@ type FrameworksConnection implements Connection {
   edges: [FrameworksConnectionEdges]
 }
 
-type SecurityAddOnThumbnail {
+type PaasAddOnThumbnail {
   title: String
   image: String
 }
 
-type SecurityGithubInfo {
+type PaasGithubInfo {
   githubLink: String
   githubStars: String
 }
 
-type Security implements Node & Document {
+type PaasComparisonInfo {
+  hourlyLimit: String
+  appLimit: String
+  databaseLimit: String
+  requestLimit: String
+  freeBandwidth: String
+  cpu: String
+  ram: String
+  supportedLanguage: String
+  supportedDatabase: String
+  persistentStorage: String
+  https: Boolean
+  edgeDeployment: Boolean
+  deployFromAnyGithubRepo: Boolean
+  customDomain: Boolean
+  sleeps: String
+}
+
+type Paas implements Node & Document {
   title: String!
   description: String!
   descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
-  addOnThumbnail: SecurityAddOnThumbnail
-  githubInfo: SecurityGithubInfo
+  addOnThumbnail: PaasAddOnThumbnail
+  githubInfo: PaasGithubInfo
+  comparisonInfo: PaasComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input SecurityAddOnThumbnailFilter {
+input PaasAddOnThumbnailFilter {
   title: StringFilter
   image: ImageFilter
 }
 
-input SecurityGithubInfoFilter {
+input PaasGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
 }
 
-input SecurityFilter {
+input PaasComparisonInfoFilter {
+  hourlyLimit: StringFilter
+  appLimit: StringFilter
+  databaseLimit: StringFilter
+  requestLimit: StringFilter
+  freeBandwidth: StringFilter
+  cpu: StringFilter
+  ram: StringFilter
+  supportedLanguage: StringFilter
+  supportedDatabase: StringFilter
+  persistentStorage: StringFilter
+  https: BooleanFilter
+  edgeDeployment: BooleanFilter
+  deployFromAnyGithubRepo: BooleanFilter
+  customDomain: BooleanFilter
+  sleeps: StringFilter
+}
+
+input PaasFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
-  addOnThumbnail: SecurityAddOnThumbnailFilter
-  githubInfo: SecurityGithubInfoFilter
+  addOnThumbnail: PaasAddOnThumbnailFilter
+  githubInfo: PaasGithubInfoFilter
+  comparisonInfo: PaasComparisonInfoFilter
 }
 
-type SecurityConnectionEdges {
+type PaasConnectionEdges {
   cursor: String!
-  node: Security
+  node: Paas
 }
 
-type SecurityConnection implements Connection {
+type PaasConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [SecurityConnectionEdges]
+  edges: [PaasConnectionEdges]
 }
 
 type Mutation {
@@ -638,8 +676,8 @@ type Mutation {
   createCloudProviders(relativePath: String!, params: CloudProvidersMutation!): CloudProviders!
   updateFrameworks(relativePath: String!, params: FrameworksMutation!): Frameworks!
   createFrameworks(relativePath: String!, params: FrameworksMutation!): Frameworks!
-  updateSecurity(relativePath: String!, params: SecurityMutation!): Security!
-  createSecurity(relativePath: String!, params: SecurityMutation!): Security!
+  updatePaas(relativePath: String!, params: PaasMutation!): Paas!
+  createPaas(relativePath: String!, params: PaasMutation!): Paas!
 }
 
 input DocumentUpdateMutation {
@@ -648,7 +686,7 @@ input DocumentUpdateMutation {
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
-  security: SecurityMutation
+  paas: PaasMutation
   relativePath: String
 }
 
@@ -658,7 +696,7 @@ input DocumentMutation {
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
-  security: SecurityMutation
+  paas: PaasMutation
 }
 
 input AuthenticationAddOnThumbnailMutation {
@@ -853,25 +891,44 @@ input FrameworksMutation {
   githubInfo: FrameworksGithubInfoMutation
 }
 
-input SecurityAddOnThumbnailMutation {
+input PaasAddOnThumbnailMutation {
   title: String
   image: String
 }
 
-input SecurityGithubInfoMutation {
+input PaasGithubInfoMutation {
   githubLink: String
   githubStars: String
 }
 
-input SecurityMutation {
+input PaasComparisonInfoMutation {
+  hourlyLimit: String
+  appLimit: String
+  databaseLimit: String
+  requestLimit: String
+  freeBandwidth: String
+  cpu: String
+  ram: String
+  supportedLanguage: String
+  supportedDatabase: String
+  persistentStorage: String
+  https: Boolean
+  edgeDeployment: Boolean
+  deployFromAnyGithubRepo: Boolean
+  customDomain: Boolean
+  sleeps: String
+}
+
+input PaasMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
-  addOnThumbnail: SecurityAddOnThumbnailMutation
-  githubInfo: SecurityGithubInfoMutation
+  addOnThumbnail: PaasAddOnThumbnailMutation
+  githubInfo: PaasGithubInfoMutation
+  comparisonInfo: PaasComparisonInfoMutation
 }
 
 schema {

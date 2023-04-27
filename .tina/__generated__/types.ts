@@ -83,8 +83,8 @@ export type Query = {
   cloudProvidersConnection: CloudProvidersConnection;
   frameworks: Frameworks;
   frameworksConnection: FrameworksConnection;
-  security: Security;
-  securityConnection: SecurityConnection;
+  paas: Paas;
+  paasConnection: PaasConnection;
 };
 
 
@@ -184,18 +184,18 @@ export type QueryFrameworksConnectionArgs = {
 };
 
 
-export type QuerySecurityArgs = {
+export type QueryPaasArgs = {
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
 
-export type QuerySecurityConnectionArgs = {
+export type QueryPaasConnectionArgs = {
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<SecurityFilter>;
+  filter?: InputMaybe<PaasFilter>;
 };
 
 export type DocumentFilter = {
@@ -204,7 +204,7 @@ export type DocumentFilter = {
   baas?: InputMaybe<BaasFilter>;
   cloudProviders?: InputMaybe<CloudProvidersFilter>;
   frameworks?: InputMaybe<FrameworksFilter>;
-  security?: InputMaybe<SecurityFilter>;
+  paas?: InputMaybe<PaasFilter>;
 };
 
 export type DocumentConnectionEdges = {
@@ -243,7 +243,7 @@ export type CollectionDocumentsArgs = {
   filter?: InputMaybe<DocumentFilter>;
 };
 
-export type DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Security;
+export type DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Paas;
 
 export type AuthenticationAddOnThumbnail = {
   __typename?: 'AuthenticationAddOnThumbnail';
@@ -749,65 +749,104 @@ export type FrameworksConnection = Connection & {
   edges?: Maybe<Array<Maybe<FrameworksConnectionEdges>>>;
 };
 
-export type SecurityAddOnThumbnail = {
-  __typename?: 'SecurityAddOnThumbnail';
+export type PaasAddOnThumbnail = {
+  __typename?: 'PaasAddOnThumbnail';
   title?: Maybe<Scalars['String']>;
   image?: Maybe<Scalars['String']>;
 };
 
-export type SecurityGithubInfo = {
-  __typename?: 'SecurityGithubInfo';
+export type PaasGithubInfo = {
+  __typename?: 'PaasGithubInfo';
   githubLink?: Maybe<Scalars['String']>;
   githubStars?: Maybe<Scalars['String']>;
 };
 
-export type Security = Node & Document & {
-  __typename?: 'Security';
+export type PaasComparisonInfo = {
+  __typename?: 'PaasComparisonInfo';
+  hourlyLimit?: Maybe<Scalars['String']>;
+  appLimit?: Maybe<Scalars['String']>;
+  databaseLimit?: Maybe<Scalars['String']>;
+  requestLimit?: Maybe<Scalars['String']>;
+  freeBandwidth?: Maybe<Scalars['String']>;
+  cpu?: Maybe<Scalars['String']>;
+  ram?: Maybe<Scalars['String']>;
+  supportedLanguage?: Maybe<Scalars['String']>;
+  supportedDatabase?: Maybe<Scalars['String']>;
+  persistentStorage?: Maybe<Scalars['String']>;
+  https?: Maybe<Scalars['Boolean']>;
+  edgeDeployment?: Maybe<Scalars['Boolean']>;
+  deployFromAnyGithubRepo?: Maybe<Scalars['Boolean']>;
+  customDomain?: Maybe<Scalars['Boolean']>;
+  sleeps?: Maybe<Scalars['String']>;
+};
+
+export type Paas = Node & Document & {
+  __typename?: 'Paas';
   title: Scalars['String'];
   description: Scalars['String'];
   descriptionOfFreePlan?: Maybe<Scalars['String']>;
   siteLink: Scalars['String'];
   pricingPage?: Maybe<Scalars['String']>;
   thumbnail: Scalars['String'];
-  addOnThumbnail?: Maybe<SecurityAddOnThumbnail>;
-  githubInfo?: Maybe<SecurityGithubInfo>;
+  addOnThumbnail?: Maybe<PaasAddOnThumbnail>;
+  githubInfo?: Maybe<PaasGithubInfo>;
+  comparisonInfo?: Maybe<PaasComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
 };
 
-export type SecurityAddOnThumbnailFilter = {
+export type PaasAddOnThumbnailFilter = {
   title?: InputMaybe<StringFilter>;
   image?: InputMaybe<ImageFilter>;
 };
 
-export type SecurityGithubInfoFilter = {
+export type PaasGithubInfoFilter = {
   githubLink?: InputMaybe<StringFilter>;
   githubStars?: InputMaybe<StringFilter>;
 };
 
-export type SecurityFilter = {
+export type PaasComparisonInfoFilter = {
+  hourlyLimit?: InputMaybe<StringFilter>;
+  appLimit?: InputMaybe<StringFilter>;
+  databaseLimit?: InputMaybe<StringFilter>;
+  requestLimit?: InputMaybe<StringFilter>;
+  freeBandwidth?: InputMaybe<StringFilter>;
+  cpu?: InputMaybe<StringFilter>;
+  ram?: InputMaybe<StringFilter>;
+  supportedLanguage?: InputMaybe<StringFilter>;
+  supportedDatabase?: InputMaybe<StringFilter>;
+  persistentStorage?: InputMaybe<StringFilter>;
+  https?: InputMaybe<BooleanFilter>;
+  edgeDeployment?: InputMaybe<BooleanFilter>;
+  deployFromAnyGithubRepo?: InputMaybe<BooleanFilter>;
+  customDomain?: InputMaybe<BooleanFilter>;
+  sleeps?: InputMaybe<StringFilter>;
+};
+
+export type PaasFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
   descriptionOfFreePlan?: InputMaybe<StringFilter>;
   siteLink?: InputMaybe<StringFilter>;
   pricingPage?: InputMaybe<StringFilter>;
   thumbnail?: InputMaybe<ImageFilter>;
-  addOnThumbnail?: InputMaybe<SecurityAddOnThumbnailFilter>;
-  githubInfo?: InputMaybe<SecurityGithubInfoFilter>;
+  addOnThumbnail?: InputMaybe<PaasAddOnThumbnailFilter>;
+  githubInfo?: InputMaybe<PaasGithubInfoFilter>;
+  comparisonInfo?: InputMaybe<PaasComparisonInfoFilter>;
 };
 
-export type SecurityConnectionEdges = {
-  __typename?: 'SecurityConnectionEdges';
+export type PaasConnectionEdges = {
+  __typename?: 'PaasConnectionEdges';
   cursor: Scalars['String'];
-  node?: Maybe<Security>;
+  node?: Maybe<Paas>;
 };
 
-export type SecurityConnection = Connection & {
-  __typename?: 'SecurityConnection';
+export type PaasConnection = Connection & {
+  __typename?: 'PaasConnection';
   pageInfo: PageInfo;
   totalCount: Scalars['Float'];
-  edges?: Maybe<Array<Maybe<SecurityConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<PaasConnectionEdges>>>;
 };
 
 export type Mutation = {
@@ -826,8 +865,8 @@ export type Mutation = {
   createCloudProviders: CloudProviders;
   updateFrameworks: Frameworks;
   createFrameworks: Frameworks;
-  updateSecurity: Security;
-  createSecurity: Security;
+  updatePaas: Paas;
+  createPaas: Paas;
 };
 
 
@@ -918,15 +957,15 @@ export type MutationCreateFrameworksArgs = {
 };
 
 
-export type MutationUpdateSecurityArgs = {
+export type MutationUpdatePaasArgs = {
   relativePath: Scalars['String'];
-  params: SecurityMutation;
+  params: PaasMutation;
 };
 
 
-export type MutationCreateSecurityArgs = {
+export type MutationCreatePaasArgs = {
   relativePath: Scalars['String'];
-  params: SecurityMutation;
+  params: PaasMutation;
 };
 
 export type DocumentUpdateMutation = {
@@ -935,7 +974,7 @@ export type DocumentUpdateMutation = {
   baas?: InputMaybe<BaasMutation>;
   cloudProviders?: InputMaybe<CloudProvidersMutation>;
   frameworks?: InputMaybe<FrameworksMutation>;
-  security?: InputMaybe<SecurityMutation>;
+  paas?: InputMaybe<PaasMutation>;
   relativePath?: InputMaybe<Scalars['String']>;
 };
 
@@ -945,7 +984,7 @@ export type DocumentMutation = {
   baas?: InputMaybe<BaasMutation>;
   cloudProviders?: InputMaybe<CloudProvidersMutation>;
   frameworks?: InputMaybe<FrameworksMutation>;
-  security?: InputMaybe<SecurityMutation>;
+  paas?: InputMaybe<PaasMutation>;
 };
 
 export type AuthenticationAddOnThumbnailMutation = {
@@ -1140,25 +1179,44 @@ export type FrameworksMutation = {
   githubInfo?: InputMaybe<FrameworksGithubInfoMutation>;
 };
 
-export type SecurityAddOnThumbnailMutation = {
+export type PaasAddOnThumbnailMutation = {
   title?: InputMaybe<Scalars['String']>;
   image?: InputMaybe<Scalars['String']>;
 };
 
-export type SecurityGithubInfoMutation = {
+export type PaasGithubInfoMutation = {
   githubLink?: InputMaybe<Scalars['String']>;
   githubStars?: InputMaybe<Scalars['String']>;
 };
 
-export type SecurityMutation = {
+export type PaasComparisonInfoMutation = {
+  hourlyLimit?: InputMaybe<Scalars['String']>;
+  appLimit?: InputMaybe<Scalars['String']>;
+  databaseLimit?: InputMaybe<Scalars['String']>;
+  requestLimit?: InputMaybe<Scalars['String']>;
+  freeBandwidth?: InputMaybe<Scalars['String']>;
+  cpu?: InputMaybe<Scalars['String']>;
+  ram?: InputMaybe<Scalars['String']>;
+  supportedLanguage?: InputMaybe<Scalars['String']>;
+  supportedDatabase?: InputMaybe<Scalars['String']>;
+  persistentStorage?: InputMaybe<Scalars['String']>;
+  https?: InputMaybe<Scalars['Boolean']>;
+  edgeDeployment?: InputMaybe<Scalars['Boolean']>;
+  deployFromAnyGithubRepo?: InputMaybe<Scalars['Boolean']>;
+  customDomain?: InputMaybe<Scalars['Boolean']>;
+  sleeps?: InputMaybe<Scalars['String']>;
+};
+
+export type PaasMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
   descriptionOfFreePlan?: InputMaybe<Scalars['String']>;
   siteLink?: InputMaybe<Scalars['String']>;
   pricingPage?: InputMaybe<Scalars['String']>;
   thumbnail?: InputMaybe<Scalars['String']>;
-  addOnThumbnail?: InputMaybe<SecurityAddOnThumbnailMutation>;
-  githubInfo?: InputMaybe<SecurityGithubInfoMutation>;
+  addOnThumbnail?: InputMaybe<PaasAddOnThumbnailMutation>;
+  githubInfo?: InputMaybe<PaasGithubInfoMutation>;
+  comparisonInfo?: InputMaybe<PaasComparisonInfoMutation>;
 };
 
 export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null };
@@ -1171,7 +1229,7 @@ export type CloudProvidersPartsFragment = { __typename?: 'CloudProviders', title
 
 export type FrameworksPartsFragment = { __typename?: 'Frameworks', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null };
 
-export type SecurityPartsFragment = { __typename?: 'Security', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'SecurityAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'SecurityGithubInfo', githubLink?: string | null, githubStars?: string | null } | null };
+export type PaasPartsFragment = { __typename?: 'Paas', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null };
 
 export type AuthenticationQueryVariables = Exact<{
   relativePath: Scalars['String'];
@@ -1268,24 +1326,24 @@ export type FrameworksConnectionQueryVariables = Exact<{
 
 export type FrameworksConnectionQuery = { __typename?: 'Query', frameworksConnection: { __typename?: 'FrameworksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'FrameworksConnectionEdges', cursor: string, node?: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null } | null } | null> | null } };
 
-export type SecurityQueryVariables = Exact<{
+export type PaasQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type SecurityQuery = { __typename?: 'Query', security: { __typename?: 'Security', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'SecurityAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'SecurityGithubInfo', githubLink?: string | null, githubStars?: string | null } | null } };
+export type PaasQuery = { __typename?: 'Query', paas: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } };
 
-export type SecurityConnectionQueryVariables = Exact<{
+export type PaasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
   after?: InputMaybe<Scalars['String']>;
   first?: InputMaybe<Scalars['Float']>;
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
-  filter?: InputMaybe<SecurityFilter>;
+  filter?: InputMaybe<PaasFilter>;
 }>;
 
 
-export type SecurityConnectionQuery = { __typename?: 'Query', securityConnection: { __typename?: 'SecurityConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'SecurityConnectionEdges', cursor: string, node?: { __typename?: 'Security', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'SecurityAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'SecurityGithubInfo', githubLink?: string | null, githubStars?: string | null } | null } | null } | null> | null } };
+export type PaasConnectionQuery = { __typename?: 'Query', paasConnection: { __typename?: 'PaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PaasConnectionEdges', cursor: string, node?: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } | null } | null> | null } };
 
 export const AuthenticationPartsFragmentDoc = gql`
     fragment AuthenticationParts on Authentication {
@@ -1464,8 +1522,8 @@ export const FrameworksPartsFragmentDoc = gql`
   }
 }
     `;
-export const SecurityPartsFragmentDoc = gql`
-    fragment SecurityParts on Security {
+export const PaasPartsFragmentDoc = gql`
+    fragment PaasParts on Paas {
   title
   description
   descriptionOfFreePlan
@@ -1481,6 +1539,24 @@ export const SecurityPartsFragmentDoc = gql`
     __typename
     githubLink
     githubStars
+  }
+  comparisonInfo {
+    __typename
+    hourlyLimit
+    appLimit
+    databaseLimit
+    requestLimit
+    freeBandwidth
+    cpu
+    ram
+    supportedLanguage
+    supportedDatabase
+    persistentStorage
+    https
+    edgeDeployment
+    deployFromAnyGithubRepo
+    customDomain
+    sleeps
   }
 }
     `;
@@ -1759,9 +1835,9 @@ export const FrameworksConnectionDocument = gql`
   }
 }
     ${FrameworksPartsFragmentDoc}`;
-export const SecurityDocument = gql`
-    query security($relativePath: String!) {
-  security(relativePath: $relativePath) {
+export const PaasDocument = gql`
+    query paas($relativePath: String!) {
+  paas(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -1773,13 +1849,13 @@ export const SecurityDocument = gql`
       }
       id
     }
-    ...SecurityParts
+    ...PaasParts
   }
 }
-    ${SecurityPartsFragmentDoc}`;
-export const SecurityConnectionDocument = gql`
-    query securityConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SecurityFilter) {
-  securityConnection(
+    ${PaasPartsFragmentDoc}`;
+export const PaasConnectionDocument = gql`
+    query paasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PaasFilter) {
+  paasConnection(
     before: $before
     after: $after
     first: $first
@@ -1808,12 +1884,12 @@ export const SecurityConnectionDocument = gql`
           }
           id
         }
-        ...SecurityParts
+        ...PaasParts
       }
     }
   }
 }
-    ${SecurityPartsFragmentDoc}`;
+    ${PaasPartsFragmentDoc}`;
 export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) => Promise<R>
   export function getSdk<C>(requester: Requester<C>) {
     return {
@@ -1847,11 +1923,11 @@ export type Requester<C= {}> = <R, V>(doc: DocumentNode, vars?: V, options?: C) 
     frameworksConnection(variables?: FrameworksConnectionQueryVariables, options?: C): Promise<{data: FrameworksConnectionQuery, variables: FrameworksConnectionQueryVariables, query: string}> {
         return requester<{data: FrameworksConnectionQuery, variables: FrameworksConnectionQueryVariables, query: string}, FrameworksConnectionQueryVariables>(FrameworksConnectionDocument, variables, options);
       },
-    security(variables: SecurityQueryVariables, options?: C): Promise<{data: SecurityQuery, variables: SecurityQueryVariables, query: string}> {
-        return requester<{data: SecurityQuery, variables: SecurityQueryVariables, query: string}, SecurityQueryVariables>(SecurityDocument, variables, options);
+    paas(variables: PaasQueryVariables, options?: C): Promise<{data: PaasQuery, variables: PaasQueryVariables, query: string}> {
+        return requester<{data: PaasQuery, variables: PaasQueryVariables, query: string}, PaasQueryVariables>(PaasDocument, variables, options);
       },
-    securityConnection(variables?: SecurityConnectionQueryVariables, options?: C): Promise<{data: SecurityConnectionQuery, variables: SecurityConnectionQueryVariables, query: string}> {
-        return requester<{data: SecurityConnectionQuery, variables: SecurityConnectionQueryVariables, query: string}, SecurityConnectionQueryVariables>(SecurityConnectionDocument, variables, options);
+    paasConnection(variables?: PaasConnectionQueryVariables, options?: C): Promise<{data: PaasConnectionQuery, variables: PaasConnectionQueryVariables, query: string}> {
+        return requester<{data: PaasConnectionQuery, variables: PaasConnectionQueryVariables, query: string}, PaasConnectionQueryVariables>(PaasConnectionDocument, variables, options);
       }
     };
   }

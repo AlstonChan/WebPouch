@@ -1,0 +1,25 @@
+{
+  "title": "Cyclic",
+  "description": "Deploy your full stack apps at cyclic, apps are available immediately and on demand. Deployed worldwide with smart caching to deliver the best performance globally.",
+  "descriptionOfFreePlan": "No hourly limit with 10,000 API requests per month",
+  "siteLink": "https://www.cyclic.sh/",
+  "pricingPage": "https://www.cyclic.sh/pricing",
+  "thumbnail": "/webdev/paas/cyclic.png",
+  "comparisonInfo": {
+    "hourlyLimit": "false",
+    "appLimit": "3",
+    "databaseLimit": "1 GB ",
+    "requestLimit": "100k API requests per month",
+    "freeBandwidth": "false",
+    "cpu": "Didn't specified",
+    "ram": "1024",
+    "supportedLanguage": "Javascript, Typescript",
+    "supportedDatabase": "DynamoDB Database",
+    "persistentStorage": "1 GB S3 Storage",
+    "https": true,
+    "edgeDeployment": true,
+    "deployFromAnyGithubRepo": true,
+    "customDomain": true,
+    "sleeps": "Never"
+  }
+}

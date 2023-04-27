@@ -1,4 +1,4 @@
-import { LockPerson, Rocket, Code, Cloud, Security } from "@mui/icons-material";
+import { LockPerson, Rocket, Code, Cloud, Devices } from "@mui/icons-material";
 import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
 import {
   FontDownload,
@@ -13,7 +13,7 @@ export const webDevelopment: NavList[] = [
   { title: "Web Hosting", icon: <Rocket /> },
   { title: "Frameworks", icon: <Code /> },
   { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Security", icon: <Security /> },
+  { title: "Paas", icon: <Devices /> },
   { title: "BaaS", icon: <Work /> },
 ];
 export const design: NavList[] = [

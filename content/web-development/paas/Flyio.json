@@ -1,0 +1,29 @@
+{
+  "title": "Fly.io",
+  "description": "Run your full stack apps (and databases!) all over the world. No ops required. ",
+  "descriptionOfFreePlan": "Up to 3 shared-cpu-1 256mb VMs with 3GB total storage",
+  "siteLink": "https://fly.io/",
+  "pricingPage": "https://fly.io/docs/about/pricing/",
+  "thumbnail": "/webdev/paas/fly-io.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/superfly/fly",
+    "githubStars": "977"
+  },
+  "comparisonInfo": {
+    "hourlyLimit": "false",
+    "appLimit": "3",
+    "databaseLimit": "false",
+    "requestLimit": "false",
+    "freeBandwidth": "160 GB with regions limitation",
+    "cpu": "1 shared CPU",
+    "ram": "256 MB",
+    "supportedLanguage": "Using Docker, any apps that can be run in a container",
+    "supportedDatabase": "Using Docker, any DB that can be run in a container",
+    "persistentStorage": "3 GB total for 3 app",
+    "https": true,
+    "edgeDeployment": true,
+    "deployFromAnyGithubRepo": true,
+    "customDomain": true,
+    "sleeps": "false"
+  }
+}
