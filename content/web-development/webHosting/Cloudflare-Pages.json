@@ -15,7 +15,7 @@
     "serverlessFunctionExecution": "Didn't Specified",
     "serverlessFunctionInvocations": "100,000 / day",
     "serverlessFunctionExecutionTimeout": "10ms CPU time",
-    "edgeFunctionExecution": "None",
+    "edgeFunctionExecution": "false",
     "globalCdn": true,
     "customHeaders": true,
     "https": true,

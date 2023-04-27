@@ -168,6 +168,10 @@ export default function ToolsTable({ data }: ToolsTableProps) {
                           ) : (
                             <Close color="warning" />
                           )
+                        ) : tableRow[row][product] === "true" ? (
+                          <Done color="success" />
+                        ) : tableRow[row][product] === "false" ? (
+                          <Close color="warning" />
                         ) : (
                           tableRow[row][product]
                         )}

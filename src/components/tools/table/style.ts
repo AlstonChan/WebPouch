@@ -30,8 +30,7 @@ export const StickyTableCell = styled(TableCell)(({ theme }) => ({
     left: 0,
     position: "sticky",
     zIndex: theme.zIndex.appBar + 1,
-    backgroundColor: "transparent",
-    borderBottom: "1px solid theme.palette.secondary.light",
+    backgroundColor: theme.palette.primary.main,
   },
   [`&.${tableCellClasses.body}:only-child`]: {
     fontSize: theme.typography.h5.fontSize,
@@ -43,7 +42,7 @@ export const StickyTableCell = styled(TableCell)(({ theme }) => ({
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.root}`]: {
-    width: "200px",
+    maxWidth: "200px",
   },
   [`&.${tableCellClasses.head}`]: tableCellClassesHead(theme),
   [`&.${tableCellClasses.body}`]: tableCellClassesBody(theme),
