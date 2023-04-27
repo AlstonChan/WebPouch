@@ -41,5 +41,6 @@
     },
     "pushNotification": false,
     "graphqlApi": true
-  }
+  },
+  "selfHost": true
 }

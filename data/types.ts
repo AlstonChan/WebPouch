@@ -14,7 +14,7 @@ export type WebDev =
   | "Web Hosting"
   | "Frameworks"
   | "Cloud Providers"
-  | "Paas"
+  | "PaaS"
   | "BaaS";
 
 type WebDevSlug = ToSlug<WebDev>;

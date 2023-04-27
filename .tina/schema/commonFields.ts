@@ -2,37 +2,40 @@ import { TinaField } from "tinacms";
 
 const title: TinaField = {
   name: "title",
-  type: "string",
   label: "Title",
+  type: "string",
   isTitle: true,
   required: true,
 };
 const description: TinaField = {
   name: "description",
-  type: "string",
   label: "Description",
+  type: "string",
   required: true,
+  ui: {
+    component: "textarea",
+  },
 };
 const freePlanDescription: TinaField = {
   name: "descriptionOfFreePlan",
-  type: "string",
   label: "Free Usage Description",
+  type: "string",
 };
 const siteLink: TinaField = {
   name: "siteLink",
-  type: "string",
   label: "Site Link",
+  type: "string",
   required: true,
 };
 const pricingPage: TinaField = {
   name: "pricingPage",
-  type: "string",
   label: "Pricing Page Link",
+  type: "string",
 };
 const thumbnail: TinaField = {
   name: "thumbnail",
-  type: "image",
   label: "Thumbnail",
+  type: "image",
   required: true,
 };
 
@@ -70,6 +73,46 @@ const githubInfo: TinaField = {
   fields: [githubLink, githubStars],
 };
 
+const selfHost: TinaField = {
+  name: "selfHost",
+  label: "Can be Self Host",
+  type: "boolean",
+};
+
+const additionalInfo: TinaField = {
+  name: "additionalInfo",
+  label: "Additional Information",
+  type: "object",
+  list: true,
+  templates: [
+    {
+      name: "infoListItem",
+      label: "Info List Item",
+      fields: [
+        {
+          label: "Content",
+          name: "content",
+          type: "string",
+          ui: {
+            component: "textarea",
+          },
+        },
+      ],
+    },
+    {
+      name: "infoListWarning",
+      label: "Info List Warning",
+      fields: [
+        {
+          label: "Content",
+          name: "content",
+          type: "string",
+        },
+      ],
+    },
+  ],
+};
+
 const commonFields = [
   title,
   description,
@@ -79,5 +122,7 @@ const commonFields = [
   thumbnail,
   addOnThumbnail,
   githubInfo,
+  selfHost,
+  additionalInfo,
 ];
 export default commonFields;

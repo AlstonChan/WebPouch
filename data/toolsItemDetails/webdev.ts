@@ -23,18 +23,24 @@ const frameworks: ToolsDetail = {
 };
 const cloudProviders: ToolsDetail = {
   title: "Cloud Providers",
-  subTitle: "Placeholder",
-  metaDescription: "Placeholder",
+  subTitle:
+    "Cloud services offer a wide range of solutions for building various applications, from virtual machines to managed app platforms, making it easy for you to build anything you can imagine. Explore our comprehensive list of free services provided by each cloud provider to minimize your application costs.",
+  metaDescription:
+    "Build anything you can imagine with cloud services. Explore our curated list of free services from top providers to minimize your app costs.",
 };
 const paas: ToolsDetail = {
-  title: "Paas",
-  subTitle: "Placeholder",
-  metaDescription: "Placeholder",
+  title: "PaaS",
+  subTitle:
+    "After building your full-stack application, backend server or discord bot. It is time to showcase it online, by using a Platform as a Service, you can easily deploy your app without the hassle of managing the underlying infrastructure.",
+  metaDescription:
+    "Find the best fit Platform as a Service (PaaS) that has a free tier to reduce cost.",
 };
 const baas: ToolsDetail = {
   title: "BaaS",
-  subTitle: "Placeholder",
-  metaDescription: "Placeholder",
+  subTitle:
+    "Sometimes, you may want to build a web application without getting bogged down in complex backend tasks such as creating an authentication and authorization system. With the use of Backend as a Service (BaaS), you can focus on building your app instead of worrying about securing your server or setting up your database.",
+  metaDescription:
+    "Compare a list of BaaS providers to find the most suitable one for your project.",
 };
 
 const webDev: { [key: string]: ToolsDetail } = {

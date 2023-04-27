@@ -12,7 +12,7 @@
     "requestLimit": "100k API requests per month",
     "freeBandwidth": "false",
     "cpu": "Didn't specified",
-    "ram": "1024",
+    "ram": "1024 MB",
     "supportedLanguage": "Javascript, Typescript",
     "supportedDatabase": "DynamoDB Database",
     "persistentStorage": "1 GB S3 Storage",

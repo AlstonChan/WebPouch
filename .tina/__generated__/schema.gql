@@ -106,17 +106,27 @@ type AuthenticationGithubInfo {
   githubStars: String
 }
 
+type AuthenticationAdditionalInfoInfoListItem {
+  content: String
+}
+
+type AuthenticationAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union AuthenticationAdditionalInfo = AuthenticationAdditionalInfoInfoListItem | AuthenticationAdditionalInfoInfoListWarning
+
 type AuthenticationComparisonInfo {
-  monthlyActiveUsers: String
-  emailAndPasswordAuth: Boolean
-  magicLinks: Boolean
-  socialLogins: String
-  phoneNumberAuth: String
-  anonymousAuthentication: Boolean
-  multiFactorAuthentication: Boolean
-  userInterfaceProvided: Boolean
-  customDomain: Boolean
-  noBrandWatermark: Boolean
+  monthlyActiveUsers: String!
+  emailAndPasswordAuth: Boolean!
+  magicLinks: Boolean!
+  socialLogins: String!
+  phoneNumberAuth: String!
+  anonymousAuthentication: Boolean!
+  multiFactorAuthentication: Boolean!
+  userInterfaceProvided: Boolean!
+  customDomain: Boolean!
+  noBrandWatermark: Boolean!
 }
 
 type Authentication implements Node & Document {
@@ -128,6 +138,8 @@ type Authentication implements Node & Document {
   thumbnail: String!
   addOnThumbnail: AuthenticationAddOnThumbnail
   githubInfo: AuthenticationGithubInfo
+  selfHost: Boolean
+  additionalInfo: [AuthenticationAdditionalInfo]
   comparisonInfo: AuthenticationComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -163,6 +175,19 @@ input BooleanFilter {
   exists: Boolean
 }
 
+input AuthenticationAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input AuthenticationAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input AuthenticationAdditionalInfoFilter {
+  infoListItem: AuthenticationAdditionalInfoInfoListItemFilter
+  infoListWarning: AuthenticationAdditionalInfoInfoListWarningFilter
+}
+
 input AuthenticationComparisonInfoFilter {
   monthlyActiveUsers: StringFilter
   emailAndPasswordAuth: BooleanFilter
@@ -185,6 +210,8 @@ input AuthenticationFilter {
   thumbnail: ImageFilter
   addOnThumbnail: AuthenticationAddOnThumbnailFilter
   githubInfo: AuthenticationGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: AuthenticationAdditionalInfoFilter
   comparisonInfo: AuthenticationComparisonInfoFilter
 }
 
@@ -208,6 +235,16 @@ type WebHostingGithubInfo {
   githubLink: String
   githubStars: String
 }
+
+type WebHostingAdditionalInfoInfoListItem {
+  content: String
+}
+
+type WebHostingAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union WebHostingAdditionalInfo = WebHostingAdditionalInfoInfoListItem | WebHostingAdditionalInfoInfoListWarning
 
 type WebHostingComparisonInfo {
   siteLimit: String
@@ -235,6 +272,8 @@ type WebHosting implements Node & Document {
   thumbnail: String!
   addOnThumbnail: WebHostingAddOnThumbnail
   githubInfo: WebHostingGithubInfo
+  selfHost: Boolean
+  additionalInfo: [WebHostingAdditionalInfo]
   comparisonInfo: WebHostingComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -249,6 +288,19 @@ input WebHostingAddOnThumbnailFilter {
 input WebHostingGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
+}
+
+input WebHostingAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input WebHostingAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input WebHostingAdditionalInfoFilter {
+  infoListItem: WebHostingAdditionalInfoInfoListItemFilter
+  infoListWarning: WebHostingAdditionalInfoInfoListWarningFilter
 }
 
 input WebHostingComparisonInfoFilter {
@@ -277,6 +329,8 @@ input WebHostingFilter {
   thumbnail: ImageFilter
   addOnThumbnail: WebHostingAddOnThumbnailFilter
   githubInfo: WebHostingGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: WebHostingAdditionalInfoFilter
   comparisonInfo: WebHostingComparisonInfoFilter
 }
 
@@ -301,17 +355,27 @@ type BaasGithubInfo {
   githubStars: String
 }
 
+type BaasAdditionalInfoInfoListItem {
+  content: String
+}
+
+type BaasAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union BaasAdditionalInfo = BaasAdditionalInfoInfoListItem | BaasAdditionalInfoInfoListWarning
+
 type BaasComparisonInfoAuthentication {
-  monthlyActiveUsers: String
-  emailAndPasswordAuth: Boolean
-  magicLinks: Boolean
-  socialLogins: String
-  phoneNumberAuth: String
-  anonymousAuthentication: Boolean
-  multiFactorAuthentication: Boolean
-  userInterfaceProvided: Boolean
-  customDomain: Boolean
-  noBrandWatermark: Boolean
+  monthlyActiveUsers: String!
+  emailAndPasswordAuth: Boolean!
+  magicLinks: Boolean!
+  socialLogins: String!
+  phoneNumberAuth: String!
+  anonymousAuthentication: Boolean!
+  multiFactorAuthentication: Boolean!
+  userInterfaceProvided: Boolean!
+  customDomain: Boolean!
+  noBrandWatermark: Boolean!
 }
 
 type BaasComparisonInfoDatabase {
@@ -352,6 +416,8 @@ type Baas implements Node & Document {
   thumbnail: String!
   addOnThumbnail: BaasAddOnThumbnail
   githubInfo: BaasGithubInfo
+  selfHost: Boolean
+  additionalInfo: [BaasAdditionalInfo]
   comparisonInfo: BaasComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -366,6 +432,19 @@ input BaasAddOnThumbnailFilter {
 input BaasGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
+}
+
+input BaasAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input BaasAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input BaasAdditionalInfoFilter {
+  infoListItem: BaasAdditionalInfoInfoListItemFilter
+  infoListWarning: BaasAdditionalInfoInfoListWarningFilter
 }
 
 input BaasComparisonInfoAuthenticationFilter {
@@ -419,6 +498,8 @@ input BaasFilter {
   thumbnail: ImageFilter
   addOnThumbnail: BaasAddOnThumbnailFilter
   githubInfo: BaasGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: BaasAdditionalInfoFilter
   comparisonInfo: BaasComparisonInfoFilter
 }
 
@@ -443,6 +524,16 @@ type CloudProvidersGithubInfo {
   githubStars: String
 }
 
+type CloudProvidersAdditionalInfoInfoListItem {
+  content: String
+}
+
+type CloudProvidersAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union CloudProvidersAdditionalInfo = CloudProvidersAdditionalInfoInfoListItem | CloudProvidersAdditionalInfoInfoListWarning
+
 type CloudProvidersFeaturesInfoFeature {
   feature: String
   description: String
@@ -461,6 +552,8 @@ type CloudProviders implements Node & Document {
   thumbnail: String!
   addOnThumbnail: CloudProvidersAddOnThumbnail
   githubInfo: CloudProvidersGithubInfo
+  selfHost: Boolean
+  additionalInfo: [CloudProvidersAdditionalInfo]
   featuresInfo: [CloudProvidersFeaturesInfo]
   id: ID!
   _sys: SystemInfo!
@@ -475,6 +568,19 @@ input CloudProvidersAddOnThumbnailFilter {
 input CloudProvidersGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
+}
+
+input CloudProvidersAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input CloudProvidersAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input CloudProvidersAdditionalInfoFilter {
+  infoListItem: CloudProvidersAdditionalInfoInfoListItemFilter
+  infoListWarning: CloudProvidersAdditionalInfoInfoListWarningFilter
 }
 
 input CloudProvidersFeaturesInfoFeatureFilter {
@@ -497,6 +603,8 @@ input CloudProvidersFilter {
   thumbnail: ImageFilter
   addOnThumbnail: CloudProvidersAddOnThumbnailFilter
   githubInfo: CloudProvidersGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: CloudProvidersAdditionalInfoFilter
   featuresInfo: CloudProvidersFeaturesInfoFilter
 }
 
@@ -521,6 +629,16 @@ type FrameworksGithubInfo {
   githubStars: String
 }
 
+type FrameworksAdditionalInfoInfoListItem {
+  content: String
+}
+
+type FrameworksAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union FrameworksAdditionalInfo = FrameworksAdditionalInfoInfoListItem | FrameworksAdditionalInfoInfoListWarning
+
 type Frameworks implements Node & Document {
   title: String!
   description: String!
@@ -530,6 +648,8 @@ type Frameworks implements Node & Document {
   thumbnail: String!
   addOnThumbnail: FrameworksAddOnThumbnail
   githubInfo: FrameworksGithubInfo
+  selfHost: Boolean
+  additionalInfo: [FrameworksAdditionalInfo]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -545,6 +665,19 @@ input FrameworksGithubInfoFilter {
   githubStars: StringFilter
 }
 
+input FrameworksAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input FrameworksAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input FrameworksAdditionalInfoFilter {
+  infoListItem: FrameworksAdditionalInfoInfoListItemFilter
+  infoListWarning: FrameworksAdditionalInfoInfoListWarningFilter
+}
+
 input FrameworksFilter {
   title: StringFilter
   description: StringFilter
@@ -554,6 +687,8 @@ input FrameworksFilter {
   thumbnail: ImageFilter
   addOnThumbnail: FrameworksAddOnThumbnailFilter
   githubInfo: FrameworksGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: FrameworksAdditionalInfoFilter
 }
 
 type FrameworksConnectionEdges {
@@ -576,6 +711,16 @@ type PaasGithubInfo {
   githubLink: String
   githubStars: String
 }
+
+type PaasAdditionalInfoInfoListItem {
+  content: String
+}
+
+type PaasAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union PaasAdditionalInfo = PaasAdditionalInfoInfoListItem | PaasAdditionalInfoInfoListWarning
 
 type PaasComparisonInfo {
   hourlyLimit: String
@@ -604,6 +749,8 @@ type Paas implements Node & Document {
   thumbnail: String!
   addOnThumbnail: PaasAddOnThumbnail
   githubInfo: PaasGithubInfo
+  selfHost: Boolean
+  additionalInfo: [PaasAdditionalInfo]
   comparisonInfo: PaasComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -618,6 +765,19 @@ input PaasAddOnThumbnailFilter {
 input PaasGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
+}
+
+input PaasAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input PaasAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input PaasAdditionalInfoFilter {
+  infoListItem: PaasAdditionalInfoInfoListItemFilter
+  infoListWarning: PaasAdditionalInfoInfoListWarningFilter
 }
 
 input PaasComparisonInfoFilter {
@@ -647,6 +807,8 @@ input PaasFilter {
   thumbnail: ImageFilter
   addOnThumbnail: PaasAddOnThumbnailFilter
   githubInfo: PaasGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: PaasAdditionalInfoFilter
   comparisonInfo: PaasComparisonInfoFilter
 }
 
@@ -709,6 +871,19 @@ input AuthenticationGithubInfoMutation {
   githubStars: String
 }
 
+input AuthenticationAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input AuthenticationAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input AuthenticationAdditionalInfoMutation {
+  infoListItem: AuthenticationAdditionalInfoInfoListItemMutation
+  infoListWarning: AuthenticationAdditionalInfoInfoListWarningMutation
+}
+
 input AuthenticationComparisonInfoMutation {
   monthlyActiveUsers: String
   emailAndPasswordAuth: Boolean
@@ -731,6 +906,8 @@ input AuthenticationMutation {
   thumbnail: String
   addOnThumbnail: AuthenticationAddOnThumbnailMutation
   githubInfo: AuthenticationGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [AuthenticationAdditionalInfoMutation]
   comparisonInfo: AuthenticationComparisonInfoMutation
 }
 
@@ -742,6 +919,19 @@ input WebHostingAddOnThumbnailMutation {
 input WebHostingGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input WebHostingAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input WebHostingAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input WebHostingAdditionalInfoMutation {
+  infoListItem: WebHostingAdditionalInfoInfoListItemMutation
+  infoListWarning: WebHostingAdditionalInfoInfoListWarningMutation
 }
 
 input WebHostingComparisonInfoMutation {
@@ -770,6 +960,8 @@ input WebHostingMutation {
   thumbnail: String
   addOnThumbnail: WebHostingAddOnThumbnailMutation
   githubInfo: WebHostingGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [WebHostingAdditionalInfoMutation]
   comparisonInfo: WebHostingComparisonInfoMutation
 }
 
@@ -781,6 +973,19 @@ input BaasAddOnThumbnailMutation {
 input BaasGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input BaasAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input BaasAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input BaasAdditionalInfoMutation {
+  infoListItem: BaasAdditionalInfoInfoListItemMutation
+  infoListWarning: BaasAdditionalInfoInfoListWarningMutation
 }
 
 input BaasComparisonInfoAuthenticationMutation {
@@ -834,6 +1039,8 @@ input BaasMutation {
   thumbnail: String
   addOnThumbnail: BaasAddOnThumbnailMutation
   githubInfo: BaasGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [BaasAdditionalInfoMutation]
   comparisonInfo: BaasComparisonInfoMutation
 }
 
@@ -845,6 +1052,19 @@ input CloudProvidersAddOnThumbnailMutation {
 input CloudProvidersGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input CloudProvidersAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input CloudProvidersAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input CloudProvidersAdditionalInfoMutation {
+  infoListItem: CloudProvidersAdditionalInfoInfoListItemMutation
+  infoListWarning: CloudProvidersAdditionalInfoInfoListWarningMutation
 }
 
 input CloudProvidersFeaturesInfoFeatureMutation {
@@ -867,6 +1087,8 @@ input CloudProvidersMutation {
   thumbnail: String
   addOnThumbnail: CloudProvidersAddOnThumbnailMutation
   githubInfo: CloudProvidersGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [CloudProvidersAdditionalInfoMutation]
   featuresInfo: [CloudProvidersFeaturesInfoMutation]
 }
 
@@ -880,6 +1102,19 @@ input FrameworksGithubInfoMutation {
   githubStars: String
 }
 
+input FrameworksAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input FrameworksAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input FrameworksAdditionalInfoMutation {
+  infoListItem: FrameworksAdditionalInfoInfoListItemMutation
+  infoListWarning: FrameworksAdditionalInfoInfoListWarningMutation
+}
+
 input FrameworksMutation {
   title: String
   description: String
@@ -889,6 +1124,8 @@ input FrameworksMutation {
   thumbnail: String
   addOnThumbnail: FrameworksAddOnThumbnailMutation
   githubInfo: FrameworksGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [FrameworksAdditionalInfoMutation]
 }
 
 input PaasAddOnThumbnailMutation {
@@ -899,6 +1136,19 @@ input PaasAddOnThumbnailMutation {
 input PaasGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input PaasAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input PaasAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input PaasAdditionalInfoMutation {
+  infoListItem: PaasAdditionalInfoInfoListItemMutation
+  infoListWarning: PaasAdditionalInfoInfoListWarningMutation
 }
 
 input PaasComparisonInfoMutation {
@@ -928,6 +1178,8 @@ input PaasMutation {
   thumbnail: String
   addOnThumbnail: PaasAddOnThumbnailMutation
   githubInfo: PaasGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [PaasAdditionalInfoMutation]
   comparisonInfo: PaasComparisonInfoMutation
 }
 

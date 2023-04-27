@@ -257,18 +257,30 @@ export type AuthenticationGithubInfo = {
   githubStars?: Maybe<Scalars['String']>;
 };
 
+export type AuthenticationAdditionalInfoInfoListItem = {
+  __typename?: 'AuthenticationAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type AuthenticationAdditionalInfoInfoListWarning = {
+  __typename?: 'AuthenticationAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type AuthenticationAdditionalInfo = AuthenticationAdditionalInfoInfoListItem | AuthenticationAdditionalInfoInfoListWarning;
+
 export type AuthenticationComparisonInfo = {
   __typename?: 'AuthenticationComparisonInfo';
-  monthlyActiveUsers?: Maybe<Scalars['String']>;
-  emailAndPasswordAuth?: Maybe<Scalars['Boolean']>;
-  magicLinks?: Maybe<Scalars['Boolean']>;
-  socialLogins?: Maybe<Scalars['String']>;
-  phoneNumberAuth?: Maybe<Scalars['String']>;
-  anonymousAuthentication?: Maybe<Scalars['Boolean']>;
-  multiFactorAuthentication?: Maybe<Scalars['Boolean']>;
-  userInterfaceProvided?: Maybe<Scalars['Boolean']>;
-  customDomain?: Maybe<Scalars['Boolean']>;
-  noBrandWatermark?: Maybe<Scalars['Boolean']>;
+  monthlyActiveUsers: Scalars['String'];
+  emailAndPasswordAuth: Scalars['Boolean'];
+  magicLinks: Scalars['Boolean'];
+  socialLogins: Scalars['String'];
+  phoneNumberAuth: Scalars['String'];
+  anonymousAuthentication: Scalars['Boolean'];
+  multiFactorAuthentication: Scalars['Boolean'];
+  userInterfaceProvided: Scalars['Boolean'];
+  customDomain: Scalars['Boolean'];
+  noBrandWatermark: Scalars['Boolean'];
 };
 
 export type Authentication = Node & Document & {
@@ -281,6 +293,8 @@ export type Authentication = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<AuthenticationAddOnThumbnail>;
   githubInfo?: Maybe<AuthenticationGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<AuthenticationAdditionalInfo>>>;
   comparisonInfo?: Maybe<AuthenticationComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -316,6 +330,19 @@ export type BooleanFilter = {
   exists?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type AuthenticationAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type AuthenticationAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type AuthenticationAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<AuthenticationAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<AuthenticationAdditionalInfoInfoListWarningFilter>;
+};
+
 export type AuthenticationComparisonInfoFilter = {
   monthlyActiveUsers?: InputMaybe<StringFilter>;
   emailAndPasswordAuth?: InputMaybe<BooleanFilter>;
@@ -338,6 +365,8 @@ export type AuthenticationFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<AuthenticationAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<AuthenticationGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<AuthenticationAdditionalInfoFilter>;
   comparisonInfo?: InputMaybe<AuthenticationComparisonInfoFilter>;
 };
 
@@ -365,6 +394,18 @@ export type WebHostingGithubInfo = {
   githubLink?: Maybe<Scalars['String']>;
   githubStars?: Maybe<Scalars['String']>;
 };
+
+export type WebHostingAdditionalInfoInfoListItem = {
+  __typename?: 'WebHostingAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type WebHostingAdditionalInfoInfoListWarning = {
+  __typename?: 'WebHostingAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type WebHostingAdditionalInfo = WebHostingAdditionalInfoInfoListItem | WebHostingAdditionalInfoInfoListWarning;
 
 export type WebHostingComparisonInfo = {
   __typename?: 'WebHostingComparisonInfo';
@@ -394,6 +435,8 @@ export type WebHosting = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<WebHostingAddOnThumbnail>;
   githubInfo?: Maybe<WebHostingGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<WebHostingAdditionalInfo>>>;
   comparisonInfo?: Maybe<WebHostingComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -408,6 +451,19 @@ export type WebHostingAddOnThumbnailFilter = {
 export type WebHostingGithubInfoFilter = {
   githubLink?: InputMaybe<StringFilter>;
   githubStars?: InputMaybe<StringFilter>;
+};
+
+export type WebHostingAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type WebHostingAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type WebHostingAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<WebHostingAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<WebHostingAdditionalInfoInfoListWarningFilter>;
 };
 
 export type WebHostingComparisonInfoFilter = {
@@ -436,6 +492,8 @@ export type WebHostingFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<WebHostingAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<WebHostingGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<WebHostingAdditionalInfoFilter>;
   comparisonInfo?: InputMaybe<WebHostingComparisonInfoFilter>;
 };
 
@@ -464,18 +522,30 @@ export type BaasGithubInfo = {
   githubStars?: Maybe<Scalars['String']>;
 };
 
+export type BaasAdditionalInfoInfoListItem = {
+  __typename?: 'BaasAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type BaasAdditionalInfoInfoListWarning = {
+  __typename?: 'BaasAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type BaasAdditionalInfo = BaasAdditionalInfoInfoListItem | BaasAdditionalInfoInfoListWarning;
+
 export type BaasComparisonInfoAuthentication = {
   __typename?: 'BaasComparisonInfoAuthentication';
-  monthlyActiveUsers?: Maybe<Scalars['String']>;
-  emailAndPasswordAuth?: Maybe<Scalars['Boolean']>;
-  magicLinks?: Maybe<Scalars['Boolean']>;
-  socialLogins?: Maybe<Scalars['String']>;
-  phoneNumberAuth?: Maybe<Scalars['String']>;
-  anonymousAuthentication?: Maybe<Scalars['Boolean']>;
-  multiFactorAuthentication?: Maybe<Scalars['Boolean']>;
-  userInterfaceProvided?: Maybe<Scalars['Boolean']>;
-  customDomain?: Maybe<Scalars['Boolean']>;
-  noBrandWatermark?: Maybe<Scalars['Boolean']>;
+  monthlyActiveUsers: Scalars['String'];
+  emailAndPasswordAuth: Scalars['Boolean'];
+  magicLinks: Scalars['Boolean'];
+  socialLogins: Scalars['String'];
+  phoneNumberAuth: Scalars['String'];
+  anonymousAuthentication: Scalars['Boolean'];
+  multiFactorAuthentication: Scalars['Boolean'];
+  userInterfaceProvided: Scalars['Boolean'];
+  customDomain: Scalars['Boolean'];
+  noBrandWatermark: Scalars['Boolean'];
 };
 
 export type BaasComparisonInfoDatabase = {
@@ -521,6 +591,8 @@ export type Baas = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<BaasAddOnThumbnail>;
   githubInfo?: Maybe<BaasGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<BaasAdditionalInfo>>>;
   comparisonInfo?: Maybe<BaasComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -535,6 +607,19 @@ export type BaasAddOnThumbnailFilter = {
 export type BaasGithubInfoFilter = {
   githubLink?: InputMaybe<StringFilter>;
   githubStars?: InputMaybe<StringFilter>;
+};
+
+export type BaasAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type BaasAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type BaasAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<BaasAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<BaasAdditionalInfoInfoListWarningFilter>;
 };
 
 export type BaasComparisonInfoAuthenticationFilter = {
@@ -588,6 +673,8 @@ export type BaasFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<BaasAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<BaasGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<BaasAdditionalInfoFilter>;
   comparisonInfo?: InputMaybe<BaasComparisonInfoFilter>;
 };
 
@@ -616,6 +703,18 @@ export type CloudProvidersGithubInfo = {
   githubStars?: Maybe<Scalars['String']>;
 };
 
+export type CloudProvidersAdditionalInfoInfoListItem = {
+  __typename?: 'CloudProvidersAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type CloudProvidersAdditionalInfoInfoListWarning = {
+  __typename?: 'CloudProvidersAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type CloudProvidersAdditionalInfo = CloudProvidersAdditionalInfoInfoListItem | CloudProvidersAdditionalInfoInfoListWarning;
+
 export type CloudProvidersFeaturesInfoFeature = {
   __typename?: 'CloudProvidersFeaturesInfoFeature';
   feature?: Maybe<Scalars['String']>;
@@ -636,6 +735,8 @@ export type CloudProviders = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<CloudProvidersAddOnThumbnail>;
   githubInfo?: Maybe<CloudProvidersGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<CloudProvidersAdditionalInfo>>>;
   featuresInfo?: Maybe<Array<Maybe<CloudProvidersFeaturesInfo>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -650,6 +751,19 @@ export type CloudProvidersAddOnThumbnailFilter = {
 export type CloudProvidersGithubInfoFilter = {
   githubLink?: InputMaybe<StringFilter>;
   githubStars?: InputMaybe<StringFilter>;
+};
+
+export type CloudProvidersAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type CloudProvidersAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type CloudProvidersAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<CloudProvidersAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<CloudProvidersAdditionalInfoInfoListWarningFilter>;
 };
 
 export type CloudProvidersFeaturesInfoFeatureFilter = {
@@ -672,6 +786,8 @@ export type CloudProvidersFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<CloudProvidersAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<CloudProvidersGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<CloudProvidersAdditionalInfoFilter>;
   featuresInfo?: InputMaybe<CloudProvidersFeaturesInfoFilter>;
 };
 
@@ -700,6 +816,18 @@ export type FrameworksGithubInfo = {
   githubStars?: Maybe<Scalars['String']>;
 };
 
+export type FrameworksAdditionalInfoInfoListItem = {
+  __typename?: 'FrameworksAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type FrameworksAdditionalInfoInfoListWarning = {
+  __typename?: 'FrameworksAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type FrameworksAdditionalInfo = FrameworksAdditionalInfoInfoListItem | FrameworksAdditionalInfoInfoListWarning;
+
 export type Frameworks = Node & Document & {
   __typename?: 'Frameworks';
   title: Scalars['String'];
@@ -710,6 +838,8 @@ export type Frameworks = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<FrameworksAddOnThumbnail>;
   githubInfo?: Maybe<FrameworksGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<FrameworksAdditionalInfo>>>;
   id: Scalars['ID'];
   _sys: SystemInfo;
   _values: Scalars['JSON'];
@@ -725,6 +855,19 @@ export type FrameworksGithubInfoFilter = {
   githubStars?: InputMaybe<StringFilter>;
 };
 
+export type FrameworksAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type FrameworksAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type FrameworksAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<FrameworksAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<FrameworksAdditionalInfoInfoListWarningFilter>;
+};
+
 export type FrameworksFilter = {
   title?: InputMaybe<StringFilter>;
   description?: InputMaybe<StringFilter>;
@@ -734,6 +877,8 @@ export type FrameworksFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<FrameworksAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<FrameworksGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<FrameworksAdditionalInfoFilter>;
 };
 
 export type FrameworksConnectionEdges = {
@@ -760,6 +905,18 @@ export type PaasGithubInfo = {
   githubLink?: Maybe<Scalars['String']>;
   githubStars?: Maybe<Scalars['String']>;
 };
+
+export type PaasAdditionalInfoInfoListItem = {
+  __typename?: 'PaasAdditionalInfoInfoListItem';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type PaasAdditionalInfoInfoListWarning = {
+  __typename?: 'PaasAdditionalInfoInfoListWarning';
+  content?: Maybe<Scalars['String']>;
+};
+
+export type PaasAdditionalInfo = PaasAdditionalInfoInfoListItem | PaasAdditionalInfoInfoListWarning;
 
 export type PaasComparisonInfo = {
   __typename?: 'PaasComparisonInfo';
@@ -790,6 +947,8 @@ export type Paas = Node & Document & {
   thumbnail: Scalars['String'];
   addOnThumbnail?: Maybe<PaasAddOnThumbnail>;
   githubInfo?: Maybe<PaasGithubInfo>;
+  selfHost?: Maybe<Scalars['Boolean']>;
+  additionalInfo?: Maybe<Array<Maybe<PaasAdditionalInfo>>>;
   comparisonInfo?: Maybe<PaasComparisonInfo>;
   id: Scalars['ID'];
   _sys: SystemInfo;
@@ -804,6 +963,19 @@ export type PaasAddOnThumbnailFilter = {
 export type PaasGithubInfoFilter = {
   githubLink?: InputMaybe<StringFilter>;
   githubStars?: InputMaybe<StringFilter>;
+};
+
+export type PaasAdditionalInfoInfoListItemFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type PaasAdditionalInfoInfoListWarningFilter = {
+  content?: InputMaybe<StringFilter>;
+};
+
+export type PaasAdditionalInfoFilter = {
+  infoListItem?: InputMaybe<PaasAdditionalInfoInfoListItemFilter>;
+  infoListWarning?: InputMaybe<PaasAdditionalInfoInfoListWarningFilter>;
 };
 
 export type PaasComparisonInfoFilter = {
@@ -833,6 +1005,8 @@ export type PaasFilter = {
   thumbnail?: InputMaybe<ImageFilter>;
   addOnThumbnail?: InputMaybe<PaasAddOnThumbnailFilter>;
   githubInfo?: InputMaybe<PaasGithubInfoFilter>;
+  selfHost?: InputMaybe<BooleanFilter>;
+  additionalInfo?: InputMaybe<PaasAdditionalInfoFilter>;
   comparisonInfo?: InputMaybe<PaasComparisonInfoFilter>;
 };
 
@@ -997,6 +1171,19 @@ export type AuthenticationGithubInfoMutation = {
   githubStars?: InputMaybe<Scalars['String']>;
 };
 
+export type AuthenticationAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type AuthenticationAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type AuthenticationAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<AuthenticationAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<AuthenticationAdditionalInfoInfoListWarningMutation>;
+};
+
 export type AuthenticationComparisonInfoMutation = {
   monthlyActiveUsers?: InputMaybe<Scalars['String']>;
   emailAndPasswordAuth?: InputMaybe<Scalars['Boolean']>;
@@ -1019,6 +1206,8 @@ export type AuthenticationMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<AuthenticationAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<AuthenticationGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<AuthenticationAdditionalInfoMutation>>>;
   comparisonInfo?: InputMaybe<AuthenticationComparisonInfoMutation>;
 };
 
@@ -1030,6 +1219,19 @@ export type WebHostingAddOnThumbnailMutation = {
 export type WebHostingGithubInfoMutation = {
   githubLink?: InputMaybe<Scalars['String']>;
   githubStars?: InputMaybe<Scalars['String']>;
+};
+
+export type WebHostingAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type WebHostingAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type WebHostingAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<WebHostingAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<WebHostingAdditionalInfoInfoListWarningMutation>;
 };
 
 export type WebHostingComparisonInfoMutation = {
@@ -1058,6 +1260,8 @@ export type WebHostingMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<WebHostingAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<WebHostingGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<WebHostingAdditionalInfoMutation>>>;
   comparisonInfo?: InputMaybe<WebHostingComparisonInfoMutation>;
 };
 
@@ -1069,6 +1273,19 @@ export type BaasAddOnThumbnailMutation = {
 export type BaasGithubInfoMutation = {
   githubLink?: InputMaybe<Scalars['String']>;
   githubStars?: InputMaybe<Scalars['String']>;
+};
+
+export type BaasAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type BaasAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type BaasAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<BaasAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<BaasAdditionalInfoInfoListWarningMutation>;
 };
 
 export type BaasComparisonInfoAuthenticationMutation = {
@@ -1122,6 +1339,8 @@ export type BaasMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<BaasAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<BaasGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<BaasAdditionalInfoMutation>>>;
   comparisonInfo?: InputMaybe<BaasComparisonInfoMutation>;
 };
 
@@ -1133,6 +1352,19 @@ export type CloudProvidersAddOnThumbnailMutation = {
 export type CloudProvidersGithubInfoMutation = {
   githubLink?: InputMaybe<Scalars['String']>;
   githubStars?: InputMaybe<Scalars['String']>;
+};
+
+export type CloudProvidersAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type CloudProvidersAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type CloudProvidersAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<CloudProvidersAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<CloudProvidersAdditionalInfoInfoListWarningMutation>;
 };
 
 export type CloudProvidersFeaturesInfoFeatureMutation = {
@@ -1155,6 +1387,8 @@ export type CloudProvidersMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<CloudProvidersAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<CloudProvidersGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<CloudProvidersAdditionalInfoMutation>>>;
   featuresInfo?: InputMaybe<Array<InputMaybe<CloudProvidersFeaturesInfoMutation>>>;
 };
 
@@ -1168,6 +1402,19 @@ export type FrameworksGithubInfoMutation = {
   githubStars?: InputMaybe<Scalars['String']>;
 };
 
+export type FrameworksAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type FrameworksAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type FrameworksAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<FrameworksAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<FrameworksAdditionalInfoInfoListWarningMutation>;
+};
+
 export type FrameworksMutation = {
   title?: InputMaybe<Scalars['String']>;
   description?: InputMaybe<Scalars['String']>;
@@ -1177,6 +1424,8 @@ export type FrameworksMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<FrameworksAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<FrameworksGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<FrameworksAdditionalInfoMutation>>>;
 };
 
 export type PaasAddOnThumbnailMutation = {
@@ -1187,6 +1436,19 @@ export type PaasAddOnThumbnailMutation = {
 export type PaasGithubInfoMutation = {
   githubLink?: InputMaybe<Scalars['String']>;
   githubStars?: InputMaybe<Scalars['String']>;
+};
+
+export type PaasAdditionalInfoInfoListItemMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type PaasAdditionalInfoInfoListWarningMutation = {
+  content?: InputMaybe<Scalars['String']>;
+};
+
+export type PaasAdditionalInfoMutation = {
+  infoListItem?: InputMaybe<PaasAdditionalInfoInfoListItemMutation>;
+  infoListWarning?: InputMaybe<PaasAdditionalInfoInfoListWarningMutation>;
 };
 
 export type PaasComparisonInfoMutation = {
@@ -1216,27 +1478,29 @@ export type PaasMutation = {
   thumbnail?: InputMaybe<Scalars['String']>;
   addOnThumbnail?: InputMaybe<PaasAddOnThumbnailMutation>;
   githubInfo?: InputMaybe<PaasGithubInfoMutation>;
+  selfHost?: InputMaybe<Scalars['Boolean']>;
+  additionalInfo?: InputMaybe<Array<InputMaybe<PaasAdditionalInfoMutation>>>;
   comparisonInfo?: InputMaybe<PaasComparisonInfoMutation>;
 };
 
-export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null };
+export type AuthenticationPartsFragment = { __typename?: 'Authentication', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'AuthenticationAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'AuthenticationAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null };
 
-export type WebHostingPartsFragment = { __typename?: 'WebHosting', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null };
+export type WebHostingPartsFragment = { __typename?: 'WebHosting', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'WebHostingAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'WebHostingAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null };
 
-export type BaasPartsFragment = { __typename?: 'Baas', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null };
+export type BaasPartsFragment = { __typename?: 'Baas', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'BaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'BaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null };
 
-export type CloudProvidersPartsFragment = { __typename?: 'CloudProviders', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null };
+export type CloudProvidersPartsFragment = { __typename?: 'CloudProviders', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'CloudProvidersAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'CloudProvidersAdditionalInfoInfoListWarning', content?: string | null } | null> | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null };
 
-export type FrameworksPartsFragment = { __typename?: 'Frameworks', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null };
+export type FrameworksPartsFragment = { __typename?: 'Frameworks', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'FrameworksAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'FrameworksAdditionalInfoInfoListWarning', content?: string | null } | null> | null };
 
-export type PaasPartsFragment = { __typename?: 'Paas', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null };
+export type PaasPartsFragment = { __typename?: 'Paas', title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'PaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'PaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null };
 
 export type AuthenticationQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null } };
+export type AuthenticationQuery = { __typename?: 'Query', authentication: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'AuthenticationAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'AuthenticationAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null } };
 
 export type AuthenticationConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1248,14 +1512,14 @@ export type AuthenticationConnectionQueryVariables = Exact<{
 }>;
 
 
-export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null } | null } | null> | null } };
+export type AuthenticationConnectionQuery = { __typename?: 'Query', authenticationConnection: { __typename?: 'AuthenticationConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'AuthenticationConnectionEdges', cursor: string, node?: { __typename?: 'Authentication', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'AuthenticationAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'AuthenticationGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'AuthenticationAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'AuthenticationAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'AuthenticationComparisonInfo', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null } | null } | null> | null } };
 
 export type WebHostingQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type WebHostingQuery = { __typename?: 'Query', webHosting: { __typename?: 'WebHosting', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } };
+export type WebHostingQuery = { __typename?: 'Query', webHosting: { __typename?: 'WebHosting', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'WebHostingAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'WebHostingAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } };
 
 export type WebHostingConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1267,14 +1531,14 @@ export type WebHostingConnectionQueryVariables = Exact<{
 }>;
 
 
-export type WebHostingConnectionQuery = { __typename?: 'Query', webHostingConnection: { __typename?: 'WebHostingConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WebHostingConnectionEdges', cursor: string, node?: { __typename?: 'WebHosting', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } | null } | null> | null } };
+export type WebHostingConnectionQuery = { __typename?: 'Query', webHostingConnection: { __typename?: 'WebHostingConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'WebHostingConnectionEdges', cursor: string, node?: { __typename?: 'WebHosting', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'WebHostingAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'WebHostingGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'WebHostingAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'WebHostingAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'WebHostingComparisonInfo', siteLimit?: string | null, freeBandwidth?: string | null, additionalBandwidthCost?: string | null, freeBuildMinutes?: string | null, concurrentBuilds?: string | null, deploymentPreview?: boolean | null, serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, edgeFunctionExecution?: string | null, globalCdn?: boolean | null, customHeaders?: boolean | null, https?: boolean | null, ddosProtection?: boolean | null } | null } | null } | null> | null } };
 
 export type BaasQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type BaasQuery = { __typename?: 'Query', baas: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null } };
+export type BaasQuery = { __typename?: 'Query', baas: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'BaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'BaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null } };
 
 export type BaasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1286,14 +1550,14 @@ export type BaasConnectionQueryVariables = Exact<{
 }>;
 
 
-export type BaasConnectionQuery = { __typename?: 'Query', baasConnection: { __typename?: 'BaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'BaasConnectionEdges', cursor: string, node?: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers?: string | null, emailAndPasswordAuth?: boolean | null, magicLinks?: boolean | null, socialLogins?: string | null, phoneNumberAuth?: string | null, anonymousAuthentication?: boolean | null, multiFactorAuthentication?: boolean | null, userInterfaceProvided?: boolean | null, customDomain?: boolean | null, noBrandWatermark?: boolean | null } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null } | null } | null> | null } };
+export type BaasConnectionQuery = { __typename?: 'Query', baasConnection: { __typename?: 'BaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'BaasConnectionEdges', cursor: string, node?: { __typename?: 'Baas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'BaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'BaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'BaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'BaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'BaasComparisonInfo', pushNotification?: boolean | null, graphqlApi?: boolean | null, authentication?: { __typename: 'BaasComparisonInfoAuthentication', monthlyActiveUsers: string, emailAndPasswordAuth: boolean, magicLinks: boolean, socialLogins: string, phoneNumberAuth: string, anonymousAuthentication: boolean, multiFactorAuthentication: boolean, userInterfaceProvided: boolean, customDomain: boolean, noBrandWatermark: boolean } | null, database?: { __typename: 'BaasComparisonInfoDatabase', databaseType?: string | null, databaseSize?: string | null, databaseEgress?: string | null, realtimeDatabase?: string | null } | null, serverlessFunction?: { __typename: 'BaasComparisonInfoServerlessFunction', serverlessFunctionExecution?: string | null, serverlessFunctionInvocations?: string | null, serverlessFunctionExecutionTimeout?: string | null, numberOfFunctions?: string | null } | null, storage?: { __typename: 'BaasComparisonInfoStorage', storageSize?: string | null, storageEgress?: string | null, maxFileUploadSize?: string | null } | null } | null } | null } | null> | null } };
 
 export type CloudProvidersQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type CloudProvidersQuery = { __typename?: 'Query', cloudProviders: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null } };
+export type CloudProvidersQuery = { __typename?: 'Query', cloudProviders: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'CloudProvidersAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'CloudProvidersAdditionalInfoInfoListWarning', content?: string | null } | null> | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null } };
 
 export type CloudProvidersConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1305,14 +1569,14 @@ export type CloudProvidersConnectionQueryVariables = Exact<{
 }>;
 
 
-export type CloudProvidersConnectionQuery = { __typename?: 'Query', cloudProvidersConnection: { __typename?: 'CloudProvidersConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CloudProvidersConnectionEdges', cursor: string, node?: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null } | null } | null> | null } };
+export type CloudProvidersConnectionQuery = { __typename?: 'Query', cloudProvidersConnection: { __typename?: 'CloudProvidersConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'CloudProvidersConnectionEdges', cursor: string, node?: { __typename?: 'CloudProviders', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'CloudProvidersAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'CloudProvidersGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'CloudProvidersAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'CloudProvidersAdditionalInfoInfoListWarning', content?: string | null } | null> | null, featuresInfo?: Array<{ __typename: 'CloudProvidersFeaturesInfoFeature', feature?: string | null, description?: string | null, duration?: string | null, limitations?: string | null } | null> | null } | null } | null> | null } };
 
 export type FrameworksQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type FrameworksQuery = { __typename?: 'Query', frameworks: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null } };
+export type FrameworksQuery = { __typename?: 'Query', frameworks: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'FrameworksAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'FrameworksAdditionalInfoInfoListWarning', content?: string | null } | null> | null } };
 
 export type FrameworksConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1324,14 +1588,14 @@ export type FrameworksConnectionQueryVariables = Exact<{
 }>;
 
 
-export type FrameworksConnectionQuery = { __typename?: 'Query', frameworksConnection: { __typename?: 'FrameworksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'FrameworksConnectionEdges', cursor: string, node?: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null } | null } | null> | null } };
+export type FrameworksConnectionQuery = { __typename?: 'Query', frameworksConnection: { __typename?: 'FrameworksConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'FrameworksConnectionEdges', cursor: string, node?: { __typename?: 'Frameworks', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'FrameworksAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'FrameworksGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'FrameworksAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'FrameworksAdditionalInfoInfoListWarning', content?: string | null } | null> | null } | null } | null> | null } };
 
 export type PaasQueryVariables = Exact<{
   relativePath: Scalars['String'];
 }>;
 
 
-export type PaasQuery = { __typename?: 'Query', paas: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } };
+export type PaasQuery = { __typename?: 'Query', paas: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'PaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'PaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } };
 
 export type PaasConnectionQueryVariables = Exact<{
   before?: InputMaybe<Scalars['String']>;
@@ -1343,7 +1607,7 @@ export type PaasConnectionQueryVariables = Exact<{
 }>;
 
 
-export type PaasConnectionQuery = { __typename?: 'Query', paasConnection: { __typename?: 'PaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PaasConnectionEdges', cursor: string, node?: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } | null } | null> | null } };
+export type PaasConnectionQuery = { __typename?: 'Query', paasConnection: { __typename?: 'PaasConnection', totalCount: number, pageInfo: { __typename?: 'PageInfo', hasPreviousPage: boolean, hasNextPage: boolean, startCursor: string, endCursor: string }, edges?: Array<{ __typename?: 'PaasConnectionEdges', cursor: string, node?: { __typename?: 'Paas', id: string, title: string, description: string, descriptionOfFreePlan?: string | null, siteLink: string, pricingPage?: string | null, thumbnail: string, selfHost?: boolean | null, _sys: { __typename?: 'SystemInfo', filename: string, basename: string, breadcrumbs: Array<string>, path: string, relativePath: string, extension: string }, addOnThumbnail?: { __typename: 'PaasAddOnThumbnail', title?: string | null, image?: string | null } | null, githubInfo?: { __typename: 'PaasGithubInfo', githubLink?: string | null, githubStars?: string | null } | null, additionalInfo?: Array<{ __typename: 'PaasAdditionalInfoInfoListItem', content?: string | null } | { __typename: 'PaasAdditionalInfoInfoListWarning', content?: string | null } | null> | null, comparisonInfo?: { __typename: 'PaasComparisonInfo', hourlyLimit?: string | null, appLimit?: string | null, databaseLimit?: string | null, requestLimit?: string | null, freeBandwidth?: string | null, cpu?: string | null, ram?: string | null, supportedLanguage?: string | null, supportedDatabase?: string | null, persistentStorage?: string | null, https?: boolean | null, edgeDeployment?: boolean | null, deployFromAnyGithubRepo?: boolean | null, customDomain?: boolean | null, sleeps?: string | null } | null } | null } | null> | null } };
 
 export const AuthenticationPartsFragmentDoc = gql`
     fragment AuthenticationParts on Authentication {
@@ -1362,6 +1626,16 @@ export const AuthenticationPartsFragmentDoc = gql`
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on AuthenticationAdditionalInfoInfoListItem {
+      content
+    }
+    ... on AuthenticationAdditionalInfoInfoListWarning {
+      content
+    }
   }
   comparisonInfo {
     __typename
@@ -1395,6 +1669,16 @@ export const WebHostingPartsFragmentDoc = gql`
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on WebHostingAdditionalInfoInfoListItem {
+      content
+    }
+    ... on WebHostingAdditionalInfoInfoListWarning {
+      content
+    }
   }
   comparisonInfo {
     __typename
@@ -1432,6 +1716,16 @@ export const BaasPartsFragmentDoc = gql`
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on BaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on BaasAdditionalInfoInfoListWarning {
+      content
+    }
   }
   comparisonInfo {
     __typename
@@ -1491,6 +1785,16 @@ export const CloudProvidersPartsFragmentDoc = gql`
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on CloudProvidersAdditionalInfoInfoListItem {
+      content
+    }
+    ... on CloudProvidersAdditionalInfoInfoListWarning {
+      content
+    }
+  }
   featuresInfo {
     __typename
     ... on CloudProvidersFeaturesInfoFeature {
@@ -1520,6 +1824,16 @@ export const FrameworksPartsFragmentDoc = gql`
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on FrameworksAdditionalInfoInfoListItem {
+      content
+    }
+    ... on FrameworksAdditionalInfoInfoListWarning {
+      content
+    }
+  }
 }
     `;
 export const PaasPartsFragmentDoc = gql`
@@ -1539,6 +1853,16 @@ export const PaasPartsFragmentDoc = gql`
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on PaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on PaasAdditionalInfoInfoListWarning {
+      content
+    }
   }
   comparisonInfo {
     __typename

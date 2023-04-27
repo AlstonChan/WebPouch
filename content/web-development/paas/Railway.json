@@ -10,7 +10,7 @@
     "appLimit": "3",
     "databaseLimit": "$5 or 500 hours",
     "requestLimit": "false",
-    "freeBandwidth": "100 GB",
+    "freeBandwidth": "100 GB monthly",
     "cpu": "Shared vCPU",
     "ram": "512 MB",
     "supportedLanguage": "NodeJs, Deno, Python, Go, Ruby, PHP, Java, Rust, .NET, Haskell, Crystal, Swift, Zig, Dart, Staticfile, Elixir",
@@ -21,5 +21,11 @@
     "deployFromAnyGithubRepo": true,
     "customDomain": true,
     "sleeps": "After limit reached"
-  }
+  },
+  "additionalInfo": [
+    {
+      "content": "If you wanted to deploy a server or a discord bot on Railway, your bot will only be active for approximately 21 days and shut off afterward. This is because Railway only gives you 500 hours of usage, to overcome this, you have to upgrade your plan to Developer. Rest assure, you still can use it free as long as your usage is under $5 since your execution time is unlimited at this plan.",
+      "_template": "infoListItem"
+    }
+  ]
 }

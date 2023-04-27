@@ -21,6 +21,7 @@ import ToolsCard from "@/components/tools/ToolsCards";
 import ToolsLayout from "@/components/ToolsLayout";
 import ToolsTable from "@/components/tools/table/ToolsTable";
 import ToolsMobileStepper from "@/components/tools/ToolsMobileStepper";
+import ToolsAdditionalInfo from "@/components/tools/ToolsAdditionalInfo";
 
 const ToolsParam: NextPageWithLayout = ({
   data,
@@ -67,6 +68,22 @@ const ToolsParam: NextPageWithLayout = ({
     </>
   );
 
+  const checkIfAdditionalInfoDataExists = data.find(
+    (single: any) => single?.additionalInfo
+  );
+
+  const showAdditionalInfoIfDataExists = checkIfAdditionalInfoDataExists && (
+    <>
+      <Box sx={TableTextStyle}>
+        <Typography component="h2" variant="h4">
+          Additional Information
+        </Typography>
+      </Box>
+
+      <ToolsAdditionalInfo data={data} />
+    </>
+  );
+
   // tsx return statement
   return (
     <>
@@ -105,6 +122,8 @@ const ToolsParam: NextPageWithLayout = ({
       </Grid2>
 
       {showTableIfDataExists}
+
+      {showAdditionalInfoIfDataExists}
 
       <ToolsMobileStepper query={query} />
     </>

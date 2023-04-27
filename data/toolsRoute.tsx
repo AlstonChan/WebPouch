@@ -13,7 +13,7 @@ export const webDevelopment: NavList[] = [
   { title: "Web Hosting", icon: <Rocket /> },
   { title: "Frameworks", icon: <Code /> },
   { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Paas", icon: <Devices /> },
+  { title: "PaaS", icon: <Devices /> },
   { title: "BaaS", icon: <Work /> },
 ];
 export const design: NavList[] = [

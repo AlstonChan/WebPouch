@@ -10,7 +10,7 @@
     "freeBandwidth": "Unlimited",
     "additionalBandwidthCost": "0",
     "freeBuildMinutes": "500 builds per month",
-    "concurrentBuilds": 1,
+    "concurrentBuilds": "1",
     "deploymentPreview": true,
     "serverlessFunctionExecution": "Didn't Specified",
     "serverlessFunctionInvocations": "100,000 / day",
@@ -20,5 +20,11 @@
     "customHeaders": true,
     "https": true,
     "ddosProtection": true
-  }
+  },
+  "additionalInfo": [
+    {
+      "content": "Cloudflare Pages itself doesn't have serverless function, it uses another service called Cloudflare Workers. So if you need more information about the serverless function, you should head to <a href=\"https://workers.cloudflare.com/\" rel=\"no-referrer\" target=\"_blank\">https://workers.cloudflare.com/</a>.",
+      "_template": "infoListItem"
+    }
+  ]
 }
