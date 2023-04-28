@@ -9,6 +9,17 @@ import {
   paas,
 } from "./schema/web-development/webDevelopmentSchema";
 
+import {
+  colors,
+  css,
+  fonts,
+  icons,
+  illustrator,
+  misc,
+  pattern,
+  photo,
+} from "./schema/design/designSchema";
+
 // Your hosting provider likely exposes this as an environment variable
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
@@ -27,6 +38,21 @@ export default defineConfig({
     },
   },
   schema: {
-    collections: [auth, webHosting, baaS, cloud, frameworks, paas],
+    collections: [
+      auth,
+      webHosting,
+      baaS,
+      cloud,
+      frameworks,
+      paas,
+      colors,
+      css,
+      fonts,
+      icons,
+      illustrator,
+      misc,
+      pattern,
+      photo,
+    ],
   },
 });

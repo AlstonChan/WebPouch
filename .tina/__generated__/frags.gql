@@ -266,3 +266,235 @@ fragment PaasParts on Paas {
     sleeps
   }
 }
+
+fragment ColorsParts on Colors {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on ColorsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on ColorsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment CssParts on Css {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on CssAdditionalInfoInfoListItem {
+      content
+    }
+    ... on CssAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment FontsParts on Fonts {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on FontsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on FontsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment IconsParts on Icons {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on IconsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on IconsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment IllustratorParts on Illustrator {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on IllustratorAdditionalInfoInfoListItem {
+      content
+    }
+    ... on IllustratorAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment MiscellaneousParts on Miscellaneous {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on MiscellaneousAdditionalInfoInfoListItem {
+      content
+    }
+    ... on MiscellaneousAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment PatternsParts on Patterns {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on PatternsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on PatternsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment StockPhotosParts on StockPhotos {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on StockPhotosAdditionalInfoInfoListItem {
+      content
+    }
+    ... on StockPhotosAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}

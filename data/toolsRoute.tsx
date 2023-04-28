@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import { LockPerson, Rocket, Code, Cloud, Devices } from "@mui/icons-material";
 import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
 import {
@@ -23,6 +26,6 @@ export const design: NavList[] = [
   { title: "Stock Photos", icon: <Collections /> },
   { title: "Fonts", icon: <FontDownload /> },
   { title: "Colors", icon: <Palette /> },
-  { title: "Pattern", icon: <Pattern /> },
+  { title: "Patterns", icon: <Pattern /> },
   { title: "Miscellaneous", icon: <MiscellaneousServices /> },
 ];

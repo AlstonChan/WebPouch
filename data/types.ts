@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 type Replace<
   S extends string,
   From extends string,
@@ -26,7 +29,7 @@ export type Design =
   | "Stock Photos"
   | "Fonts"
   | "Colors"
-  | "Pattern"
+  | "Patterns"
   | "Miscellaneous";
 
 type DesignSlug = ToSlug<Design>;

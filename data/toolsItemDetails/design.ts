@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import { ToolsDetail } from "data/types";
 
 const illustrator: ToolsDetail = {
@@ -30,8 +33,8 @@ const colors: ToolsDetail = {
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
-const pattern: ToolsDetail = {
-  title: "Pattern",
+const patterns: ToolsDetail = {
+  title: "Patterns",
   subTitle: "Placeholder",
   metaDescription: "Placeholder",
 };
@@ -48,7 +51,7 @@ const design: { [key: string]: ToolsDetail } = {
   "stock-photos": stockPhotos,
   fonts,
   colors,
-  pattern,
+  patterns,
   miscellaneous,
 };
 
