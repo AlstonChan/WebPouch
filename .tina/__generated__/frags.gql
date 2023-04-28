@@ -15,6 +15,16 @@ fragment AuthenticationParts on Authentication {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on AuthenticationAdditionalInfoInfoListItem {
+      content
+    }
+    ... on AuthenticationAdditionalInfoInfoListWarning {
+      content
+    }
+  }
   comparisonInfo {
     __typename
     monthlyActiveUsers
@@ -47,6 +57,16 @@ fragment WebHostingParts on WebHosting {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on WebHostingAdditionalInfoInfoListItem {
+      content
+    }
+    ... on WebHostingAdditionalInfoInfoListWarning {
+      content
+    }
+  }
   comparisonInfo {
     __typename
     siteLimit
@@ -63,25 +83,6 @@ fragment WebHostingParts on WebHosting {
     customHeaders
     https
     ddosProtection
-  }
-}
-
-fragment DatabasesParts on Databases {
-  title
-  description
-  descriptionOfFreePlan
-  siteLink
-  pricingPage
-  thumbnail
-  addOnThumbnail {
-    __typename
-    title
-    image
-  }
-  githubInfo {
-    __typename
-    githubLink
-    githubStars
   }
 }
 
@@ -102,6 +103,54 @@ fragment BaasParts on Baas {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on BaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on BaasAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+  comparisonInfo {
+    __typename
+    authentication {
+      __typename
+      monthlyActiveUsers
+      emailAndPasswordAuth
+      magicLinks
+      socialLogins
+      phoneNumberAuth
+      anonymousAuthentication
+      multiFactorAuthentication
+      userInterfaceProvided
+      customDomain
+      noBrandWatermark
+    }
+    database {
+      __typename
+      databaseType
+      databaseSize
+      databaseEgress
+      realtimeDatabase
+    }
+    serverlessFunction {
+      __typename
+      serverlessFunctionExecution
+      serverlessFunctionInvocations
+      serverlessFunctionExecutionTimeout
+      numberOfFunctions
+    }
+    storage {
+      __typename
+      storageSize
+      storageEgress
+      maxFileUploadSize
+    }
+    pushNotification
+    graphqlApi
+  }
 }
 
 fragment CloudProvidersParts on CloudProviders {
@@ -120,6 +169,25 @@ fragment CloudProvidersParts on CloudProviders {
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on CloudProvidersAdditionalInfoInfoListItem {
+      content
+    }
+    ... on CloudProvidersAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+  featuresInfo {
+    __typename
+    ... on CloudProvidersFeaturesInfoFeature {
+      feature
+      description
+      duration
+      limitations
+    }
   }
 }
 
@@ -140,9 +208,19 @@ fragment FrameworksParts on Frameworks {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on FrameworksAdditionalInfoInfoListItem {
+      content
+    }
+    ... on FrameworksAdditionalInfoInfoListWarning {
+      content
+    }
+  }
 }
 
-fragment SecurityParts on Security {
+fragment PaasParts on Paas {
   title
   description
   descriptionOfFreePlan
@@ -159,9 +237,37 @@ fragment SecurityParts on Security {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on PaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on PaasAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+  comparisonInfo {
+    __typename
+    hourlyLimit
+    appLimit
+    databaseLimit
+    requestLimit
+    freeBandwidth
+    cpu
+    ram
+    supportedLanguage
+    supportedDatabase
+    persistentStorage
+    https
+    edgeDeployment
+    deployFromAnyGithubRepo
+    customDomain
+    sleeps
+  }
 }
 
-fragment ImagesParts on Images {
+fragment ColorsParts on Colors {
   title
   description
   descriptionOfFreePlan
@@ -178,9 +284,19 @@ fragment ImagesParts on Images {
     githubLink
     githubStars
   }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on ColorsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on ColorsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
 }
 
-fragment AnalyticsParts on Analytics {
+fragment CssParts on Css {
   title
   description
   descriptionOfFreePlan
@@ -196,5 +312,189 @@ fragment AnalyticsParts on Analytics {
     __typename
     githubLink
     githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on CssAdditionalInfoInfoListItem {
+      content
+    }
+    ... on CssAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment FontsParts on Fonts {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on FontsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on FontsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment IconsParts on Icons {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on IconsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on IconsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment IllustratorParts on Illustrator {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on IllustratorAdditionalInfoInfoListItem {
+      content
+    }
+    ... on IllustratorAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment MiscellaneousParts on Miscellaneous {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on MiscellaneousAdditionalInfoInfoListItem {
+      content
+    }
+    ... on MiscellaneousAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment PatternsParts on Patterns {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on PatternsAdditionalInfoInfoListItem {
+      content
+    }
+    ... on PatternsAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment StockPhotosParts on StockPhotos {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  pricingPage
+  thumbnail
+  addOnThumbnail {
+    __typename
+    title
+    image
+  }
+  githubInfo {
+    __typename
+    githubLink
+    githubStars
+  }
+  selfHost
+  additionalInfo {
+    __typename
+    ... on StockPhotosAdditionalInfoInfoListItem {
+      content
+    }
+    ... on StockPhotosAdditionalInfoInfoListWarning {
+      content
+    }
   }
 }

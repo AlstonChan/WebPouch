@@ -10,7 +10,7 @@
     "freeBandwidth": "100 GB",
     "additionalBandwidthCost": "$55 per 100GB",
     "freeBuildMinutes": "300 minutes",
-    "concurrentBuilds": 1,
+    "concurrentBuilds": "1",
     "deploymentPreview": true,
     "serverlessFunctionExecution": "100 hours",
     "serverlessFunctionInvocations": "125,000",

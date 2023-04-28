@@ -1,0 +1,45 @@
+{
+  "title": "Firebase",
+  "description": "Firebase is an app development platform that helps you build and grow apps and games users love.",
+  "descriptionOfFreePlan": "5GB Cloud storage, 1GiB database with realtime update, 50k monthly active users",
+  "siteLink": "https://firebase.google.com/",
+  "pricingPage": "https://firebase.google.com/pricing/",
+  "thumbnail": "/webdev/baas/firebase.png",
+  "addOnThumbnail": {
+    "title": "Google Cloud Platform",
+    "image": "/webdev/cloudProviders/gcp.png"
+  },
+  "comparisonInfo": {
+    "authentication": {
+      "monthlyActiveUsers": "50,000 monthly",
+      "emailAndPasswordAuth": true,
+      "magicLinks": false,
+      "socialLogins": "9",
+      "phoneNumberAuth": "10,000 per month",
+      "anonymousAuthentication": true,
+      "multiFactorAuthentication": false,
+      "userInterfaceProvided": true,
+      "customDomain": true,
+      "noBrandWatermark": true
+    },
+    "database": {
+      "databaseType": "NoSQL Firestore",
+      "databaseSize": "1 GiB",
+      "databaseEgress": "10 GiB per month ",
+      "realtimeDatabase": "100 connections"
+    },
+    "serverlessFunction": {
+      "serverlessFunctionExecution": "false",
+      "serverlessFunctionInvocations": "false",
+      "serverlessFunctionExecutionTimeout": "false",
+      "numberOfFunctions": "false"
+    },
+    "storage": {
+      "storageSize": "5 GB",
+      "storageEgress": "1 GB per day ",
+      "maxFileUploadSize": "Didn't Specified"
+    },
+    "pushNotification": true,
+    "graphqlApi": true
+  }
+}

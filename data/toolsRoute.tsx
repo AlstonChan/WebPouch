@@ -1,5 +1,7 @@
-import { LockPerson, Rocket, Code, Cloud, Storage } from "@mui/icons-material";
-import { Analytics, Image as ImageIcon, Security } from "@mui/icons-material";
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
+import { LockPerson, Rocket, Code, Cloud, Devices } from "@mui/icons-material";
 import { Work, Create, Css, GridView, Collections } from "@mui/icons-material";
 import {
   FontDownload,
@@ -14,10 +16,7 @@ export const webDevelopment: NavList[] = [
   { title: "Web Hosting", icon: <Rocket /> },
   { title: "Frameworks", icon: <Code /> },
   { title: "Cloud Providers", icon: <Cloud /> },
-  { title: "Databases", icon: <Storage /> },
-  { title: "Analytics", icon: <Analytics /> },
-  { title: "Images", icon: <ImageIcon /> },
-  { title: "Security", icon: <Security /> },
+  { title: "PaaS", icon: <Devices /> },
   { title: "BaaS", icon: <Work /> },
 ];
 export const design: NavList[] = [
@@ -27,6 +26,6 @@ export const design: NavList[] = [
   { title: "Stock Photos", icon: <Collections /> },
   { title: "Fonts", icon: <FontDownload /> },
   { title: "Colors", icon: <Palette /> },
-  { title: "Pattern", icon: <Pattern /> },
+  { title: "Patterns", icon: <Pattern /> },
   { title: "Miscellaneous", icon: <MiscellaneousServices /> },
 ];

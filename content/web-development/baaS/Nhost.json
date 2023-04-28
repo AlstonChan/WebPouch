@@ -1,0 +1,45 @@
+{
+  "title": "Nhost",
+  "description": "Nhost is an open-source backend and development platform that enables developers to build and scale their web and mobile apps.",
+  "descriptionOfFreePlan": "Managed database, 10,000 MAUs authentication per month, free forever",
+  "siteLink": "https://nhost.io/",
+  "pricingPage": "https://nhost.io/pricing",
+  "thumbnail": "/webdev/baas/nhost.png",
+  "githubInfo": {
+    "githubLink": "https://github.com/nhost/nhost",
+    "githubStars": "6.6k"
+  },
+  "comparisonInfo": {
+    "authentication": {
+      "monthlyActiveUsers": "10,000 monthly",
+      "emailAndPasswordAuth": true,
+      "magicLinks": true,
+      "socialLogins": "true",
+      "phoneNumberAuth": "Use Twillio SMS",
+      "anonymousAuthentication": false,
+      "multiFactorAuthentication": true,
+      "userInterfaceProvided": false,
+      "customDomain": true,
+      "noBrandWatermark": true
+    },
+    "database": {
+      "databaseType": "Postgres",
+      "databaseSize": "500 MB",
+      "databaseEgress": "Didn't Specified",
+      "realtimeDatabase": "true"
+    },
+    "serverlessFunction": {
+      "serverlessFunctionExecution": "1 GB per hour",
+      "serverlessFunctionInvocations": "-",
+      "serverlessFunctionExecutionTimeout": "10 seconds",
+      "numberOfFunctions": "10"
+    },
+    "storage": {
+      "storageSize": "1 GB",
+      "storageEgress": "Didn't Specified",
+      "maxFileUploadSize": "Didn't Specified"
+    },
+    "pushNotification": false,
+    "graphqlApi": true
+  }
+}

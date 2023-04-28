@@ -104,59 +104,6 @@ query webHostingConnection($before: String, $after: String, $first: Float, $last
   }
 }
 
-query databases($relativePath: String!) {
-  databases(relativePath: $relativePath) {
-    ... on Document {
-      _sys {
-        filename
-        basename
-        breadcrumbs
-        path
-        relativePath
-        extension
-      }
-      id
-    }
-    ...DatabasesParts
-  }
-}
-
-query databasesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: DatabasesFilter) {
-  databasesConnection(
-    before: $before
-    after: $after
-    first: $first
-    last: $last
-    sort: $sort
-    filter: $filter
-  ) {
-    pageInfo {
-      hasPreviousPage
-      hasNextPage
-      startCursor
-      endCursor
-    }
-    totalCount
-    edges {
-      cursor
-      node {
-        ... on Document {
-          _sys {
-            filename
-            basename
-            breadcrumbs
-            path
-            relativePath
-            extension
-          }
-          id
-        }
-        ...DatabasesParts
-      }
-    }
-  }
-}
-
 query baas($relativePath: String!) {
   baas(relativePath: $relativePath) {
     ... on Document {
@@ -316,8 +263,8 @@ query frameworksConnection($before: String, $after: String, $first: Float, $last
   }
 }
 
-query security($relativePath: String!) {
-  security(relativePath: $relativePath) {
+query paas($relativePath: String!) {
+  paas(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -329,12 +276,12 @@ query security($relativePath: String!) {
       }
       id
     }
-    ...SecurityParts
+    ...PaasParts
   }
 }
 
-query securityConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: SecurityFilter) {
-  securityConnection(
+query paasConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PaasFilter) {
+  paasConnection(
     before: $before
     after: $after
     first: $first
@@ -363,14 +310,14 @@ query securityConnection($before: String, $after: String, $first: Float, $last: 
           }
           id
         }
-        ...SecurityParts
+        ...PaasParts
       }
     }
   }
 }
 
-query images($relativePath: String!) {
-  images(relativePath: $relativePath) {
+query colors($relativePath: String!) {
+  colors(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -382,12 +329,12 @@ query images($relativePath: String!) {
       }
       id
     }
-    ...ImagesParts
+    ...ColorsParts
   }
 }
 
-query imagesConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ImagesFilter) {
-  imagesConnection(
+query colorsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: ColorsFilter) {
+  colorsConnection(
     before: $before
     after: $after
     first: $first
@@ -416,14 +363,14 @@ query imagesConnection($before: String, $after: String, $first: Float, $last: Fl
           }
           id
         }
-        ...ImagesParts
+        ...ColorsParts
       }
     }
   }
 }
 
-query analytics($relativePath: String!) {
-  analytics(relativePath: $relativePath) {
+query css($relativePath: String!) {
+  css(relativePath: $relativePath) {
     ... on Document {
       _sys {
         filename
@@ -435,12 +382,12 @@ query analytics($relativePath: String!) {
       }
       id
     }
-    ...AnalyticsParts
+    ...CssParts
   }
 }
 
-query analyticsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: AnalyticsFilter) {
-  analyticsConnection(
+query cssConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: CssFilter) {
+  cssConnection(
     before: $before
     after: $after
     first: $first
@@ -469,7 +416,325 @@ query analyticsConnection($before: String, $after: String, $first: Float, $last:
           }
           id
         }
-        ...AnalyticsParts
+        ...CssParts
+      }
+    }
+  }
+}
+
+query fonts($relativePath: String!) {
+  fonts(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...FontsParts
+  }
+}
+
+query fontsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: FontsFilter) {
+  fontsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...FontsParts
+      }
+    }
+  }
+}
+
+query icons($relativePath: String!) {
+  icons(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...IconsParts
+  }
+}
+
+query iconsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: IconsFilter) {
+  iconsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...IconsParts
+      }
+    }
+  }
+}
+
+query illustrator($relativePath: String!) {
+  illustrator(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...IllustratorParts
+  }
+}
+
+query illustratorConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: IllustratorFilter) {
+  illustratorConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...IllustratorParts
+      }
+    }
+  }
+}
+
+query miscellaneous($relativePath: String!) {
+  miscellaneous(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...MiscellaneousParts
+  }
+}
+
+query miscellaneousConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: MiscellaneousFilter) {
+  miscellaneousConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...MiscellaneousParts
+      }
+    }
+  }
+}
+
+query patterns($relativePath: String!) {
+  patterns(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...PatternsParts
+  }
+}
+
+query patternsConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: PatternsFilter) {
+  patternsConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...PatternsParts
+      }
+    }
+  }
+}
+
+query stockPhotos($relativePath: String!) {
+  stockPhotos(relativePath: $relativePath) {
+    ... on Document {
+      _sys {
+        filename
+        basename
+        breadcrumbs
+        path
+        relativePath
+        extension
+      }
+      id
+    }
+    ...StockPhotosParts
+  }
+}
+
+query stockPhotosConnection($before: String, $after: String, $first: Float, $last: Float, $sort: String, $filter: StockPhotosFilter) {
+  stockPhotosConnection(
+    before: $before
+    after: $after
+    first: $first
+    last: $last
+    sort: $sort
+    filter: $filter
+  ) {
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+    totalCount
+    edges {
+      cursor
+      node {
+        ... on Document {
+          _sys {
+            filename
+            basename
+            breadcrumbs
+            path
+            relativePath
+            extension
+          }
+          id
+        }
+        ...StockPhotosParts
       }
     }
   }

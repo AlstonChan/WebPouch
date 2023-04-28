@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import { Box, Container } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 

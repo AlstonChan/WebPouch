@@ -17,6 +17,11 @@ type SystemInfo {
   collection: Collection!
 }
 
+type Folder {
+  name: String!
+  path: String!
+}
+
 type PageInfo {
   hasPreviousPage: Boolean!
   hasNextPage: Boolean!
@@ -52,32 +57,47 @@ type Query {
   authenticationConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AuthenticationFilter): AuthenticationConnection!
   webHosting(relativePath: String): WebHosting!
   webHostingConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: WebHostingFilter): WebHostingConnection!
-  databases(relativePath: String): Databases!
-  databasesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: DatabasesFilter): DatabasesConnection!
   baas(relativePath: String): Baas!
   baasConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: BaasFilter): BaasConnection!
   cloudProviders(relativePath: String): CloudProviders!
   cloudProvidersConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CloudProvidersFilter): CloudProvidersConnection!
   frameworks(relativePath: String): Frameworks!
   frameworksConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: FrameworksFilter): FrameworksConnection!
-  security(relativePath: String): Security!
-  securityConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: SecurityFilter): SecurityConnection!
-  images(relativePath: String): Images!
-  imagesConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ImagesFilter): ImagesConnection!
-  analytics(relativePath: String): Analytics!
-  analyticsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: AnalyticsFilter): AnalyticsConnection!
+  paas(relativePath: String): Paas!
+  paasConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PaasFilter): PaasConnection!
+  colors(relativePath: String): Colors!
+  colorsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: ColorsFilter): ColorsConnection!
+  css(relativePath: String): Css!
+  cssConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: CssFilter): CssConnection!
+  fonts(relativePath: String): Fonts!
+  fontsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: FontsFilter): FontsConnection!
+  icons(relativePath: String): Icons!
+  iconsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: IconsFilter): IconsConnection!
+  illustrator(relativePath: String): Illustrator!
+  illustratorConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: IllustratorFilter): IllustratorConnection!
+  miscellaneous(relativePath: String): Miscellaneous!
+  miscellaneousConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: MiscellaneousFilter): MiscellaneousConnection!
+  patterns(relativePath: String): Patterns!
+  patternsConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: PatternsFilter): PatternsConnection!
+  stockPhotos(relativePath: String): StockPhotos!
+  stockPhotosConnection(before: String, after: String, first: Float, last: Float, sort: String, filter: StockPhotosFilter): StockPhotosConnection!
 }
 
 input DocumentFilter {
   authentication: AuthenticationFilter
   webHosting: WebHostingFilter
-  databases: DatabasesFilter
   baas: BaasFilter
   cloudProviders: CloudProvidersFilter
   frameworks: FrameworksFilter
-  security: SecurityFilter
-  images: ImagesFilter
-  analytics: AnalyticsFilter
+  paas: PaasFilter
+  colors: ColorsFilter
+  css: CssFilter
+  fonts: FontsFilter
+  icons: IconsFilter
+  illustrator: IllustratorFilter
+  miscellaneous: MiscellaneousFilter
+  patterns: PatternsFilter
+  stockPhotos: StockPhotosFilter
 }
 
 type DocumentConnectionEdges {
@@ -100,10 +120,10 @@ type Collection {
   matches: String
   templates: [JSON]
   fields: [JSON]
-  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter): DocumentConnection!
+  documents(before: String, after: String, first: Float, last: Float, sort: String, filter: DocumentFilter, folder: String): DocumentConnection!
 }
 
-union DocumentNode = Authentication | WebHosting | Databases | Baas | CloudProviders | Frameworks | Security | Images | Analytics
+union DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Paas | Colors | Css | Fonts | Icons | Illustrator | Miscellaneous | Patterns | StockPhotos | Folder
 
 type AuthenticationAddOnThumbnail {
   title: String
@@ -115,17 +135,27 @@ type AuthenticationGithubInfo {
   githubStars: String
 }
 
+type AuthenticationAdditionalInfoInfoListItem {
+  content: String
+}
+
+type AuthenticationAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union AuthenticationAdditionalInfo = AuthenticationAdditionalInfoInfoListItem | AuthenticationAdditionalInfoInfoListWarning
+
 type AuthenticationComparisonInfo {
-  monthlyActiveUsers: String
-  emailAndPasswordAuth: Boolean
-  magicLinks: Boolean
-  socialLogins: String
-  phoneNumberAuth: String
-  anonymousAuthentication: Boolean
-  multiFactorAuthentication: Boolean
-  userInterfaceProvided: Boolean
-  customDomain: Boolean
-  noBrandWatermark: Boolean
+  monthlyActiveUsers: String!
+  emailAndPasswordAuth: Boolean!
+  magicLinks: Boolean!
+  socialLogins: String!
+  phoneNumberAuth: String!
+  anonymousAuthentication: Boolean!
+  multiFactorAuthentication: Boolean!
+  userInterfaceProvided: Boolean!
+  customDomain: Boolean!
+  noBrandWatermark: Boolean!
 }
 
 type Authentication implements Node & Document {
@@ -137,6 +167,8 @@ type Authentication implements Node & Document {
   thumbnail: String!
   addOnThumbnail: AuthenticationAddOnThumbnail
   githubInfo: AuthenticationGithubInfo
+  selfHost: Boolean
+  additionalInfo: [AuthenticationAdditionalInfo]
   comparisonInfo: AuthenticationComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -172,6 +204,19 @@ input BooleanFilter {
   exists: Boolean
 }
 
+input AuthenticationAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input AuthenticationAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input AuthenticationAdditionalInfoFilter {
+  infoListItem: AuthenticationAdditionalInfoInfoListItemFilter
+  infoListWarning: AuthenticationAdditionalInfoInfoListWarningFilter
+}
+
 input AuthenticationComparisonInfoFilter {
   monthlyActiveUsers: StringFilter
   emailAndPasswordAuth: BooleanFilter
@@ -194,6 +239,8 @@ input AuthenticationFilter {
   thumbnail: ImageFilter
   addOnThumbnail: AuthenticationAddOnThumbnailFilter
   githubInfo: AuthenticationGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: AuthenticationAdditionalInfoFilter
   comparisonInfo: AuthenticationComparisonInfoFilter
 }
 
@@ -217,6 +264,16 @@ type WebHostingGithubInfo {
   githubLink: String
   githubStars: String
 }
+
+type WebHostingAdditionalInfoInfoListItem {
+  content: String
+}
+
+type WebHostingAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union WebHostingAdditionalInfo = WebHostingAdditionalInfoInfoListItem | WebHostingAdditionalInfoInfoListWarning
 
 type WebHostingComparisonInfo {
   siteLimit: String
@@ -244,6 +301,8 @@ type WebHosting implements Node & Document {
   thumbnail: String!
   addOnThumbnail: WebHostingAddOnThumbnail
   githubInfo: WebHostingGithubInfo
+  selfHost: Boolean
+  additionalInfo: [WebHostingAdditionalInfo]
   comparisonInfo: WebHostingComparisonInfo
   id: ID!
   _sys: SystemInfo!
@@ -258,6 +317,19 @@ input WebHostingAddOnThumbnailFilter {
 input WebHostingGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
+}
+
+input WebHostingAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input WebHostingAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input WebHostingAdditionalInfoFilter {
+  infoListItem: WebHostingAdditionalInfoInfoListItemFilter
+  infoListWarning: WebHostingAdditionalInfoInfoListWarningFilter
 }
 
 input WebHostingComparisonInfoFilter {
@@ -286,6 +358,8 @@ input WebHostingFilter {
   thumbnail: ImageFilter
   addOnThumbnail: WebHostingAddOnThumbnailFilter
   githubInfo: WebHostingGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: WebHostingAdditionalInfoFilter
   comparisonInfo: WebHostingComparisonInfoFilter
 }
 
@@ -300,62 +374,6 @@ type WebHostingConnection implements Connection {
   edges: [WebHostingConnectionEdges]
 }
 
-type DatabasesAddOnThumbnail {
-  title: String
-  image: String
-}
-
-type DatabasesGithubInfo {
-  githubLink: String
-  githubStars: String
-}
-
-type Databases implements Node & Document {
-  title: String!
-  description: String!
-  descriptionOfFreePlan: String
-  siteLink: String!
-  pricingPage: String
-  thumbnail: String!
-  addOnThumbnail: DatabasesAddOnThumbnail
-  githubInfo: DatabasesGithubInfo
-  id: ID!
-  _sys: SystemInfo!
-  _values: JSON!
-}
-
-input DatabasesAddOnThumbnailFilter {
-  title: StringFilter
-  image: ImageFilter
-}
-
-input DatabasesGithubInfoFilter {
-  githubLink: StringFilter
-  githubStars: StringFilter
-}
-
-input DatabasesFilter {
-  title: StringFilter
-  description: StringFilter
-  descriptionOfFreePlan: StringFilter
-  siteLink: StringFilter
-  pricingPage: StringFilter
-  thumbnail: ImageFilter
-  addOnThumbnail: DatabasesAddOnThumbnailFilter
-  githubInfo: DatabasesGithubInfoFilter
-}
-
-type DatabasesConnectionEdges {
-  cursor: String!
-  node: Databases
-}
-
-type DatabasesConnection implements Connection {
-  pageInfo: PageInfo!
-  totalCount: Float!
-  edges: [DatabasesConnectionEdges]
-}
-
 type BaasAddOnThumbnail {
   title: String
   image: String
@@ -364,6 +382,58 @@ type BaasAddOnThumbnail {
 type BaasGithubInfo {
   githubLink: String
   githubStars: String
+}
+
+type BaasAdditionalInfoInfoListItem {
+  content: String
+}
+
+type BaasAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union BaasAdditionalInfo = BaasAdditionalInfoInfoListItem | BaasAdditionalInfoInfoListWarning
+
+type BaasComparisonInfoAuthentication {
+  monthlyActiveUsers: String!
+  emailAndPasswordAuth: Boolean!
+  magicLinks: Boolean!
+  socialLogins: String!
+  phoneNumberAuth: String!
+  anonymousAuthentication: Boolean!
+  multiFactorAuthentication: Boolean!
+  userInterfaceProvided: Boolean!
+  customDomain: Boolean!
+  noBrandWatermark: Boolean!
+}
+
+type BaasComparisonInfoDatabase {
+  databaseType: String
+  databaseSize: String
+  databaseEgress: String
+  realtimeDatabase: String
+}
+
+type BaasComparisonInfoServerlessFunction {
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  numberOfFunctions: String
+}
+
+type BaasComparisonInfoStorage {
+  storageSize: String
+  storageEgress: String
+  maxFileUploadSize: String
+}
+
+type BaasComparisonInfo {
+  authentication: BaasComparisonInfoAuthentication
+  database: BaasComparisonInfoDatabase
+  serverlessFunction: BaasComparisonInfoServerlessFunction
+  storage: BaasComparisonInfoStorage
+  pushNotification: Boolean
+  graphqlApi: Boolean
 }
 
 type Baas implements Node & Document {
@@ -375,6 +445,9 @@ type Baas implements Node & Document {
   thumbnail: String!
   addOnThumbnail: BaasAddOnThumbnail
   githubInfo: BaasGithubInfo
+  selfHost: Boolean
+  additionalInfo: [BaasAdditionalInfo]
+  comparisonInfo: BaasComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -390,6 +463,61 @@ input BaasGithubInfoFilter {
   githubStars: StringFilter
 }
 
+input BaasAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input BaasAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input BaasAdditionalInfoFilter {
+  infoListItem: BaasAdditionalInfoInfoListItemFilter
+  infoListWarning: BaasAdditionalInfoInfoListWarningFilter
+}
+
+input BaasComparisonInfoAuthenticationFilter {
+  monthlyActiveUsers: StringFilter
+  emailAndPasswordAuth: BooleanFilter
+  magicLinks: BooleanFilter
+  socialLogins: StringFilter
+  phoneNumberAuth: StringFilter
+  anonymousAuthentication: BooleanFilter
+  multiFactorAuthentication: BooleanFilter
+  userInterfaceProvided: BooleanFilter
+  customDomain: BooleanFilter
+  noBrandWatermark: BooleanFilter
+}
+
+input BaasComparisonInfoDatabaseFilter {
+  databaseType: StringFilter
+  databaseSize: StringFilter
+  databaseEgress: StringFilter
+  realtimeDatabase: StringFilter
+}
+
+input BaasComparisonInfoServerlessFunctionFilter {
+  serverlessFunctionExecution: StringFilter
+  serverlessFunctionInvocations: StringFilter
+  serverlessFunctionExecutionTimeout: StringFilter
+  numberOfFunctions: StringFilter
+}
+
+input BaasComparisonInfoStorageFilter {
+  storageSize: StringFilter
+  storageEgress: StringFilter
+  maxFileUploadSize: StringFilter
+}
+
+input BaasComparisonInfoFilter {
+  authentication: BaasComparisonInfoAuthenticationFilter
+  database: BaasComparisonInfoDatabaseFilter
+  serverlessFunction: BaasComparisonInfoServerlessFunctionFilter
+  storage: BaasComparisonInfoStorageFilter
+  pushNotification: BooleanFilter
+  graphqlApi: BooleanFilter
+}
+
 input BaasFilter {
   title: StringFilter
   description: StringFilter
@@ -399,6 +527,9 @@ input BaasFilter {
   thumbnail: ImageFilter
   addOnThumbnail: BaasAddOnThumbnailFilter
   githubInfo: BaasGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: BaasAdditionalInfoFilter
+  comparisonInfo: BaasComparisonInfoFilter
 }
 
 type BaasConnectionEdges {
@@ -422,6 +553,25 @@ type CloudProvidersGithubInfo {
   githubStars: String
 }
 
+type CloudProvidersAdditionalInfoInfoListItem {
+  content: String
+}
+
+type CloudProvidersAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union CloudProvidersAdditionalInfo = CloudProvidersAdditionalInfoInfoListItem | CloudProvidersAdditionalInfoInfoListWarning
+
+type CloudProvidersFeaturesInfoFeature {
+  feature: String
+  description: String
+  duration: String
+  limitations: String
+}
+
+union CloudProvidersFeaturesInfo = CloudProvidersFeaturesInfoFeature
+
 type CloudProviders implements Node & Document {
   title: String!
   description: String!
@@ -431,6 +581,9 @@ type CloudProviders implements Node & Document {
   thumbnail: String!
   addOnThumbnail: CloudProvidersAddOnThumbnail
   githubInfo: CloudProvidersGithubInfo
+  selfHost: Boolean
+  additionalInfo: [CloudProvidersAdditionalInfo]
+  featuresInfo: [CloudProvidersFeaturesInfo]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -446,6 +599,30 @@ input CloudProvidersGithubInfoFilter {
   githubStars: StringFilter
 }
 
+input CloudProvidersAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input CloudProvidersAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input CloudProvidersAdditionalInfoFilter {
+  infoListItem: CloudProvidersAdditionalInfoInfoListItemFilter
+  infoListWarning: CloudProvidersAdditionalInfoInfoListWarningFilter
+}
+
+input CloudProvidersFeaturesInfoFeatureFilter {
+  feature: StringFilter
+  description: StringFilter
+  duration: StringFilter
+  limitations: StringFilter
+}
+
+input CloudProvidersFeaturesInfoFilter {
+  feature: CloudProvidersFeaturesInfoFeatureFilter
+}
+
 input CloudProvidersFilter {
   title: StringFilter
   description: StringFilter
@@ -455,6 +632,9 @@ input CloudProvidersFilter {
   thumbnail: ImageFilter
   addOnThumbnail: CloudProvidersAddOnThumbnailFilter
   githubInfo: CloudProvidersGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: CloudProvidersAdditionalInfoFilter
+  featuresInfo: CloudProvidersFeaturesInfoFilter
 }
 
 type CloudProvidersConnectionEdges {
@@ -478,6 +658,16 @@ type FrameworksGithubInfo {
   githubStars: String
 }
 
+type FrameworksAdditionalInfoInfoListItem {
+  content: String
+}
+
+type FrameworksAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union FrameworksAdditionalInfo = FrameworksAdditionalInfoInfoListItem | FrameworksAdditionalInfoInfoListWarning
+
 type Frameworks implements Node & Document {
   title: String!
   description: String!
@@ -487,6 +677,8 @@ type Frameworks implements Node & Document {
   thumbnail: String!
   addOnThumbnail: FrameworksAddOnThumbnail
   githubInfo: FrameworksGithubInfo
+  selfHost: Boolean
+  additionalInfo: [FrameworksAdditionalInfo]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
@@ -502,6 +694,19 @@ input FrameworksGithubInfoFilter {
   githubStars: StringFilter
 }
 
+input FrameworksAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input FrameworksAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input FrameworksAdditionalInfoFilter {
+  infoListItem: FrameworksAdditionalInfoInfoListItemFilter
+  infoListWarning: FrameworksAdditionalInfoInfoListWarningFilter
+}
+
 input FrameworksFilter {
   title: StringFilter
   description: StringFilter
@@ -511,6 +716,8 @@ input FrameworksFilter {
   thumbnail: ImageFilter
   addOnThumbnail: FrameworksAddOnThumbnailFilter
   githubInfo: FrameworksGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: FrameworksAdditionalInfoFilter
 }
 
 type FrameworksConnectionEdges {
@@ -524,172 +731,789 @@ type FrameworksConnection implements Connection {
   edges: [FrameworksConnectionEdges]
 }
 
-type SecurityAddOnThumbnail {
+type PaasAddOnThumbnail {
   title: String
   image: String
 }
 
-type SecurityGithubInfo {
+type PaasGithubInfo {
   githubLink: String
   githubStars: String
 }
 
-type Security implements Node & Document {
+type PaasAdditionalInfoInfoListItem {
+  content: String
+}
+
+type PaasAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union PaasAdditionalInfo = PaasAdditionalInfoInfoListItem | PaasAdditionalInfoInfoListWarning
+
+type PaasComparisonInfo {
+  hourlyLimit: String
+  appLimit: String
+  databaseLimit: String
+  requestLimit: String
+  freeBandwidth: String
+  cpu: String
+  ram: String
+  supportedLanguage: String
+  supportedDatabase: String
+  persistentStorage: String
+  https: Boolean
+  edgeDeployment: Boolean
+  deployFromAnyGithubRepo: Boolean
+  customDomain: Boolean
+  sleeps: String
+}
+
+type Paas implements Node & Document {
   title: String!
   description: String!
   descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
-  addOnThumbnail: SecurityAddOnThumbnail
-  githubInfo: SecurityGithubInfo
+  addOnThumbnail: PaasAddOnThumbnail
+  githubInfo: PaasGithubInfo
+  selfHost: Boolean
+  additionalInfo: [PaasAdditionalInfo]
+  comparisonInfo: PaasComparisonInfo
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input SecurityAddOnThumbnailFilter {
+input PaasAddOnThumbnailFilter {
   title: StringFilter
   image: ImageFilter
 }
 
-input SecurityGithubInfoFilter {
+input PaasGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
 }
 
-input SecurityFilter {
+input PaasAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input PaasAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input PaasAdditionalInfoFilter {
+  infoListItem: PaasAdditionalInfoInfoListItemFilter
+  infoListWarning: PaasAdditionalInfoInfoListWarningFilter
+}
+
+input PaasComparisonInfoFilter {
+  hourlyLimit: StringFilter
+  appLimit: StringFilter
+  databaseLimit: StringFilter
+  requestLimit: StringFilter
+  freeBandwidth: StringFilter
+  cpu: StringFilter
+  ram: StringFilter
+  supportedLanguage: StringFilter
+  supportedDatabase: StringFilter
+  persistentStorage: StringFilter
+  https: BooleanFilter
+  edgeDeployment: BooleanFilter
+  deployFromAnyGithubRepo: BooleanFilter
+  customDomain: BooleanFilter
+  sleeps: StringFilter
+}
+
+input PaasFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
-  addOnThumbnail: SecurityAddOnThumbnailFilter
-  githubInfo: SecurityGithubInfoFilter
+  addOnThumbnail: PaasAddOnThumbnailFilter
+  githubInfo: PaasGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: PaasAdditionalInfoFilter
+  comparisonInfo: PaasComparisonInfoFilter
 }
 
-type SecurityConnectionEdges {
+type PaasConnectionEdges {
   cursor: String!
-  node: Security
+  node: Paas
 }
 
-type SecurityConnection implements Connection {
+type PaasConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [SecurityConnectionEdges]
+  edges: [PaasConnectionEdges]
 }
 
-type ImagesAddOnThumbnail {
+type ColorsAddOnThumbnail {
   title: String
   image: String
 }
 
-type ImagesGithubInfo {
+type ColorsGithubInfo {
   githubLink: String
   githubStars: String
 }
 
-type Images implements Node & Document {
+type ColorsAdditionalInfoInfoListItem {
+  content: String
+}
+
+type ColorsAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union ColorsAdditionalInfo = ColorsAdditionalInfoInfoListItem | ColorsAdditionalInfoInfoListWarning
+
+type Colors implements Node & Document {
   title: String!
   description: String!
   descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
-  addOnThumbnail: ImagesAddOnThumbnail
-  githubInfo: ImagesGithubInfo
+  addOnThumbnail: ColorsAddOnThumbnail
+  githubInfo: ColorsGithubInfo
+  selfHost: Boolean
+  additionalInfo: [ColorsAdditionalInfo]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input ImagesAddOnThumbnailFilter {
+input ColorsAddOnThumbnailFilter {
   title: StringFilter
   image: ImageFilter
 }
 
-input ImagesGithubInfoFilter {
+input ColorsGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
 }
 
-input ImagesFilter {
+input ColorsAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input ColorsAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input ColorsAdditionalInfoFilter {
+  infoListItem: ColorsAdditionalInfoInfoListItemFilter
+  infoListWarning: ColorsAdditionalInfoInfoListWarningFilter
+}
+
+input ColorsFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
-  addOnThumbnail: ImagesAddOnThumbnailFilter
-  githubInfo: ImagesGithubInfoFilter
+  addOnThumbnail: ColorsAddOnThumbnailFilter
+  githubInfo: ColorsGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: ColorsAdditionalInfoFilter
 }
 
-type ImagesConnectionEdges {
+type ColorsConnectionEdges {
   cursor: String!
-  node: Images
+  node: Colors
 }
 
-type ImagesConnection implements Connection {
+type ColorsConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [ImagesConnectionEdges]
+  edges: [ColorsConnectionEdges]
 }
 
-type AnalyticsAddOnThumbnail {
+type CssAddOnThumbnail {
   title: String
   image: String
 }
 
-type AnalyticsGithubInfo {
+type CssGithubInfo {
   githubLink: String
   githubStars: String
 }
 
-type Analytics implements Node & Document {
+type CssAdditionalInfoInfoListItem {
+  content: String
+}
+
+type CssAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union CssAdditionalInfo = CssAdditionalInfoInfoListItem | CssAdditionalInfoInfoListWarning
+
+type Css implements Node & Document {
   title: String!
   description: String!
   descriptionOfFreePlan: String
   siteLink: String!
   pricingPage: String
   thumbnail: String!
-  addOnThumbnail: AnalyticsAddOnThumbnail
-  githubInfo: AnalyticsGithubInfo
+  addOnThumbnail: CssAddOnThumbnail
+  githubInfo: CssGithubInfo
+  selfHost: Boolean
+  additionalInfo: [CssAdditionalInfo]
   id: ID!
   _sys: SystemInfo!
   _values: JSON!
 }
 
-input AnalyticsAddOnThumbnailFilter {
+input CssAddOnThumbnailFilter {
   title: StringFilter
   image: ImageFilter
 }
 
-input AnalyticsGithubInfoFilter {
+input CssGithubInfoFilter {
   githubLink: StringFilter
   githubStars: StringFilter
 }
 
-input AnalyticsFilter {
+input CssAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input CssAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input CssAdditionalInfoFilter {
+  infoListItem: CssAdditionalInfoInfoListItemFilter
+  infoListWarning: CssAdditionalInfoInfoListWarningFilter
+}
+
+input CssFilter {
   title: StringFilter
   description: StringFilter
   descriptionOfFreePlan: StringFilter
   siteLink: StringFilter
   pricingPage: StringFilter
   thumbnail: ImageFilter
-  addOnThumbnail: AnalyticsAddOnThumbnailFilter
-  githubInfo: AnalyticsGithubInfoFilter
+  addOnThumbnail: CssAddOnThumbnailFilter
+  githubInfo: CssGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: CssAdditionalInfoFilter
 }
 
-type AnalyticsConnectionEdges {
+type CssConnectionEdges {
   cursor: String!
-  node: Analytics
+  node: Css
 }
 
-type AnalyticsConnection implements Connection {
+type CssConnection implements Connection {
   pageInfo: PageInfo!
   totalCount: Float!
-  edges: [AnalyticsConnectionEdges]
+  edges: [CssConnectionEdges]
+}
+
+type FontsAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type FontsGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type FontsAdditionalInfoInfoListItem {
+  content: String
+}
+
+type FontsAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union FontsAdditionalInfo = FontsAdditionalInfoInfoListItem | FontsAdditionalInfoInfoListWarning
+
+type Fonts implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: FontsAddOnThumbnail
+  githubInfo: FontsGithubInfo
+  selfHost: Boolean
+  additionalInfo: [FontsAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input FontsAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input FontsGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input FontsAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input FontsAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input FontsAdditionalInfoFilter {
+  infoListItem: FontsAdditionalInfoInfoListItemFilter
+  infoListWarning: FontsAdditionalInfoInfoListWarningFilter
+}
+
+input FontsFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: FontsAddOnThumbnailFilter
+  githubInfo: FontsGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: FontsAdditionalInfoFilter
+}
+
+type FontsConnectionEdges {
+  cursor: String!
+  node: Fonts
+}
+
+type FontsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [FontsConnectionEdges]
+}
+
+type IconsAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type IconsGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type IconsAdditionalInfoInfoListItem {
+  content: String
+}
+
+type IconsAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union IconsAdditionalInfo = IconsAdditionalInfoInfoListItem | IconsAdditionalInfoInfoListWarning
+
+type Icons implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: IconsAddOnThumbnail
+  githubInfo: IconsGithubInfo
+  selfHost: Boolean
+  additionalInfo: [IconsAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input IconsAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input IconsGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input IconsAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input IconsAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input IconsAdditionalInfoFilter {
+  infoListItem: IconsAdditionalInfoInfoListItemFilter
+  infoListWarning: IconsAdditionalInfoInfoListWarningFilter
+}
+
+input IconsFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: IconsAddOnThumbnailFilter
+  githubInfo: IconsGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: IconsAdditionalInfoFilter
+}
+
+type IconsConnectionEdges {
+  cursor: String!
+  node: Icons
+}
+
+type IconsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [IconsConnectionEdges]
+}
+
+type IllustratorAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type IllustratorGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type IllustratorAdditionalInfoInfoListItem {
+  content: String
+}
+
+type IllustratorAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union IllustratorAdditionalInfo = IllustratorAdditionalInfoInfoListItem | IllustratorAdditionalInfoInfoListWarning
+
+type Illustrator implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: IllustratorAddOnThumbnail
+  githubInfo: IllustratorGithubInfo
+  selfHost: Boolean
+  additionalInfo: [IllustratorAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input IllustratorAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input IllustratorGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input IllustratorAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input IllustratorAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input IllustratorAdditionalInfoFilter {
+  infoListItem: IllustratorAdditionalInfoInfoListItemFilter
+  infoListWarning: IllustratorAdditionalInfoInfoListWarningFilter
+}
+
+input IllustratorFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: IllustratorAddOnThumbnailFilter
+  githubInfo: IllustratorGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: IllustratorAdditionalInfoFilter
+}
+
+type IllustratorConnectionEdges {
+  cursor: String!
+  node: Illustrator
+}
+
+type IllustratorConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [IllustratorConnectionEdges]
+}
+
+type MiscellaneousAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type MiscellaneousGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type MiscellaneousAdditionalInfoInfoListItem {
+  content: String
+}
+
+type MiscellaneousAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union MiscellaneousAdditionalInfo = MiscellaneousAdditionalInfoInfoListItem | MiscellaneousAdditionalInfoInfoListWarning
+
+type Miscellaneous implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: MiscellaneousAddOnThumbnail
+  githubInfo: MiscellaneousGithubInfo
+  selfHost: Boolean
+  additionalInfo: [MiscellaneousAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input MiscellaneousAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input MiscellaneousGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input MiscellaneousAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input MiscellaneousAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input MiscellaneousAdditionalInfoFilter {
+  infoListItem: MiscellaneousAdditionalInfoInfoListItemFilter
+  infoListWarning: MiscellaneousAdditionalInfoInfoListWarningFilter
+}
+
+input MiscellaneousFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: MiscellaneousAddOnThumbnailFilter
+  githubInfo: MiscellaneousGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: MiscellaneousAdditionalInfoFilter
+}
+
+type MiscellaneousConnectionEdges {
+  cursor: String!
+  node: Miscellaneous
+}
+
+type MiscellaneousConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [MiscellaneousConnectionEdges]
+}
+
+type PatternsAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type PatternsGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type PatternsAdditionalInfoInfoListItem {
+  content: String
+}
+
+type PatternsAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union PatternsAdditionalInfo = PatternsAdditionalInfoInfoListItem | PatternsAdditionalInfoInfoListWarning
+
+type Patterns implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: PatternsAddOnThumbnail
+  githubInfo: PatternsGithubInfo
+  selfHost: Boolean
+  additionalInfo: [PatternsAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input PatternsAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input PatternsGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input PatternsAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input PatternsAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input PatternsAdditionalInfoFilter {
+  infoListItem: PatternsAdditionalInfoInfoListItemFilter
+  infoListWarning: PatternsAdditionalInfoInfoListWarningFilter
+}
+
+input PatternsFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: PatternsAddOnThumbnailFilter
+  githubInfo: PatternsGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: PatternsAdditionalInfoFilter
+}
+
+type PatternsConnectionEdges {
+  cursor: String!
+  node: Patterns
+}
+
+type PatternsConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [PatternsConnectionEdges]
+}
+
+type StockPhotosAddOnThumbnail {
+  title: String
+  image: String
+}
+
+type StockPhotosGithubInfo {
+  githubLink: String
+  githubStars: String
+}
+
+type StockPhotosAdditionalInfoInfoListItem {
+  content: String
+}
+
+type StockPhotosAdditionalInfoInfoListWarning {
+  content: String
+}
+
+union StockPhotosAdditionalInfo = StockPhotosAdditionalInfoInfoListItem | StockPhotosAdditionalInfoInfoListWarning
+
+type StockPhotos implements Node & Document {
+  title: String!
+  description: String!
+  descriptionOfFreePlan: String
+  siteLink: String!
+  pricingPage: String
+  thumbnail: String!
+  addOnThumbnail: StockPhotosAddOnThumbnail
+  githubInfo: StockPhotosGithubInfo
+  selfHost: Boolean
+  additionalInfo: [StockPhotosAdditionalInfo]
+  id: ID!
+  _sys: SystemInfo!
+  _values: JSON!
+}
+
+input StockPhotosAddOnThumbnailFilter {
+  title: StringFilter
+  image: ImageFilter
+}
+
+input StockPhotosGithubInfoFilter {
+  githubLink: StringFilter
+  githubStars: StringFilter
+}
+
+input StockPhotosAdditionalInfoInfoListItemFilter {
+  content: StringFilter
+}
+
+input StockPhotosAdditionalInfoInfoListWarningFilter {
+  content: StringFilter
+}
+
+input StockPhotosAdditionalInfoFilter {
+  infoListItem: StockPhotosAdditionalInfoInfoListItemFilter
+  infoListWarning: StockPhotosAdditionalInfoInfoListWarningFilter
+}
+
+input StockPhotosFilter {
+  title: StringFilter
+  description: StringFilter
+  descriptionOfFreePlan: StringFilter
+  siteLink: StringFilter
+  pricingPage: StringFilter
+  thumbnail: ImageFilter
+  addOnThumbnail: StockPhotosAddOnThumbnailFilter
+  githubInfo: StockPhotosGithubInfoFilter
+  selfHost: BooleanFilter
+  additionalInfo: StockPhotosAdditionalInfoFilter
+}
+
+type StockPhotosConnectionEdges {
+  cursor: String!
+  node: StockPhotos
+}
+
+type StockPhotosConnection implements Connection {
+  pageInfo: PageInfo!
+  totalCount: Float!
+  edges: [StockPhotosConnectionEdges]
 }
 
 type Mutation {
@@ -701,45 +1525,65 @@ type Mutation {
   createAuthentication(relativePath: String!, params: AuthenticationMutation!): Authentication!
   updateWebHosting(relativePath: String!, params: WebHostingMutation!): WebHosting!
   createWebHosting(relativePath: String!, params: WebHostingMutation!): WebHosting!
-  updateDatabases(relativePath: String!, params: DatabasesMutation!): Databases!
-  createDatabases(relativePath: String!, params: DatabasesMutation!): Databases!
   updateBaas(relativePath: String!, params: BaasMutation!): Baas!
   createBaas(relativePath: String!, params: BaasMutation!): Baas!
   updateCloudProviders(relativePath: String!, params: CloudProvidersMutation!): CloudProviders!
   createCloudProviders(relativePath: String!, params: CloudProvidersMutation!): CloudProviders!
   updateFrameworks(relativePath: String!, params: FrameworksMutation!): Frameworks!
   createFrameworks(relativePath: String!, params: FrameworksMutation!): Frameworks!
-  updateSecurity(relativePath: String!, params: SecurityMutation!): Security!
-  createSecurity(relativePath: String!, params: SecurityMutation!): Security!
-  updateImages(relativePath: String!, params: ImagesMutation!): Images!
-  createImages(relativePath: String!, params: ImagesMutation!): Images!
-  updateAnalytics(relativePath: String!, params: AnalyticsMutation!): Analytics!
-  createAnalytics(relativePath: String!, params: AnalyticsMutation!): Analytics!
+  updatePaas(relativePath: String!, params: PaasMutation!): Paas!
+  createPaas(relativePath: String!, params: PaasMutation!): Paas!
+  updateColors(relativePath: String!, params: ColorsMutation!): Colors!
+  createColors(relativePath: String!, params: ColorsMutation!): Colors!
+  updateCss(relativePath: String!, params: CssMutation!): Css!
+  createCss(relativePath: String!, params: CssMutation!): Css!
+  updateFonts(relativePath: String!, params: FontsMutation!): Fonts!
+  createFonts(relativePath: String!, params: FontsMutation!): Fonts!
+  updateIcons(relativePath: String!, params: IconsMutation!): Icons!
+  createIcons(relativePath: String!, params: IconsMutation!): Icons!
+  updateIllustrator(relativePath: String!, params: IllustratorMutation!): Illustrator!
+  createIllustrator(relativePath: String!, params: IllustratorMutation!): Illustrator!
+  updateMiscellaneous(relativePath: String!, params: MiscellaneousMutation!): Miscellaneous!
+  createMiscellaneous(relativePath: String!, params: MiscellaneousMutation!): Miscellaneous!
+  updatePatterns(relativePath: String!, params: PatternsMutation!): Patterns!
+  createPatterns(relativePath: String!, params: PatternsMutation!): Patterns!
+  updateStockPhotos(relativePath: String!, params: StockPhotosMutation!): StockPhotos!
+  createStockPhotos(relativePath: String!, params: StockPhotosMutation!): StockPhotos!
 }
 
 input DocumentUpdateMutation {
   authentication: AuthenticationMutation
   webHosting: WebHostingMutation
-  databases: DatabasesMutation
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
-  security: SecurityMutation
-  images: ImagesMutation
-  analytics: AnalyticsMutation
+  paas: PaasMutation
+  colors: ColorsMutation
+  css: CssMutation
+  fonts: FontsMutation
+  icons: IconsMutation
+  illustrator: IllustratorMutation
+  miscellaneous: MiscellaneousMutation
+  patterns: PatternsMutation
+  stockPhotos: StockPhotosMutation
   relativePath: String
 }
 
 input DocumentMutation {
   authentication: AuthenticationMutation
   webHosting: WebHostingMutation
-  databases: DatabasesMutation
   baas: BaasMutation
   cloudProviders: CloudProvidersMutation
   frameworks: FrameworksMutation
-  security: SecurityMutation
-  images: ImagesMutation
-  analytics: AnalyticsMutation
+  paas: PaasMutation
+  colors: ColorsMutation
+  css: CssMutation
+  fonts: FontsMutation
+  icons: IconsMutation
+  illustrator: IllustratorMutation
+  miscellaneous: MiscellaneousMutation
+  patterns: PatternsMutation
+  stockPhotos: StockPhotosMutation
 }
 
 input AuthenticationAddOnThumbnailMutation {
@@ -750,6 +1594,19 @@ input AuthenticationAddOnThumbnailMutation {
 input AuthenticationGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input AuthenticationAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input AuthenticationAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input AuthenticationAdditionalInfoMutation {
+  infoListItem: AuthenticationAdditionalInfoInfoListItemMutation
+  infoListWarning: AuthenticationAdditionalInfoInfoListWarningMutation
 }
 
 input AuthenticationComparisonInfoMutation {
@@ -774,6 +1631,8 @@ input AuthenticationMutation {
   thumbnail: String
   addOnThumbnail: AuthenticationAddOnThumbnailMutation
   githubInfo: AuthenticationGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [AuthenticationAdditionalInfoMutation]
   comparisonInfo: AuthenticationComparisonInfoMutation
 }
 
@@ -785,6 +1644,19 @@ input WebHostingAddOnThumbnailMutation {
 input WebHostingGithubInfoMutation {
   githubLink: String
   githubStars: String
+}
+
+input WebHostingAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input WebHostingAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input WebHostingAdditionalInfoMutation {
+  infoListItem: WebHostingAdditionalInfoInfoListItemMutation
+  infoListWarning: WebHostingAdditionalInfoInfoListWarningMutation
 }
 
 input WebHostingComparisonInfoMutation {
@@ -813,28 +1685,9 @@ input WebHostingMutation {
   thumbnail: String
   addOnThumbnail: WebHostingAddOnThumbnailMutation
   githubInfo: WebHostingGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [WebHostingAdditionalInfoMutation]
   comparisonInfo: WebHostingComparisonInfoMutation
-}
-
-input DatabasesAddOnThumbnailMutation {
-  title: String
-  image: String
-}
-
-input DatabasesGithubInfoMutation {
-  githubLink: String
-  githubStars: String
-}
-
-input DatabasesMutation {
-  title: String
-  description: String
-  descriptionOfFreePlan: String
-  siteLink: String
-  pricingPage: String
-  thumbnail: String
-  addOnThumbnail: DatabasesAddOnThumbnailMutation
-  githubInfo: DatabasesGithubInfoMutation
 }
 
 input BaasAddOnThumbnailMutation {
@@ -847,6 +1700,61 @@ input BaasGithubInfoMutation {
   githubStars: String
 }
 
+input BaasAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input BaasAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input BaasAdditionalInfoMutation {
+  infoListItem: BaasAdditionalInfoInfoListItemMutation
+  infoListWarning: BaasAdditionalInfoInfoListWarningMutation
+}
+
+input BaasComparisonInfoAuthenticationMutation {
+  monthlyActiveUsers: String
+  emailAndPasswordAuth: Boolean
+  magicLinks: Boolean
+  socialLogins: String
+  phoneNumberAuth: String
+  anonymousAuthentication: Boolean
+  multiFactorAuthentication: Boolean
+  userInterfaceProvided: Boolean
+  customDomain: Boolean
+  noBrandWatermark: Boolean
+}
+
+input BaasComparisonInfoDatabaseMutation {
+  databaseType: String
+  databaseSize: String
+  databaseEgress: String
+  realtimeDatabase: String
+}
+
+input BaasComparisonInfoServerlessFunctionMutation {
+  serverlessFunctionExecution: String
+  serverlessFunctionInvocations: String
+  serverlessFunctionExecutionTimeout: String
+  numberOfFunctions: String
+}
+
+input BaasComparisonInfoStorageMutation {
+  storageSize: String
+  storageEgress: String
+  maxFileUploadSize: String
+}
+
+input BaasComparisonInfoMutation {
+  authentication: BaasComparisonInfoAuthenticationMutation
+  database: BaasComparisonInfoDatabaseMutation
+  serverlessFunction: BaasComparisonInfoServerlessFunctionMutation
+  storage: BaasComparisonInfoStorageMutation
+  pushNotification: Boolean
+  graphqlApi: Boolean
+}
+
 input BaasMutation {
   title: String
   description: String
@@ -856,6 +1764,9 @@ input BaasMutation {
   thumbnail: String
   addOnThumbnail: BaasAddOnThumbnailMutation
   githubInfo: BaasGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [BaasAdditionalInfoMutation]
+  comparisonInfo: BaasComparisonInfoMutation
 }
 
 input CloudProvidersAddOnThumbnailMutation {
@@ -868,6 +1779,30 @@ input CloudProvidersGithubInfoMutation {
   githubStars: String
 }
 
+input CloudProvidersAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input CloudProvidersAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input CloudProvidersAdditionalInfoMutation {
+  infoListItem: CloudProvidersAdditionalInfoInfoListItemMutation
+  infoListWarning: CloudProvidersAdditionalInfoInfoListWarningMutation
+}
+
+input CloudProvidersFeaturesInfoFeatureMutation {
+  feature: String
+  description: String
+  duration: String
+  limitations: String
+}
+
+input CloudProvidersFeaturesInfoMutation {
+  feature: CloudProvidersFeaturesInfoFeatureMutation
+}
+
 input CloudProvidersMutation {
   title: String
   description: String
@@ -877,6 +1812,9 @@ input CloudProvidersMutation {
   thumbnail: String
   addOnThumbnail: CloudProvidersAddOnThumbnailMutation
   githubInfo: CloudProvidersGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [CloudProvidersAdditionalInfoMutation]
+  featuresInfo: [CloudProvidersFeaturesInfoMutation]
 }
 
 input FrameworksAddOnThumbnailMutation {
@@ -889,6 +1827,19 @@ input FrameworksGithubInfoMutation {
   githubStars: String
 }
 
+input FrameworksAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input FrameworksAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input FrameworksAdditionalInfoMutation {
+  infoListItem: FrameworksAdditionalInfoInfoListItemMutation
+  infoListWarning: FrameworksAdditionalInfoInfoListWarningMutation
+}
+
 input FrameworksMutation {
   title: String
   description: String
@@ -898,69 +1849,351 @@ input FrameworksMutation {
   thumbnail: String
   addOnThumbnail: FrameworksAddOnThumbnailMutation
   githubInfo: FrameworksGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [FrameworksAdditionalInfoMutation]
 }
 
-input SecurityAddOnThumbnailMutation {
+input PaasAddOnThumbnailMutation {
   title: String
   image: String
 }
 
-input SecurityGithubInfoMutation {
+input PaasGithubInfoMutation {
   githubLink: String
   githubStars: String
 }
 
-input SecurityMutation {
+input PaasAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input PaasAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input PaasAdditionalInfoMutation {
+  infoListItem: PaasAdditionalInfoInfoListItemMutation
+  infoListWarning: PaasAdditionalInfoInfoListWarningMutation
+}
+
+input PaasComparisonInfoMutation {
+  hourlyLimit: String
+  appLimit: String
+  databaseLimit: String
+  requestLimit: String
+  freeBandwidth: String
+  cpu: String
+  ram: String
+  supportedLanguage: String
+  supportedDatabase: String
+  persistentStorage: String
+  https: Boolean
+  edgeDeployment: Boolean
+  deployFromAnyGithubRepo: Boolean
+  customDomain: Boolean
+  sleeps: String
+}
+
+input PaasMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
-  addOnThumbnail: SecurityAddOnThumbnailMutation
-  githubInfo: SecurityGithubInfoMutation
+  addOnThumbnail: PaasAddOnThumbnailMutation
+  githubInfo: PaasGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [PaasAdditionalInfoMutation]
+  comparisonInfo: PaasComparisonInfoMutation
 }
 
-input ImagesAddOnThumbnailMutation {
+input ColorsAddOnThumbnailMutation {
   title: String
   image: String
 }
 
-input ImagesGithubInfoMutation {
+input ColorsGithubInfoMutation {
   githubLink: String
   githubStars: String
 }
 
-input ImagesMutation {
+input ColorsAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input ColorsAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input ColorsAdditionalInfoMutation {
+  infoListItem: ColorsAdditionalInfoInfoListItemMutation
+  infoListWarning: ColorsAdditionalInfoInfoListWarningMutation
+}
+
+input ColorsMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
-  addOnThumbnail: ImagesAddOnThumbnailMutation
-  githubInfo: ImagesGithubInfoMutation
+  addOnThumbnail: ColorsAddOnThumbnailMutation
+  githubInfo: ColorsGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [ColorsAdditionalInfoMutation]
 }
 
-input AnalyticsAddOnThumbnailMutation {
+input CssAddOnThumbnailMutation {
   title: String
   image: String
 }
 
-input AnalyticsGithubInfoMutation {
+input CssGithubInfoMutation {
   githubLink: String
   githubStars: String
 }
 
-input AnalyticsMutation {
+input CssAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input CssAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input CssAdditionalInfoMutation {
+  infoListItem: CssAdditionalInfoInfoListItemMutation
+  infoListWarning: CssAdditionalInfoInfoListWarningMutation
+}
+
+input CssMutation {
   title: String
   description: String
   descriptionOfFreePlan: String
   siteLink: String
   pricingPage: String
   thumbnail: String
-  addOnThumbnail: AnalyticsAddOnThumbnailMutation
-  githubInfo: AnalyticsGithubInfoMutation
+  addOnThumbnail: CssAddOnThumbnailMutation
+  githubInfo: CssGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [CssAdditionalInfoMutation]
+}
+
+input FontsAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input FontsGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input FontsAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input FontsAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input FontsAdditionalInfoMutation {
+  infoListItem: FontsAdditionalInfoInfoListItemMutation
+  infoListWarning: FontsAdditionalInfoInfoListWarningMutation
+}
+
+input FontsMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: FontsAddOnThumbnailMutation
+  githubInfo: FontsGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [FontsAdditionalInfoMutation]
+}
+
+input IconsAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input IconsGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input IconsAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input IconsAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input IconsAdditionalInfoMutation {
+  infoListItem: IconsAdditionalInfoInfoListItemMutation
+  infoListWarning: IconsAdditionalInfoInfoListWarningMutation
+}
+
+input IconsMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: IconsAddOnThumbnailMutation
+  githubInfo: IconsGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [IconsAdditionalInfoMutation]
+}
+
+input IllustratorAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input IllustratorGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input IllustratorAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input IllustratorAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input IllustratorAdditionalInfoMutation {
+  infoListItem: IllustratorAdditionalInfoInfoListItemMutation
+  infoListWarning: IllustratorAdditionalInfoInfoListWarningMutation
+}
+
+input IllustratorMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: IllustratorAddOnThumbnailMutation
+  githubInfo: IllustratorGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [IllustratorAdditionalInfoMutation]
+}
+
+input MiscellaneousAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input MiscellaneousGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input MiscellaneousAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input MiscellaneousAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input MiscellaneousAdditionalInfoMutation {
+  infoListItem: MiscellaneousAdditionalInfoInfoListItemMutation
+  infoListWarning: MiscellaneousAdditionalInfoInfoListWarningMutation
+}
+
+input MiscellaneousMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: MiscellaneousAddOnThumbnailMutation
+  githubInfo: MiscellaneousGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [MiscellaneousAdditionalInfoMutation]
+}
+
+input PatternsAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input PatternsGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input PatternsAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input PatternsAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input PatternsAdditionalInfoMutation {
+  infoListItem: PatternsAdditionalInfoInfoListItemMutation
+  infoListWarning: PatternsAdditionalInfoInfoListWarningMutation
+}
+
+input PatternsMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: PatternsAddOnThumbnailMutation
+  githubInfo: PatternsGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [PatternsAdditionalInfoMutation]
+}
+
+input StockPhotosAddOnThumbnailMutation {
+  title: String
+  image: String
+}
+
+input StockPhotosGithubInfoMutation {
+  githubLink: String
+  githubStars: String
+}
+
+input StockPhotosAdditionalInfoInfoListItemMutation {
+  content: String
+}
+
+input StockPhotosAdditionalInfoInfoListWarningMutation {
+  content: String
+}
+
+input StockPhotosAdditionalInfoMutation {
+  infoListItem: StockPhotosAdditionalInfoInfoListItemMutation
+  infoListWarning: StockPhotosAdditionalInfoInfoListWarningMutation
+}
+
+input StockPhotosMutation {
+  title: String
+  description: String
+  descriptionOfFreePlan: String
+  siteLink: String
+  pricingPage: String
+  thumbnail: String
+  addOnThumbnail: StockPhotosAddOnThumbnailMutation
+  githubInfo: StockPhotosGithubInfoMutation
+  selfHost: Boolean
+  additionalInfo: [StockPhotosAdditionalInfoMutation]
 }
 
 schema {

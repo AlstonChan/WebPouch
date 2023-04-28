@@ -9,16 +9,22 @@
     "siteLimit": "Didn't Specified",
     "freeBandwidth": "100 GB",
     "additionalBandwidthCost": "$0.10/GB",
-    "freeBuildMinutes": "500/month",
-    "concurrentBuilds": 1,
+    "freeBuildMinutes": "500 minutes",
+    "concurrentBuilds": "1",
     "deploymentPreview": true,
-    "serverlessFunctionExecution": "none",
-    "serverlessFunctionInvocations": "none",
-    "serverlessFunctionExecutionTimeout": "none",
-    "edgeFunctionExecution": "none",
+    "serverlessFunctionExecution": "false",
+    "serverlessFunctionInvocations": "false",
+    "serverlessFunctionExecutionTimeout": "false",
+    "edgeFunctionExecution": "false",
     "globalCdn": true,
     "customHeaders": true,
     "https": true,
     "ddosProtection": true
-  }
+  },
+  "additionalInfo": [
+    {
+      "content": "Render does provide free Web Services that have a limit of 750 hours usage, 100 GB bandwidth per month. However, it will sleeps after 15 minutes of inactivity, so you have to actively ping it to keep it awake, for NodeJs server, consider <a href=\"https://www.npmjs.com/package/node-cron\" rel=\"no-referrer\" target=\"_blank\">node-cron</a>.",
+      "_template": "infoListItem"
+    }
+  ]
 }

@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import pattern1 from "@/public/home/patterns/asset1.png";
 import pattern2 from "@/public/home/patterns/asset2.png";
 import pattern3 from "@/public/home/patterns/asset3.png";

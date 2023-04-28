@@ -1,7 +1,16 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 // MaterialUI Import
-import { GitHub } from "@mui/icons-material";
-import { Card, CardHeader, CardMedia, CardContent } from "@mui/material/";
-import { Divider, Chip, Avatar } from "@mui/material/";
+import { GitHub, Home } from "@mui/icons-material";
+import {
+  Card,
+  CardHeader,
+  CardMedia,
+  CardContent,
+  Tooltip,
+} from "@mui/material/";
+import { Divider, Chip } from "@mui/material/";
 import { Typography, Link, Box } from "@mui/material/";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
@@ -21,6 +30,7 @@ export default function ToolsCard({ data }: CardProps) {
     borderRadius: theme.spacing(1.5),
   };
   const CardMediaStyle: SxProps<Theme> = {
+    width: "90%",
     objectFit: "contain",
     my: theme.spacing(3),
   };
@@ -36,33 +46,46 @@ export default function ToolsCard({ data }: CardProps) {
   const CardHeaderStyle: SxProps<Theme> = {
     textAlign: "center",
   };
+  const SubHeaderChipBoxStyle: SxProps<Theme> = {
+    pt: theme.spacing(1),
+    display: "inline-block",
+    width: "fit-content",
+    // the first type is the Box component that holds the
+    // link, the second element have no element on its left
+    // side, so padding left is redundant.
+    "&:not(:first-of-type):not(:nth-child(2))": {
+      pl: theme.spacing(1),
+    },
+  };
 
   // component
   const subHeaderLink = (
     <Box sx={{ mt: theme.spacing(0.3) }}>
-      <Link
-        color={theme.palette.brightLink.main}
-        href={data.siteLink}
-        target="_blank"
-        referrerPolicy="no-referrer"
-      >
-        Visit Site
-      </Link>
-      {data.pricingPage && (
-        <>
-          &nbsp;|&nbsp;
-          <Link
-            color={theme.palette.brightLink.main}
-            href={data.pricingPage}
-            target="_blank"
-            referrerPolicy="no-referrer"
-          >
-            Pricing Page
-          </Link>
-        </>
-      )}
+      <Box>
+        <Link
+          color={theme.palette.brightLink.main}
+          href={data.siteLink}
+          target="_blank"
+          referrerPolicy="no-referrer"
+        >
+          Visit Site
+        </Link>
+        {data.pricingPage && (
+          <>
+            &nbsp;|&nbsp;
+            <Link
+              color={theme.palette.brightLink.main}
+              href={data.pricingPage}
+              target="_blank"
+              referrerPolicy="no-referrer"
+            >
+              Pricing Page
+            </Link>
+          </>
+        )}
+      </Box>
       {data.githubInfo && (
-        <Box sx={{ pt: theme.spacing(1) }}>
+        <Box sx={SubHeaderChipBoxStyle}>
           <Link
             href={data.githubInfo.githubLink}
             target="_blank"
@@ -75,6 +98,18 @@ export default function ToolsCard({ data }: CardProps) {
               sx={{ cursor: "pointer" }}
             />
           </Link>
+        </Box>
+      )}
+      {data.selfHost && (
+        <Box sx={SubHeaderChipBoxStyle}>
+          <Tooltip title="Can be Self Hosted">
+            <Chip
+              avatar={<Home />}
+              label="Self Host"
+              variant="filled"
+              sx={{ cursor: "pointer" }}
+            />
+          </Tooltip>
         </Box>
       )}
     </Box>
