@@ -57,11 +57,11 @@ Devtools is a platform for web developers to easily access and compare different
     import commonFields from "./commonFields";
 
     const collectionNameSchema: Collection<false> = {
-    name: "collectionName", // camelCase
-    label: "Collection Name", // every first letter is capitalized
-    path: "content/web-development/collectionName", // the empty directory you just created on step 1
-    format: "json",
-    fields: [...commonFields]
+        name: "collectionName", // camelCase
+        label: "Collection Name", // every first letter is capitalized
+        path: "content/web-development/collectionName", // the empty directory you just created on step 1
+        format: "json",
+        fields: [...commonFields]
     };
 
     export default collectionNameSchema;
