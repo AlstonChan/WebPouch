@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {

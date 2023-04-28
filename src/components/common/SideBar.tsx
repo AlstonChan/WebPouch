@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import logo from "@/public/logo.png";
 
 import Image from "next/image";

@@ -6,7 +6,11 @@
 
 # Devtools
 
+Devtools is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful.
+
 ## Local Development
+
+### Getting Started
 
 1. Clone the repository into your local machine by using git.
 
@@ -14,7 +18,7 @@
     git clone https://github.com/AlstonChan/devtools.git
     ```
 
-2. Install [pnpm](https://pnpm.io/installation), we use pnp as our package manager instead of npm.
+2. Install [pnpm](https://pnpm.io/installation), we use **pnpm** as our package manager instead of npm.
 
 3. Change directory into the repository by using `cd Devtools`, and install the required npm dependencies by running the following command in your terminal.
 
@@ -27,3 +31,19 @@
     ```bash
     pnpm dev
     ```
+
+### Updating Content
+
+#### Creating New Document
+
+1. After running `pnpm dev`. Navigate to <http://localhost:3000/admin/index.html>, choose a collections you would like to add a documents to at the sidebar on the left.
+
+2. Click **Create New +** to add a new document and fill in the input box as per the label. Here' something you should take note of when you input the data.
+
+    1. If the input box doesn't have the required data, just leave it blank. For example, most services doesn't open source their product, so there will not be a GitHub repository. In that case, you can ignore the **GitHub Info** sections.
+
+    2. If the input box is a switch that can be toggle, you have to toggle it twice if you meant no. For example, for input box **Can be Self Host**, if the service can't be self hosted, you have to toggle it twice, this is because **TinaCMS** won't registered this field as **false** if you completely neglect it, which might cause error to the component expecting the data.
+
+## License
+
+This project is licensed under the terms of the **GNU General Public License v3.0**

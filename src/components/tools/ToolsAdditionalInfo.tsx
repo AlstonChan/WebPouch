@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 // MaterialUI Import
 import { Alert, AlertTitle, Box, Container, Typography } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
@@ -50,6 +53,8 @@ export default function ToolsAdditionalInfo({ data }: { data: any }) {
                         <Typography
                           variant="body1"
                           sx={InfoTextStyle}
+                          // The value is baked in to the html page in build
+                          // time, so it isn't as dangerous as it should be, right?
                           dangerouslySetInnerHTML={{ __html: info.content }}
                         />
                       </li>

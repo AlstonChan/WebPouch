@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+
 import Thur from "@/public/home/thur.png";
 
 import Head from "next/head";
@@ -41,7 +44,7 @@ export default function Home() {
         <meta name="title" content="Devtools" key="title" />
         <meta
           name="description"
-          content="Entripel is a platform for web developers to easily access and compare different cloud services such as PaaS, IaaS, and DaaS. Its focus on free-tier services makes it an ideal tool for developers on a budget."
+          content="Devtools is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful"
         />
       </Head>
       {/* Left side */}

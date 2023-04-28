@@ -42,6 +42,12 @@ export type SystemInfoBreadcrumbsArgs = {
   excludeExtension?: InputMaybe<Scalars['Boolean']>;
 };
 
+export type Folder = {
+  __typename?: 'Folder';
+  name: Scalars['String'];
+  path: Scalars['String'];
+};
+
 export type PageInfo = {
   __typename?: 'PageInfo';
   hasPreviousPage: Scalars['Boolean'];
@@ -241,9 +247,10 @@ export type CollectionDocumentsArgs = {
   last?: InputMaybe<Scalars['Float']>;
   sort?: InputMaybe<Scalars['String']>;
   filter?: InputMaybe<DocumentFilter>;
+  folder?: InputMaybe<Scalars['String']>;
 };
 
-export type DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Paas;
+export type DocumentNode = Authentication | WebHosting | Baas | CloudProviders | Frameworks | Paas | Folder;
 
 export type AuthenticationAddOnThumbnail = {
   __typename?: 'AuthenticationAddOnThumbnail';
