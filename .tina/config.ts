@@ -3,7 +3,7 @@ import { defineConfig } from "tinacms";
 import {
   auth,
   webHosting,
-  baaS,
+  baas,
   cloud,
   frameworks,
   paas,
@@ -41,7 +41,7 @@ export default defineConfig({
     collections: [
       auth,
       webHosting,
-      baaS,
+      baas,
       cloud,
       frameworks,
       paas,
