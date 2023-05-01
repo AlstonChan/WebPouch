@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import { MoneyOff, GitHub, Difference } from "@mui/icons-material";
 
@@ -14,7 +14,7 @@ export const features: Features[] = [
     icon: <Difference fontSize="large" />,
     title: "One-stop-shop",
     description:
-      "Entripel is a one-stop-shop for web developers, offering them a single platform to discover and compare various cloud services from multiple providers, so you can make informed decisions based on your specific project requirements.",
+      "WebPouch is a one-stop-shop for web developers, offering them a single platform to discover and compare various cloud services from multiple providers, so you can make informed decisions based on your specific project requirements.",
   },
   {
     icon: <MoneyOff fontSize="large" />,

@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import { TableCell, TableRow, Theme, tableRowClasses } from "@mui/material";
 import { styled, tableCellClasses } from "@mui/material";

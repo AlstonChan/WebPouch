@@ -1,6 +1,6 @@
 {
   "name": "devtools",
-  "description": "Devtools is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful.",
+  "description": "WebPouch is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful.",
   "version": "0.1.0",
   "private": true,
   "author": {
@@ -10,7 +10,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/AlstonChan/Devtools"
+    "url": "https://github.com/AlstonChan/WebPouch"
   },
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",

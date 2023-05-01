@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import Head from "next/head";
 
@@ -91,10 +91,10 @@ const ToolsParam: NextPageWithLayout = ({
   return (
     <>
       <Head>
-        <title>{`${pageData.title} - Devtools`}</title>
+        <title>{`${pageData.title} - WebPouch`}</title>
         <meta
           name="title"
-          content={`${pageData.title} - Devtools`}
+          content={`${pageData.title} - WebPouch`}
           key="title"
         />
         <meta name="description" content={pageData.metaDescription} />

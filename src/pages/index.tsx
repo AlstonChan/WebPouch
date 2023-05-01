@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import Thur from "@/public/home/thur.png";
 
@@ -40,11 +40,11 @@ export default function Home() {
   return (
     <>
       <Head>
-        <title>Devtools</title>
-        <meta name="title" content="Devtools" key="title" />
+        <title>WebPouch</title>
+        <meta name="title" content="WebPouch" key="title" />
         <meta
           name="description"
-          content="Devtools is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful"
+          content="WebPouch is a platform for web developers to easily access and compare different services such as PaaS, BaaS, web hosting platform. We primarily focus on the free-tier services provided, so for developers tha is on a budget should find this helpful"
         />
       </Head>
       {/* Left side */}

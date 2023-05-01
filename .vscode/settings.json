@@ -1,4 +1,12 @@
 {
   "cSpell.ignoreWords": ["Entripel", "Laren", "Overridable", "mclaren"],
-  "cSpell.words": ["from", "Paas", "tinacms", "unoptimized", "webdev"]
+  "cSpell.words": [
+    "browserconfig",
+    "from",
+    "msapplication",
+    "Paas",
+    "tinacms",
+    "unoptimized",
+    "webdev"
+  ]
 }

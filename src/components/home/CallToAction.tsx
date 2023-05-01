@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import pattern1 from "@/public/home/patterns/asset1.png";
 import pattern2 from "@/public/home/patterns/asset2.png";
@@ -107,7 +107,7 @@ export default function HomeCallToAction() {
   return (
     <Container maxWidth={false} sx={containerStyles}>
       <Typography component="h2" variant="h3" sx={mainTextStyle}>
-        Make informed cloud service decisions with Entripel
+        Make informed cloud service decisions with WebPouch
       </Typography>
       <Button
         variant="contained"

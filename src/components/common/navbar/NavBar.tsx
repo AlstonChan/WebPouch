@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import styles from "./dropdown.module.scss";
 import logo from "@/public/logo.png";
@@ -66,11 +66,12 @@ export default function NavBar() {
   const appBarStyle: SxProps<Theme> = { boxShadow: "none", mb: 1 };
   const logoContainerStyle: SxProps<Theme> = {
     display: "flex",
-    mr: 1,
+    mr: theme.spacing(1),
+    py: theme.spacing(1),
     verticalAlign: "middle",
   };
   const hamburgerDropdownContainerStyle: SxProps<Theme> = {
-    flexGrow: 1,
+    flexGrow: theme.spacing(1),
     justifyContent: "right",
     display: { xs: "flex", sm: "none" },
   };
@@ -92,14 +93,15 @@ export default function NavBar() {
   };
   const navigationPanel: SxProps<Theme> = {
     display: { xs: "none", sm: "flex" },
-    my: 2,
-    px: 1,
-    borderRadius: 2,
+    my: theme.spacing(2),
+    px: theme.spacing(1),
+    borderRadius: theme.spacing(2),
     backgroundColor: theme.palette.secondary.main,
   };
   const navigationPanelButton: SxProps<Theme> = {
     fontSize: theme.typography.body1.fontSize,
     px: theme.spacing(2),
+    py: theme.spacing(1.3),
   };
 
   // tsx return statement
@@ -110,7 +112,7 @@ export default function NavBar() {
         <Toolbar disableGutters>
           {/* Page logo on left side  */}
           <Box sx={logoContainerStyle}>
-            <Image src={logo} alt="Entripel" width="140" />
+            <Image src={logo} alt="WebPouch" width="240" />
           </Box>
 
           <Box sx={hamburgerDropdownContainerStyle}>

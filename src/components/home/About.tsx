@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import illustration from "@/public/home/about.png";
 
@@ -46,9 +46,9 @@ export default function HomeAbout() {
   return (
     <Container sx={containerStyles} maxWidth="xl">
       <Box sx={flexLeftStyle}>
-        <SectionTitle text="What is Entripel" />
+        <SectionTitle text="What is WebPouch" />
         <Typography paragraph variant="h6" sx={bodyStyle}>
-          Entripel is a comprehensive platform that offers web developers a
+          WebPouch is a comprehensive platform that offers web developers a
           collection of web development tools and services, such as PaaS, BaaS,
           Identity-as-a-service, and more. We provide developers to discover a
           wide range of services from different providers, allowing them to

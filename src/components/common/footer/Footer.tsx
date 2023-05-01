@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import { Box, Container, Typography, IconButton } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
@@ -23,7 +23,7 @@ export default function Footer() {
       <Box sx={{ textAlign: "center" }}>
         <IconButton
           component="a"
-          href="https://github.com/AlstonChan/Devtools"
+          href="https://github.com/AlstonChan/WebPouch"
           target="_blank"
           referrerPolicy="no-referrer"
           aria-label="Github"

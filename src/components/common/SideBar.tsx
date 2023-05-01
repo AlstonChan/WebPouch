@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
-// SPDX-FileCopyrightText: Copyright © 2023 Devtools Chan Alston
+// SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import logo from "@/public/logo.png";
 
@@ -40,6 +40,10 @@ export default function SideBar() {
       xs: theme.palette.primary.dark,
     },
   };
+  const LogoContainerStyle: SxProps<Theme> = {
+    display: "flex",
+    justifyContent: "center",
+  };
   const drawerStyles: SxProps<Theme> = {
     "& .MuiDrawer-paper": {
       boxSizing: "border-box",
@@ -64,12 +68,12 @@ export default function SideBar() {
   // component
   const drawer = (
     <>
-      <Toolbar>
+      <Toolbar sx={LogoContainerStyle}>
         <Link href="/">
           <Image
             src={logo}
-            alt="Entripel"
-            width="140"
+            alt="WebPouch"
+            width="200"
             style={{ verticalAlign: "middle" }}
           />
         </Link>
