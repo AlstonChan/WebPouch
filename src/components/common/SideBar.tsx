@@ -14,7 +14,7 @@ import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
 import { List, ListSubheader, ListItem } from "@mui/material";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { Menu as MenuIcon } from "@mui/icons-material";
-import { Theme, SxProps } from "@mui/material/styles";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 // type import
 import type { NavList } from "data/types";
@@ -22,6 +22,8 @@ import type { NavList } from "data/types";
 const drawerWidth = 230;
 
 export default function SideBar() {
+  const theme = useTheme();
+
   const [mobileOpen, setMobileOpen] = useState(false);
   const containerRef = useRef<null | HTMLElement>(null);
 
@@ -29,15 +31,37 @@ export default function SideBar() {
     setMobileOpen(!mobileOpen);
   };
 
+  // styling
+  const navContainerStyle: SxProps<Theme> = {
+    width: { sm: drawerWidth },
+    flexShrink: { sm: 0 },
+    backgroundColor: {
+      sm: "transparent",
+      xs: theme.palette.primary.dark,
+    },
+  };
   const drawerStyles: SxProps<Theme> = {
     "& .MuiDrawer-paper": {
       boxSizing: "border-box",
       width: drawerWidth,
     },
   };
-
   const listSubHeaderStyle: SxProps<Theme> = { backgroundColor: "transparent" };
+  const IconButtonContainerStyle: SxProps<Theme> = {
+    pt: theme.spacing(1.5),
+    display: { sm: "none" },
+    position: "sticky",
+    top: 0,
+  };
+  const xsIconButtonStyle: SxProps<Theme> = {
+    mx: theme.spacing(1.5),
+    border: `1px solid ${theme.palette.secondary.light}`,
+    borderRadius: theme.spacing(1),
+    color: theme.palette.secondary.light,
+    boxShadow: "0px 12px 25px -10px #2B808A92",
+  };
 
+  // component
   const drawer = (
     <>
       <Toolbar>
@@ -104,20 +128,18 @@ export default function SideBar() {
   }, []);
 
   return (
-    <Box
-      component="nav"
-      sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-      aria-label="mailbox folders"
-    >
-      <IconButton
-        color="inherit"
-        aria-label="open drawer"
-        edge="start"
-        onClick={handleDrawerToggle}
-        sx={{ mr: 2, display: { sm: "none" } }}
-      >
-        <MenuIcon />
-      </IconButton>
+    <Box component="nav" sx={navContainerStyle} aria-label="mailbox folders">
+      <Box sx={IconButtonContainerStyle}>
+        <IconButton
+          color="inherit"
+          aria-label="open drawer"
+          edge="start"
+          onClick={handleDrawerToggle}
+          sx={xsIconButtonStyle}
+        >
+          <MenuIcon />
+        </IconButton>
+      </Box>
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
       <Drawer
         container={containerRef.current}

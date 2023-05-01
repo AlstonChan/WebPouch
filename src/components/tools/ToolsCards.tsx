@@ -53,7 +53,7 @@ export default function ToolsCard({ data }: CardProps) {
     // the first type is the Box component that holds the
     // link, the second element have no element on its left
     // side, so padding left is redundant.
-    "&:not(:first-of-type):not(:nth-child(2))": {
+    "&:not(:first-of-type):not(:nth-of-type(2))": {
       pl: theme.spacing(1),
     },
   };
