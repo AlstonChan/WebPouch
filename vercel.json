@@ -1,0 +1,41 @@
+{
+    "headers": [
+        {
+            "source": "/(.*)",
+            "headers": [
+                {
+                    "key": "X-DNS-Prefetch-Control",
+                    "value": "off"
+                },
+                {
+                    "key": "X-Frame-Options",
+                    "value": "DENY"
+                },
+                {
+                    "key": "X-XSS-Protection",
+                    "value": "0"
+                },
+                {
+                    "key": "X-Content-Type-Options",
+                    "value": "nosniff"
+                },
+                {
+                    "key": "Referrer-Policy",
+                    "value": "strict-origin-when-cross-origin"
+                },
+                {
+                    "key": "Access-Control-Allow-Origin",
+                    "value": "https://webpouch.vercel.app"
+                },
+                {
+                    "key": "Cross-Origin-Opener-Policy",
+                    "value": "same-origin"
+                },
+                {
+                    "key": "Permissions-Policy",
+                    "value": "geolocation=() camera=(), microphone=()"
+                }
+            ]
+        }
+    ]
+}

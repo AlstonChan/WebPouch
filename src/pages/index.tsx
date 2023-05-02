@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
-import Thur from "@/public/home/thur.png";
+import Thur from "@/public/home/thur.svg";
 
+import Image from "next/image";
 import Head from "next/head";
 
 import { Box } from "@mui/material";
@@ -15,25 +16,28 @@ import HomeFeatures from "@/components/home/features/Features";
 import HomeCallToAction from "@/components/home/CallToAction";
 import Footer from "@/components/common/footer/Footer";
 
+import type { CSSProperties } from "react";
+
 export default function Home() {
   // styling
   const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
     top: 0,
     right: 0,
-    mt: { md: 0, xs: 0 },
     width: { lg: "47%", md: "45%", xs: "100%" },
     height: {
       lg: "100vh",
-      md: `calc(700px + calc(68.5px + 8px) )`,
+      md: `calc(700px + calc(81px + 8px) )`,
       xs: 0,
     },
-    display: "flex",
-    alignItems: "center",
-    backgroundImage: `url(${Thur.src})`,
-    backgroundSize: "100%",
     opacity: 0.7,
-    borderRadius: "0 0 0 100px",
+  };
+
+  const ImgStyle: CSSProperties = {
+    width: "100%",
+    height: "100%",
+    objectFit: "cover",
+    objectPosition: "left",
   };
 
   // tsx return statement
@@ -48,9 +52,9 @@ export default function Home() {
         />
       </Head>
       {/* Left side */}
-      <Box sx={{ position: "relative", zIndex: -1 }}>
-        {/* Thur Background */}
-        <Box sx={thurBackgroundStyle} />
+      {/* Thur Background */}
+      <Box sx={thurBackgroundStyle}>
+        <Image src={Thur} alt="" style={ImgStyle} />
       </Box>
       <NavBar />
 

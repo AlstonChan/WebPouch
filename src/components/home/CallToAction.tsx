@@ -2,10 +2,19 @@
 // SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
 import pattern1 from "@/public/home/patterns/asset1.png";
+import pattern1Webp from "@/public/home/patterns/asset1.webp";
+
 import pattern2 from "@/public/home/patterns/asset2.png";
+import pattern2Webp from "@/public/home/patterns/asset2.webp";
+
 import pattern3 from "@/public/home/patterns/asset3.png";
+import pattern3Webp from "@/public/home/patterns/asset3.webp";
+
 import pattern4 from "@/public/home/patterns/asset4.png";
+import pattern4Webp from "@/public/home/patterns/asset4.webp";
+
 import pattern5 from "@/public/home/patterns/asset5.png";
+import pattern5Webp from "@/public/home/patterns/asset5.webp";
 import leaf from "@/public/home/patterns/leaf.svg";
 
 import Image, { StaticImageData } from "next/image";
@@ -22,11 +31,20 @@ export default function HomeCallToAction() {
   const router = useRouter();
   const matches = useMediaQuery("(max-width:580px)");
 
-  const floatingPatterns: { link: StaticImageData; css: CSSProperties }[] = [
-    { link: pattern1, css: { top: `${matches ? "-5%" : "-13%"}` } },
-    { link: pattern2, css: { width: "25%", bottom: 0 } },
+  const floatingPatterns: {
+    img: StaticImageData;
+    webp: StaticImageData;
+    css: CSSProperties;
+  }[] = [
     {
-      link: pattern3,
+      img: pattern1,
+      webp: pattern1Webp,
+      css: { top: `${matches ? "-5%" : "-13%"}` },
+    },
+    { img: pattern2, webp: pattern2Webp, css: { width: "25%", bottom: 0 } },
+    {
+      img: pattern3,
+      webp: pattern3Webp,
       css: {
         bottom: "40%",
         right: "-2%",
@@ -34,8 +52,16 @@ export default function HomeCallToAction() {
         transform: "rotate(-70deg)",
       },
     },
-    { link: pattern4, css: { left: "0", top: `${matches ? "-5%" : "-13%"}` } },
-    { link: pattern5, css: { bottom: 0, left: "0", width: "25%" } },
+    {
+      img: pattern4,
+      webp: pattern4Webp,
+      css: { left: "0", top: `${matches ? "-5%" : "-13%"}` },
+    },
+    {
+      img: pattern5,
+      webp: pattern5Webp,
+      css: { bottom: 0, left: "0", width: "25%" },
+    },
   ];
 
   // styling
@@ -123,12 +149,14 @@ export default function HomeCallToAction() {
         <Box sx={decoContainerBackgroundStyle} />
         {floatingPatterns.map((image, index) => {
           return (
-            <Image
-              src={image.link}
-              style={{ ...floatingAssetCss, ...image.css }}
-              alt=""
-              key={index}
-            />
+            <picture key={index}>
+              <source srcSet={image.webp.src} type="image/webp" />
+              <Image
+                src={image.img}
+                style={{ ...floatingAssetCss, ...image.css }}
+                alt=""
+              />
+            </picture>
           );
         })}
       </Box>

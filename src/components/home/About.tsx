@@ -1,7 +1,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
-import illustration from "@/public/home/about.png";
+import illustration from "@/public/home/about/about.png";
+import illustrationWebp from "@/public/home/about/about.webp";
 
 import Image from "next/image";
 
@@ -65,11 +66,14 @@ export default function HomeAbout() {
         </Typography>
       </Box>
       <Box sx={flexRightStyle}>
-        <Image
-          src={illustration}
-          alt=""
-          style={{ width: "100%", height: "auto" }}
-        />
+        <picture>
+          <source srcSet={illustrationWebp.src} type="image/webp" />
+          <Image
+            src={illustration}
+            alt="Technology Illustration"
+            style={{ width: "100%", height: "auto" }}
+          />
+        </picture>
       </Box>
     </Container>
   );
