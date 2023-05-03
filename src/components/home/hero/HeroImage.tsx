@@ -3,7 +3,7 @@
 
 import ProductStructure from "@/public/home/product/product.png";
 import ProductStructureWebp from "@/public/home/product/product.webp";
-import Thur from "@/public/home/thur.svg";
+import thur from "@/public/home/thur.svg";
 
 import Image from "next/image";
 
@@ -14,7 +14,7 @@ import type { CSSProperties } from "react";
 
 export default function HeroImage() {
   const imageContainerStyle: SxProps<Theme> = {
-    flex: { md: "1 1 50%", xs: 0 },
+    flex: { md: "1 1 40%", xs: 0 },
     display: "flex",
     alignItems: "center",
     pX: { md: 0, sm: 6, xs: 0 },
@@ -23,9 +23,10 @@ export default function HeroImage() {
 
   const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
+    right: 0,
     top: 0,
     width: { md: 0, xs: "100%" },
-    height: "100%",
+    height: "95%",
     opacity: 0.7,
   };
 
@@ -33,13 +34,14 @@ export default function HeroImage() {
     width: "100%",
     height: "100%",
     objectFit: "cover",
+    objectPosition: "left bottom",
     borderRadius: "20px 20px 60px 60px",
   };
 
   return (
     <Box sx={imageContainerStyle}>
       <Box sx={thurBackgroundStyle}>
-        <Image src={Thur} alt="" style={ImgStyle} priority />
+        <Image src={thur} alt="" style={ImgStyle} priority />
       </Box>
       {/* Product Structure image  */}
       <picture style={{ position: "relative" }}>

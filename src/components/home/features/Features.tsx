@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 // SPDX-FileCopyrightText: Copyright © 2023 WebPouch Chan Alston
 
-import { Box, Container } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 import SectionTitle from "@/components/common/SectionTitle";
@@ -15,11 +15,14 @@ export default function HomeFeatures() {
   const containerStyles: SxProps<Theme> = {
     display: "flex",
     flexDirection: "column",
-    my: {
-      lg: theme.spacing(12),
-      md: theme.spacing(8),
-      xs: theme.spacing(12),
-    },
+    mb: theme.spacing(12),
+  };
+  const sectionLabelStyle: SxProps<Theme> = {
+    fontFamily: theme.typography.fontTitle,
+    color: theme.palette.highlight.main,
+    fontSize: theme.typography.h6.fontSize,
+    textAlign: "center",
+    mb: theme.spacing(1),
   };
   const featuresContainerStyle: SxProps<Theme> = {
     display: "flex",
@@ -38,7 +41,8 @@ export default function HomeFeatures() {
   // tsx return statement
   return (
     <Container sx={containerStyles} maxWidth="xl">
-      <SectionTitle text="Features" sx={{ mx: "auto" }} />
+      <Typography sx={sectionLabelStyle}>Features</Typography>
+      <SectionTitle text="Why WebPouch" sx={{ mx: "auto" }} />
       <Box sx={featuresContainerStyle}>
         {features.map((feature, index) => {
           return (

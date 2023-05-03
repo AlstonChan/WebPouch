@@ -24,14 +24,18 @@ export default function HomeAbout() {
       xs: theme.spacing(12),
     },
   };
+  const sectionLabelStyle: SxProps<Theme> = {
+    fontFamily: theme.typography.fontTitle,
+    color: theme.palette.highlight.main,
+    fontSize: theme.typography.h6.fontSize,
+  };
   const flexLeftStyle: SxProps<Theme> = {
-    flex: "1 1 60%",
+    flex: "1 1 50%",
+    alignSelf: "center",
   };
   const bodyStyle: SxProps<Theme> = {
-    textIndent: "35px",
     fontSize: {
-      lg: theme.typography.h6.fontSize,
-      md: theme.typography.body1.fontSize,
+      lg: theme.typography.h5.fontSize,
       sm: theme.typography.h6.fontSize,
       xs: theme.typography.body1.fontSize,
     },
@@ -47,22 +51,15 @@ export default function HomeAbout() {
   return (
     <Container sx={containerStyles} maxWidth="xl">
       <Box sx={flexLeftStyle}>
+        <Typography sx={sectionLabelStyle}>About Us</Typography>
         <SectionTitle text="What is WebPouch" />
         <Typography paragraph variant="h6" sx={bodyStyle}>
-          WebPouch is a comprehensive platform that offers web developers a
-          collection of web development tools and services, such as PaaS, BaaS,
-          Identity-as-a-service, and more. We provide developers to discover a
-          wide range of services from different providers, allowing them to
-          easily compare and contrast different options easily.
-        </Typography>
-        <br />
-        <Typography paragraph variant="h6" sx={bodyStyle}>
-          Our focus on free-tier services makes it an ideal tool for developers
-          on a budget. The platform&apos;s user-friendly interface enables
-          developers to view and compare different services based on various
-          criteria such as pricing, features, and support, helping them in
-          making informed decisions based on their specific project
-          requirements.
+          WebPouch is a platform that compiles information about free tier
+          services and products, so you can pursue your hobby projects without
+          having to spend money on subscription fees. We understand that finding
+          such services can be a hassle, and that not everyone is willing or
+          able to pay for the service. That's why we founded WebPouch - to help
+          you find the best free tier offerings available.
         </Typography>
       </Box>
       <Box sx={flexRightStyle}>

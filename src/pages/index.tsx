@@ -19,15 +19,17 @@ import Footer from "@/components/common/footer/Footer";
 import type { CSSProperties } from "react";
 
 export default function Home() {
+  let navBarHeight = "calc(81px + 8px)";
+
   // styling
   const thurBackgroundStyle: SxProps<Theme> = {
     position: "absolute",
-    top: 0,
+    top: `calc(20px + ${navBarHeight})`,
     right: 0,
-    width: { lg: "47%", md: "45%", xs: "100%" },
+    width: { lg: "44%", md: "39%", xs: "100%" },
     height: {
-      lg: "100vh",
-      md: `calc(700px + calc(81px + 8px) )`,
+      lg: `calc(800px - ${navBarHeight})`,
+      md: `calc(600px - ${navBarHeight})`,
       xs: 0,
     },
     opacity: 0.7,
@@ -38,6 +40,7 @@ export default function Home() {
     height: "100%",
     objectFit: "cover",
     objectPosition: "left bottom",
+    borderRadius: "40px 60px",
   };
 
   // tsx return statement
