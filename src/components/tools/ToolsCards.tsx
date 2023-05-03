@@ -37,11 +37,15 @@ export default function ToolsCard({ data }: CardProps) {
   const CardSmallMediaStyle: SxProps<Theme> = {
     position: "absolute",
     width: "auto",
+    maxWidth: "80px",
+    fontSize: "0.8rem",
     right: theme.spacing(4),
     bottom: theme.spacing(3),
     background: theme.palette.primary.dark,
     borderRadius: "9999px",
     padding: theme.spacing(1),
+    objectFit: "contain",
+    objectPosition: "50% 50%",
   };
   const CardHeaderStyle: SxProps<Theme> = {
     textAlign: "center",
@@ -132,6 +136,7 @@ export default function ToolsCard({ data }: CardProps) {
           <CardMedia
             component="img"
             height="80"
+            width="80"
             image={data.addOnThumbnail.image}
             alt={data.addOnThumbnail.title}
             sx={CardSmallMediaStyle}

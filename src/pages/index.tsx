@@ -37,7 +37,7 @@ export default function Home() {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    objectPosition: "left",
+    objectPosition: "left bottom",
   };
 
   // tsx return statement
@@ -54,7 +54,7 @@ export default function Home() {
       {/* Left side */}
       {/* Thur Background */}
       <Box sx={thurBackgroundStyle}>
-        <Image src={Thur} alt="" style={ImgStyle} />
+        <Image src={Thur} alt="" style={ImgStyle} priority />
       </Box>
       <NavBar />
 

@@ -26,7 +26,6 @@ export default function HeroImage() {
     top: 0,
     width: { md: 0, xs: "100%" },
     height: "100%",
-
     opacity: 0.7,
   };
 
@@ -34,14 +33,13 @@ export default function HeroImage() {
     width: "100%",
     height: "100%",
     objectFit: "cover",
-    objectPosition: "65%",
     borderRadius: "20px 20px 60px 60px",
   };
 
   return (
     <Box sx={imageContainerStyle}>
       <Box sx={thurBackgroundStyle}>
-        <Image src={Thur} alt="" style={ImgStyle} />
+        <Image src={Thur} alt="" style={ImgStyle} priority />
       </Box>
       {/* Product Structure image  */}
       <picture style={{ position: "relative" }}>
@@ -54,6 +52,7 @@ export default function HeroImage() {
             height: "auto",
             zIndex: 1,
           }}
+          priority
         />
       </picture>
     </Box>
