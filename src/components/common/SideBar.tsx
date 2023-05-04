@@ -7,17 +7,18 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { useEffect, useRef, useState } from "react";
-import { design, webDevelopment } from "data/toolsRoute";
+import { navBarList } from "data/toolsRoute";
 import { toLink } from "data/toolsItemDetails";
 // MaterialUI Import
 import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
 import { List, ListSubheader, ListItem } from "@mui/material";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { Menu as MenuIcon, WavingHand } from "@mui/icons-material";
+import { Menu as MenuIcon, Handyman } from "@mui/icons-material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 // type import
 import type { NavList } from "data/types";
+import type { NavBarListType } from "data/toolsRoute";
 
 const drawerWidth = 230;
 
@@ -31,12 +32,6 @@ export default function SideBar() {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-
-  type NavBarListType = { title: string; data: NavList[] };
-  const navBarList: NavBarListType[] = [
-    { title: "Web Development", data: webDevelopment },
-    { title: "UI/UX Design", data: design },
-  ];
 
   // styling
   const navContainerStyle: SxProps<Theme> = {
@@ -61,12 +56,18 @@ export default function SideBar() {
   const listSubHeaderStyle: SxProps<Theme> = { backgroundColor: "transparent" };
   const ListItemBtnStyle: SxProps<Theme> = {
     py: theme.spacing(0.6),
+    mx: theme.spacing(0.6),
+    borderRadius: theme.spacing(1),
     "&.Mui-selected": {
       backgroundColor: theme.palette.secondary.main,
       "&:hover": {
         backgroundColor: theme.palette.secondary.dark,
       },
     },
+  };
+  const ListItemIconStyle: SxProps<Theme> = { minWidth: theme.spacing(5.8) };
+  const ListItemTextStyle: SxProps<Theme> = {
+    "& .MuiListItemText-primary": { fontSize: "1rem" },
   };
   const IconButtonContainerStyle: SxProps<Theme> = {
     pt: theme.spacing(1.5),
@@ -97,17 +98,17 @@ export default function SideBar() {
       </Toolbar>
 
       <Divider sx={{ borderColor: theme.palette.secondary.main }} />
-      <List aria-labelledby="Welcome to Tools">
+      <List aria-labelledby="Tools">
         <ListItem dense disablePadding>
           <ListItemButton
             sx={ListItemBtnStyle}
             href="/tools/"
             selected={location === "/tools"}
           >
-            <ListItemIcon>
-              <WavingHand />
+            <ListItemIcon sx={ListItemIconStyle}>
+              <Handyman />
             </ListItemIcon>
-            <ListItemText primary="Welcome to Tools" />
+            <ListItemText sx={ListItemTextStyle} primary="Tools" />
           </ListItemButton>
         </ListItem>
       </List>
@@ -115,6 +116,7 @@ export default function SideBar() {
       {navBarList.map((category: NavBarListType) => {
         return (
           <List
+            key={category.title}
             aria-labelledby={category.title}
             subheader={
               <ListSubheader
@@ -133,8 +135,10 @@ export default function SideBar() {
                   href={toLink(item.title)}
                   selected={location === toLink(item.title)}
                 >
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.title} />
+                  <ListItemIcon sx={ListItemIconStyle}>
+                    {item.icon}
+                  </ListItemIcon>
+                  <ListItemText sx={ListItemTextStyle} primary={item.title} />
                 </ListItemButton>
               </ListItem>
             ))}

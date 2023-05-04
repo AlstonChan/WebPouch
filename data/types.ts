@@ -34,8 +34,8 @@ export type Design =
 
 type DesignSlug = ToSlug<Design>;
 
-export type ToolsTitle = WebDev | Design;
-export type ToolsTitleSlug = WebDevSlug | DesignSlug;
+export type ToolsTitle = WebDev | Design | "Tools";
+export type ToolsTitleSlug = WebDevSlug | DesignSlug | "tools";
 
 export interface NavList {
   title: ToolsTitle;

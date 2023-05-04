@@ -29,3 +29,9 @@ export const design: NavList[] = [
   { title: "Patterns", icon: <Pattern /> },
   { title: "Miscellaneous", icon: <MiscellaneousServices /> },
 ];
+
+export type NavBarListType = { title: string; data: NavList[] };
+export const navBarList: NavBarListType[] = [
+  { title: "Web Development", data: webDevelopment },
+  { title: "UI/UX Design", data: design },
+];
