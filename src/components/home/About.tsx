@@ -58,8 +58,8 @@ export default function HomeAbout() {
           services and products, so you can pursue your hobby projects without
           having to spend money on subscription fees. We understand that finding
           such services can be a hassle, and that not everyone is willing or
-          able to pay for the service. That's why we founded WebPouch - to help
-          you find the best free tier offerings available.
+          able to pay for the service. That&apos;s why we founded WebPouch - to
+          help you find the best free tier offerings available.
         </Typography>
       </Box>
       <Box sx={flexRightStyle}>

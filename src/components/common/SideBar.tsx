@@ -13,7 +13,7 @@ import { toLink } from "data/toolsItemDetails";
 import { Box, Divider, Drawer, IconButton, Toolbar } from "@mui/material";
 import { List, ListSubheader, ListItem } from "@mui/material";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
-import { Menu as MenuIcon } from "@mui/icons-material";
+import { Menu as MenuIcon, WavingHand } from "@mui/icons-material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 
 // type import
@@ -24,12 +24,19 @@ const drawerWidth = 230;
 export default function SideBar() {
   const theme = useTheme();
 
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState<boolean>(false);
+  const [location, setLocation] = useState<string | null>(null);
   const containerRef = useRef<null | HTMLElement>(null);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+
+  type NavBarListType = { title: string; data: NavList[] };
+  const navBarList: NavBarListType[] = [
+    { title: "Web Development", data: webDevelopment },
+    { title: "UI/UX Design", data: design },
+  ];
 
   // styling
   const navContainerStyle: SxProps<Theme> = {
@@ -48,9 +55,19 @@ export default function SideBar() {
     "& .MuiDrawer-paper": {
       boxSizing: "border-box",
       width: drawerWidth,
+      borderColor: theme.palette.secondary.main,
     },
   };
   const listSubHeaderStyle: SxProps<Theme> = { backgroundColor: "transparent" };
+  const ListItemBtnStyle: SxProps<Theme> = {
+    py: theme.spacing(0.6),
+    "&.Mui-selected": {
+      backgroundColor: theme.palette.secondary.main,
+      "&:hover": {
+        backgroundColor: theme.palette.secondary.dark,
+      },
+    },
+  };
   const IconButtonContainerStyle: SxProps<Theme> = {
     pt: theme.spacing(1.5),
     display: { sm: "none" },
@@ -78,56 +95,60 @@ export default function SideBar() {
           />
         </Link>
       </Toolbar>
-      <Divider />
-      <List
-        aria-labelledby="Web Development"
-        subheader={
-          <ListSubheader
-            component="div"
-            id="Web Development"
-            sx={listSubHeaderStyle}
+
+      <Divider sx={{ borderColor: theme.palette.secondary.main }} />
+      <List aria-labelledby="Welcome to Tools">
+        <ListItem dense disablePadding>
+          <ListItemButton
+            sx={ListItemBtnStyle}
+            href="/tools/"
+            selected={location === "/tools"}
           >
-            Web Development
-          </ListSubheader>
-        }
-      >
-        {webDevelopment.map((item: NavList) => (
-          <ListItem key={item.title} dense disablePadding>
-            <ListItemButton href={toLink(item.title)}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
+            <ListItemIcon>
+              <WavingHand />
+            </ListItemIcon>
+            <ListItemText primary="Welcome to Tools" />
+          </ListItemButton>
+        </ListItem>
       </List>
-      <Divider />
-      <List
-        aria-labelledby="UI/UX Design"
-        subheader={
-          <ListSubheader
-            component="div"
-            id="UI/UX Design"
-            sx={listSubHeaderStyle}
+
+      {navBarList.map((category: NavBarListType) => {
+        return (
+          <List
+            aria-labelledby={category.title}
+            subheader={
+              <ListSubheader
+                component="div"
+                id={category.title}
+                sx={listSubHeaderStyle}
+              >
+                {category.title}
+              </ListSubheader>
+            }
           >
-            UI/UX Design
-          </ListSubheader>
-        }
-      >
-        {design.map((item: NavList) => (
-          <ListItem key={item.title} dense disablePadding>
-            <ListItemButton href={toLink(item.title)}>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.title} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
+            {category.data.map((item: NavList) => (
+              <ListItem key={item.title} dense disablePadding>
+                <ListItemButton
+                  sx={ListItemBtnStyle}
+                  href={toLink(item.title)}
+                  selected={location === toLink(item.title)}
+                >
+                  <ListItemIcon>{item.icon}</ListItemIcon>
+                  <ListItemText primary={item.title} />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        );
+      })}
     </>
   );
 
   useEffect(() => {
     if (window !== undefined) {
       containerRef.current = window.document.body;
+      const path = window.location.pathname;
+      setLocation(path);
     }
   }, []);
 

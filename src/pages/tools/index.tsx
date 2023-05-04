@@ -3,11 +3,20 @@
 
 import Head from "next/head";
 
-import { Container } from "@mui/material";
-import ToolsLayout from "@/components/ToolsLayout";
 import { ReactElement } from "react";
+// MaterialUI Import
+import { Container, Typography } from "@mui/material";
+import { useTheme, Theme, SxProps } from "@mui/material/styles";
+
+import ToolsLayout from "@/components/ToolsLayout";
 
 export default function Tools() {
+  const theme = useTheme();
+
+  const PageTitleStyle: SxProps<Theme> = {
+    fontFamily: theme.typography.fontTitle,
+  };
+
   return (
     <>
       <Head>
@@ -19,7 +28,11 @@ export default function Tools() {
         />
       </Head>
 
-      <Container>tools</Container>
+      <Container>
+        <Typography component="h1" variant="h3" sx={PageTitleStyle}>
+          Tools
+        </Typography>
+      </Container>
     </>
   );
 }
