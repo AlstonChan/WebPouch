@@ -14,13 +14,14 @@ export default function SectionTitle({ text, sx }: Props) {
   const AdditionalSx = sx || null;
 
   const titleStyle: SxProps<Theme> = {
-    mb: 2,
+    fontFamily: theme.typography.fontTitle,
     fontSize: {
       lg: theme.typography.h3.fontSize,
       md: theme.typography.h4.fontSize,
       sm: theme.typography.h3.fontSize,
       xs: theme.typography.h4.fontSize,
     },
+    mb: 2,
     ...AdditionalSx,
   };
 

@@ -5,15 +5,20 @@ import { useEffect, useState } from "react";
 // MaterialUI Import
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { MobileStepper, Box, Button, Divider } from "@mui/material";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
+import {
+  Handyman,
+  KeyboardArrowLeft,
+  KeyboardArrowRight,
+} from "@mui/icons-material";
 
 import { design, webDevelopment } from "data/toolsRoute";
 import { toLink } from "data/toolsItemDetails";
 
 // type import
-import { ToolsTitleSlug } from "data/types";
+import type { NavList, ToolsTitleSlug } from "data/types";
 
-const pages = [...webDevelopment, ...design];
+const root: NavList = { title: "Tools", icon: <Handyman /> };
+let pages = [root, ...webDevelopment, ...design];
 const maxPages = pages.length;
 
 export default function ToolsMobileStepper({
@@ -42,14 +47,27 @@ export default function ToolsMobileStepper({
 
   // component
   // left element
+  // if the current page is the first page,
+  // put a dummy link (/tools) at the left, (user can never click)
+  // else if it is not at the first page,
+  // check if it is the previous page is the root page (/tools)
+  // if it is, don't attach base path to prevent /tools/tools
   const ifPageIsFirstPage = firstPage
     ? "/tools"
+    : pages[activePage - 1].title === "Tools"
+    ? `/${toLink(pages[activePage - 1].title, false)}`
     : toLink(pages[activePage - 1].title);
 
   const leftBtnHref = pages ? ifPageIsFirstPage : "/tools";
 
   const leftBtn = (
-    <Button size="large" href={leftBtnHref} color="info" sx={BtnStyle}>
+    <Button
+      size="large"
+      href={leftBtnHref}
+      color="info"
+      sx={BtnStyle}
+      disabled={firstPage}
+    >
       {firstPage ? null : (
         <>
           {theme.direction === "rtl" ? (
@@ -71,7 +89,13 @@ export default function ToolsMobileStepper({
   const rightBtnHref = pages ? ifPageIsLastPage : "/tools";
 
   const nextBtn = (
-    <Button size="large" href={rightBtnHref} color="info" sx={BtnStyle}>
+    <Button
+      size="large"
+      href={rightBtnHref}
+      color="info"
+      sx={BtnStyle}
+      disabled={lastPage}
+    >
       {lastPage ? null : (
         <>
           {pages ? (lastPage ? "" : pages[activePage + 1].title) : "Next"}

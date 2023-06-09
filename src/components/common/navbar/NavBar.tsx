@@ -12,6 +12,7 @@ import { useEffect, useState } from "react";
 import { AppBar, Box, Toolbar, IconButton, Typography } from "@mui/material";
 import { Menu, Container, Button, MenuItem } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import { GitHub } from "@mui/icons-material";
 
 type Navigation = "home" | "tools" | "flow";
 const pages: Navigation[] = ["home", "tools", "flow"];
@@ -66,14 +67,16 @@ export default function NavBar() {
   const appBarStyle: SxProps<Theme> = { boxShadow: "none", mb: 1 };
   const logoContainerStyle: SxProps<Theme> = {
     display: "flex",
-    mr: theme.spacing(1),
+    mr: "auto",
     py: theme.spacing(1),
     verticalAlign: "middle",
+    width: { md: "auto", sm: "220px", xs: "180px" },
   };
   const hamburgerDropdownContainerStyle: SxProps<Theme> = {
     flexGrow: theme.spacing(1),
     justifyContent: "right",
     display: { xs: "flex", sm: "none" },
+    pr: theme.spacing(2),
   };
   const hamburgerDropdownMenuStyle: SxProps<Theme> = {
     display: { xs: "block", sm: "none" },
@@ -96,7 +99,6 @@ export default function NavBar() {
     my: theme.spacing(2),
     px: theme.spacing(1),
     borderRadius: theme.spacing(2),
-    backgroundColor: theme.palette.secondary.main,
   };
   const navigationPanelButton: SxProps<Theme> = {
     fontSize: theme.typography.body1.fontSize,
@@ -112,7 +114,11 @@ export default function NavBar() {
         <Toolbar disableGutters>
           {/* Page logo on left side  */}
           <Box sx={logoContainerStyle}>
-            <Image src={logo} alt="WebPouch" width="240" />
+            <Image
+              src={logo}
+              alt="WebPouch"
+              style={{ width: "100%", height: "auto" }}
+            />
           </Box>
 
           <Box sx={hamburgerDropdownContainerStyle}>
@@ -193,6 +199,16 @@ export default function NavBar() {
                   {page}
                 </Button>
               ))}
+              <IconButton
+                component="a"
+                href="https://github.com/AlstonChan/WebPouch"
+                target="_blank"
+                referrerPolicy="no-referrer"
+                aria-label="Github"
+                aria-haspopup="false"
+              >
+                <GitHub fontSize="large" />
+              </IconButton>
             </Box>
           </Box>
         </Toolbar>

@@ -3,24 +3,46 @@
 
 import { createTheme } from "@mui/material";
 
-import { McLaren } from "next/font/google";
+import { McLaren, Ubuntu } from "next/font/google";
+
+import type { CSSProperties } from "react";
 
 const mclaren = McLaren({
   weight: "400",
+  subsets: ["latin"],
+});
+const ubuntu = Ubuntu({
+  weight: "700",
   subsets: ["latin"],
 });
 
 declare module "@mui/material/styles" {
   interface Palette {
     brightLink: Palette["primary"];
+    highlight: Palette["primary"];
   }
   interface PaletteOptions {
     brightLink: PaletteOptions["primary"];
+    highlight: PaletteOptions["primary"];
   }
 
   interface BreakpointOverrides {
     "xl-lg": true;
     "lg-md": true;
+  }
+
+  interface TypographyVariants {
+    fontTitle: CSSProperties;
+  }
+
+  interface TypographyVariantsOptions {
+    fontTitle?: React.CSSProperties;
+  }
+}
+
+declare module "@mui/material/Typography" {
+  interface TypographyPropsVariantOverrides {
+    fontTitle: true;
   }
 }
 
@@ -49,12 +71,16 @@ const generalTheme = createTheme({
     brightLink: {
       main: "#00d1ff",
     },
+    highlight: {
+      main: "#12DCC4",
+    },
     background: {
       default: "#002744",
     },
   },
   typography: {
     fontFamily: mclaren.style.fontFamily,
+    fontTitle: ubuntu.style,
   },
   components: {
     MuiDrawer: {

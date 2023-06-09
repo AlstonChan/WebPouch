@@ -39,8 +39,15 @@ const ToolsParam: NextPageWithLayout = ({
   };
   const BodyTextStyle: SxProps<Theme> = {
     mt: theme.spacing(1.5),
-    lineHeight: "1.7rem",
+    lineHeight: "2rem",
     maxWidth: 1200,
+    fontSize: {
+      md: theme.typography.h6.fontSize,
+      xs: theme.typography.body1.fontSize,
+    },
+  };
+  const PageTitleStyle: SxProps<Theme> = {
+    fontFamily: theme.typography.fontTitle,
   };
   const TableTextStyle: SxProps<Theme> = {
     mt: {
@@ -54,10 +61,10 @@ const ToolsParam: NextPageWithLayout = ({
   const showTableIfDataExists = data[0]?.comparisonInfo && (
     <>
       <Box sx={TableTextStyle}>
-        <Typography component="h2" variant="h4">
+        <Typography component="h2" variant="h4" sx={PageTitleStyle}>
           Feature Comparison Table
         </Typography>
-        <Typography paragraph variant="body1" sx={BodyTextStyle}>
+        <Typography paragraph sx={BodyTextStyle}>
           Here we listed some common feature for you compare and evaluate each
           tools side-by-side. You can then quickly identify the pros and cons of
           different options and make informed decisions based on your project
@@ -78,7 +85,7 @@ const ToolsParam: NextPageWithLayout = ({
   const showAdditionalInfoIfDataExists = checkIfAdditionalInfoDataExists && (
     <>
       <Box sx={TableTextStyle}>
-        <Typography component="h2" variant="h4">
+        <Typography component="h2" variant="h4" sx={PageTitleStyle}>
           Additional Information
         </Typography>
       </Box>
@@ -100,7 +107,7 @@ const ToolsParam: NextPageWithLayout = ({
         <meta name="description" content={pageData.metaDescription} />
       </Head>
 
-      <Typography component="h1" variant="h3">
+      <Typography component="h1" variant="h3" sx={PageTitleStyle}>
         {pageData.title}
       </Typography>
       <Typography variant="body1" sx={BodyTextStyle}>

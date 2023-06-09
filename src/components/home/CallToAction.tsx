@@ -72,9 +72,9 @@ export default function HomeCallToAction() {
     justifyContent: "center",
     alignContent: "center",
     height: {
-      lg: "500px",
-      md: "400px",
-      xs: "280px",
+      lg: "400px",
+      md: "300px",
+      xs: "250px",
     },
     mt: {
       lg: theme.spacing(12),
@@ -113,34 +113,40 @@ export default function HomeCallToAction() {
     maxWidth: "300px",
   };
   const mainTextStyle: SxProps<Theme> = {
-    mb: 2,
+    fontFamily: theme.typography.fontTitle,
     fontSize: {
       lg: theme.typography.h3.fontSize,
       sm: theme.typography.h4.fontSize,
-      xs: theme.typography.h5.fontSize,
+      xs: "1.7rem",
     },
     maxWidth: {
-      lg: "880px",
-      sm: "600px",
-      xs: "400px",
+      lg: "700px",
+      sm: "470px",
+      xs: "300px",
     },
+    mb: 2,
     alignSelf: "center",
     textAlign: "center",
     zIndex: 4000,
+  };
+  const buttonStyle: SxProps<Theme> = {
+    width: "fit-content",
+    mx: "auto",
+    zIndex: 4000,
+    fontFamily: theme.typography.fontTitle,
   };
 
   // tsx return statement
   return (
     <Container maxWidth={false} sx={containerStyles}>
       <Typography component="h2" variant="h3" sx={mainTextStyle}>
-        Make informed cloud service decisions with WebPouch
+        Discover and compare services now
       </Typography>
       <Button
         variant="contained"
         disableElevation
-        color="primary"
         size="large"
-        sx={{ width: "fit-content", mx: "auto", zIndex: 4000 }}
+        sx={buttonStyle}
         onClick={() => router.push("/tools")}
       >
         Get started
