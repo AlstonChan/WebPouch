@@ -76,7 +76,7 @@ export default function SideBar() {
     top: 0,
   };
   const xsIconButtonStyle: SxProps<Theme> = {
-    mx: theme.spacing(1.5),
+    mx: theme.spacing(1),
     border: `1px solid ${theme.palette.secondary.light}`,
     borderRadius: theme.spacing(1),
     color: theme.palette.secondary.light,
@@ -166,7 +166,7 @@ export default function SideBar() {
           onClick={handleDrawerToggle}
           sx={xsIconButtonStyle}
         >
-          <MenuIcon />
+          <MenuIcon fontSize="small" />
         </IconButton>
       </Box>
       {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
