@@ -33,5 +33,5 @@ export const design: NavList[] = [
 export type NavBarListType = { title: string; data: NavList[] };
 export const navBarList: NavBarListType[] = [
   { title: "Web Development", data: webDevelopment },
-  { title: "UI/UX Design", data: design },
+  // { title: "UI/UX Design", data: design },
 ];

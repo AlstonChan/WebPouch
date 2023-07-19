@@ -39,3 +39,5 @@ node_modules
 
 # misc
 package-lock.json
+
+.tina/__generated__/*

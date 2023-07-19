@@ -14,8 +14,8 @@ import { Menu, Container, Button, MenuItem } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import { GitHub } from "@mui/icons-material";
 
-type Navigation = "home" | "tools" | "flow";
-const pages: Navigation[] = ["home", "tools", "flow"];
+type Navigation = "home" | "tools";
+const pages: Navigation[] = ["home", "tools"];
 
 export default function NavBar() {
   const theme = useTheme();
@@ -54,10 +54,6 @@ export default function NavBar() {
         case "tools":
           if (currentPath === "/tools") return;
           router.push("/tools");
-          break;
-        case "flow":
-          if (currentPath === "/flow") return;
-          router.push("/flow");
           break;
       }
     }

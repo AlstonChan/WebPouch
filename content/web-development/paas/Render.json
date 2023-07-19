@@ -7,7 +7,7 @@
   "thumbnail": "/webdev/deployment/render.png",
   "additionalInfo": [
     {
-      "content": "Free web service will sleeps after 15 minutes of inactivity, so you have to actively ping it to keep it awake, for NodeJs server, consider using <a href=\"https://www.npmjs.com/package/node-cron\" rel=\"no-referrer\" target=\"_blank\">node-cron</a>.",
+      "content": "Free web service will sleeps after 15 minutes of inactivity, so you have to actively ping it to keep it awake, for NodeJs server, consider using <a href=\"https://console.cron-job.org\" rel=\"no-referrer\" target=\"_blank\">cron-job.org</a> as it is free, and I find that node-cron didn't work well as the server goes to sleep even with node-cron self pinging.",
       "_template": "infoListItem"
     }
   ],

@@ -8,7 +8,7 @@ import { ToolsDetail, ToolsTitle } from "./types";
 
 const tools: { [key: string]: ToolsDetail } = {
   ...webDev,
-  ...design,
+  // ...design,
 };
 export default tools;
 
