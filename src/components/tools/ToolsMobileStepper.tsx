@@ -18,7 +18,7 @@ import { toLink } from "data/toolsItemDetails";
 import type { NavList, ToolsTitleSlug } from "data/types";
 
 const root: NavList = { title: "Tools", icon: <Handyman /> };
-let pages = [root, ...webDevelopment, ...design];
+let pages = [root, ...webDevelopment];
 const maxPages = pages.length;
 
 export default function ToolsMobileStepper({
