@@ -23,6 +23,7 @@ export default function ToolsAdditionalInfo({ data }: { data: any }) {
     "& > a": {
       color: theme.palette.brightLink.main,
       textDecoration: `underline ${theme.palette.brightLink.main}73`,
+      wordBreak: "break-all",
     },
     "& > a:hover": {
       textDecoration: `underline ${theme.palette.brightLink.main}`,

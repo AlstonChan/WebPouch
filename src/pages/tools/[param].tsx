@@ -121,7 +121,7 @@ const ToolsParam: NextPageWithLayout = ({
                 xl-lg={3}
                 lg-md={4}
                 md={6}
-                sm={12}
+                sm={6}
                 xs={12}
                 key={single.title}
               >

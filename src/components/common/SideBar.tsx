@@ -35,10 +35,10 @@ export default function SideBar() {
 
   // styling
   const navContainerStyle: SxProps<Theme> = {
-    width: { sm: drawerWidth },
+    width: { md: drawerWidth },
     flexShrink: { sm: 0 },
     backgroundColor: {
-      sm: "transparent",
+      md: "transparent",
       xs: theme.palette.primary.dark,
     },
   };
@@ -71,7 +71,7 @@ export default function SideBar() {
   };
   const IconButtonContainerStyle: SxProps<Theme> = {
     pt: theme.spacing(1.5),
-    display: { sm: "none" },
+    display: { md: "none" },
     position: "sticky",
     top: 0,
   };
@@ -179,7 +179,7 @@ export default function SideBar() {
           keepMounted: true, // Better open performance on mobile.
         }}
         sx={{
-          display: { xs: "block", sm: "none" },
+          display: { xs: "block", md: "none" },
           ...drawerStyles,
         }}
       >
@@ -188,7 +188,7 @@ export default function SideBar() {
       <Drawer
         variant="permanent"
         sx={{
-          display: { xs: "none", sm: "block" },
+          display: { xs: "none", md: "block" },
           ...drawerStyles,
         }}
         open

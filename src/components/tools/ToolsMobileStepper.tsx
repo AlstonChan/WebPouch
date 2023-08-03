@@ -43,6 +43,12 @@ export default function ToolsMobileStepper({
   // styling
   const BtnStyle: SxProps<Theme> = {
     borderRadius: theme.spacing(1),
+    // fontSize: `${matches ? "12px" : ""}`,
+    fontSize: {
+      xs: "12px",
+      sm: theme.typography.body2.fontSize,
+      md: theme.typography.body1.fontSize,
+    },
   };
 
   // component
@@ -114,7 +120,22 @@ export default function ToolsMobileStepper({
     <Box sx={{ pt: theme.spacing(10) }}>
       <Divider />
       <MobileStepper
-        sx={{ py: theme.spacing(3) }}
+        sx={{
+          py: theme.spacing(3),
+          fontSize: {
+            xs: "12px",
+            sm: theme.typography.body2.fontSize,
+            md: theme.typography.body1.fontSize,
+          },
+          flexDirection: {
+            xs: "column",
+            sm: "row",
+          },
+          alignItems: {
+            xs: "flex-end",
+            sm: "center",
+          },
+        }}
         variant="text"
         steps={maxPages}
         position="static"

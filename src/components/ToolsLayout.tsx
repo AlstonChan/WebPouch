@@ -16,7 +16,7 @@ export default function ToolsLayout({ children }: Props) {
   const theme = useTheme();
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", minHeight: "100vh" }}>
       <SideBar />
       <Container
         maxWidth="xl"
