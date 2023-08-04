@@ -40,7 +40,3 @@ node_modules
 
 # misc
 package-lock.json
-
-# tina
-tina/__generated__/*
-tina/tina-lock.json
