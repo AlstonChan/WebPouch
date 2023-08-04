@@ -17,7 +17,7 @@
     "baseUrl": ".",
     "paths": {
       "@/public/*": ["./public/*"],
-      "@/tina/*": ["./.tina/*"],
+      "@/tina/*": ["./tina/*"],
       "@/*": ["./src/*"]
     }
   },
