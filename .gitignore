@@ -27,6 +27,7 @@ yarn-error.log*
 
 # local env files
 .env*.local
+.env
 
 # vercel
 .vercel
@@ -39,5 +40,3 @@ node_modules
 
 # misc
 package-lock.json
-
-/.tina/__generated__/*
