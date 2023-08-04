@@ -36,7 +36,7 @@
                     "value": "require-corp"
                 },
                 {
-                    "key": "Cross-Origin-Resource-Polic",
+                    "key": "Cross-Origin-Resource-Policy",
                     "value": "same-origin"
                 },
                 {
