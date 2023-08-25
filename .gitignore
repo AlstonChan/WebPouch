@@ -42,5 +42,5 @@ node_modules
 package-lock.json
 
 # tina
-tina/__generated__/*
-tina/tina-lock.json
+# tina/__generated__/*
+# tina/tina-lock.json

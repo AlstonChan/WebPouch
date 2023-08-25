@@ -1,0 +1,94 @@
+fragment AuthenticationParts on Authentication {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  additionalInfo {
+    __typename
+    ... on AuthenticationAdditionalInfoInfoListItem {
+      content
+    }
+    ... on AuthenticationAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment WebHostingParts on WebHosting {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  additionalInfo {
+    __typename
+    ... on WebHostingAdditionalInfoInfoListItem {
+      content
+    }
+    ... on WebHostingAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment BaasParts on Baas {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  additionalInfo {
+    __typename
+    ... on BaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on BaasAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment CloudProvidersParts on CloudProviders {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  additionalInfo {
+    __typename
+    ... on CloudProvidersAdditionalInfoInfoListItem {
+      content
+    }
+    ... on CloudProvidersAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment FrameworksParts on Frameworks {
+  title
+  description
+  siteLink
+  additionalInfo {
+    __typename
+    ... on FrameworksAdditionalInfoInfoListItem {
+      content
+    }
+    ... on FrameworksAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
+
+fragment PaasParts on Paas {
+  title
+  description
+  descriptionOfFreePlan
+  siteLink
+  additionalInfo {
+    __typename
+    ... on PaasAdditionalInfoInfoListItem {
+      content
+    }
+    ... on PaasAdditionalInfoInfoListWarning {
+      content
+    }
+  }
+}
