@@ -1,15 +1,5 @@
 {
   "title": "Next. Js",
   "description": "An open-source framework built on top of React that allows you to build server-side rendered (SSR) web applications with ease. It also provides many useful tools out of a box including file system routing, page layouts, data fetching, etc.. ",
-  "siteLink": "https://nextjs.org/",
-  "thumbnail": "/webdev/frameworks/nextjs.png",
-  "addOnThumbnailTitle": "React. Js",
-  "addOnThumbnail": {
-    "title": "React. Js",
-    "image": "/webdev/frameworks/reactjs.png"
-  },
-  "githubInfo": {
-    "githubLink": "https://github.com/vercel/next.js",
-    "githubStars": "105k"
-  }
+  "siteLink": "https://nextjs.org/"
 }

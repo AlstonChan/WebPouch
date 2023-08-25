@@ -2,30 +2,5 @@
   "title": "Microsoft Azure",
   "description": "Azure is a cloud platform with more than 200 products and services designed to help you bring new solutions to life",
   "descriptionOfFreePlan": "Azure functions, static web apps and virtual machine",
-  "siteLink": "https://azure.microsoft.com",
-  "pricingPage": "https://azure.microsoft.com/en-us/pricing/free-services/",
-  "thumbnail": "/webdev/cloudProviders/azure.png",
-  "featuresInfo": [
-    {
-      "feature": "Static Web Apps",
-      "description": "Full stack web app hosting platform",
-      "duration": "Always Free",
-      "limitations": "10 app, 100GB bandwidth, 2 custom domains and 0.5 GB storage",
-      "_template": "feature"
-    },
-    {
-      "feature": "Azure Functions",
-      "description": "A serverless function",
-      "duration": "Always Free",
-      "limitations": "1M invocations per month",
-      "_template": "feature"
-    },
-    {
-      "feature": "Azure Virtual Machines",
-      "description": "Virtual Machine for windows and linux",
-      "duration": "12 month",
-      "limitations": "750 hours each for windwos and linux VM, one 64GB storage",
-      "_template": "feature"
-    }
-  ]
+  "siteLink": "https://azure.microsoft.com"
 }

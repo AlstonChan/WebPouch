@@ -2,44 +2,5 @@
   "title": "Amazon Web Service",
   "description": "Amazon Web Services (AWS) is the world’s most comprehensive and broadly adopted cloud, offering over 200 fully featured services from data centers globally.",
   "descriptionOfFreePlan": "Always free user authentication, serverless function and simple email service.",
-  "siteLink": "https://aws.amazon.com",
-  "pricingPage": "https://aws.amazon.com/pricing",
-  "thumbnail": "/webdev/cloudProviders/aws.jpeg",
-  "featuresInfo": [
-    {
-      "feature": "AWS Lambda",
-      "description": "A serverless, event-driven compute service",
-      "duration": "Always Free",
-      "limitations": "Up to 3.2M seconds of compute time, 1M request per month",
-      "_template": "feature"
-    },
-    {
-      "feature": "Amazon DynamoDB",
-      "description": "A NoSQL database",
-      "duration": "Always Free",
-      "limitations": "25 GB storage, 200M request per month",
-      "_template": "feature"
-    },
-    {
-      "feature": "Amazon RDS",
-      "description": "Managed Relational Database Service",
-      "duration": "12 Month",
-      "limitations": "20GB of general purpose database storage and 20 GB backups",
-      "_template": "feature"
-    },
-    {
-      "feature": "Amazon S3",
-      "description": "An object storage service to store data",
-      "duration": "12 month",
-      "limitations": "5GB storage, 20,000 GET and 2,000 PUT requests",
-      "_template": "feature"
-    },
-    {
-      "feature": "Amazon EC2",
-      "description": "A Virtual Machine with 750 hours of free compute per month",
-      "duration": "12 Month",
-      "limitations": "t2.micro or t3.micro dependent on region",
-      "_template": "feature"
-    }
-  ]
+  "siteLink": "https://aws.amazon.com"
 }
