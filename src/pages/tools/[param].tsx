@@ -9,7 +9,6 @@ import tools, { toLink, kebabToCamelCase } from "data/toolsItemDetails";
 // MaterialUI Import
 import { Box, Typography, Stack, Divider } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
-import Grid2 from "@mui/material/Unstable_Grid2";
 
 // type import
 import type { NextPageWithLayout } from "../_app";
@@ -20,9 +19,7 @@ import type {
 } from "next";
 
 // component and layout import
-import ToolsCard from "@/components/tools/ToolsCards";
 import ToolsLayout from "@/components/ToolsLayout";
-import ToolsTable from "@/components/tools/table/ToolsTable";
 import ToolsMobileStepper from "@/components/tools/ToolsMobileStepper";
 import ToolsAdditionalInfo from "@/components/tools/ToolsAdditionalInfo";
 import ToolsBar from "@/components/tools/ToolsBar";
@@ -63,26 +60,6 @@ const ToolsParam: NextPageWithLayout = ({
   };
 
   // component
-  const showTableIfDataExists = data[0]?.comparisonInfo && (
-    <>
-      <Box sx={TableTextStyle}>
-        <Typography component="h2" variant="h4" sx={PageTitleStyle}>
-          Feature Comparison Table
-        </Typography>
-        <Typography paragraph sx={BodyTextStyle}>
-          Here we listed some common feature for you compare and evaluate each
-          tools side-by-side. You can then quickly identify the pros and cons of
-          different options and make informed decisions based on your project
-          needs. Do note that not all feature are listed here, some service and
-          tool might have some additional function or add-ons that may just be
-          what you want, so you&apos;d have to do your own research as well
-        </Typography>
-      </Box>
-
-      <ToolsTable data={data} />
-    </>
-  );
-
   const checkIfAdditionalInfoDataExists = data.find(
     (single: any) => single?.additionalInfo
   );
@@ -102,6 +79,19 @@ const ToolsParam: NextPageWithLayout = ({
   // tsx return statement
   return (
     <>
+      <Head>
+        <title>{`${pageData.title} - WebPouch`} </title>
+        <meta
+          name="title"
+          content={`${pageData.title} - WebPouch`}
+          key="title"
+        />
+        <meta
+          name="description"
+          content={`${pageData.description} - WebPouch`}
+        />
+      </Head>
+
       <Typography component="h1" variant="h3" sx={PageTitleStyle}>
         {pageData.title}
       </Typography>
