@@ -2,24 +2,5 @@
   "title": "Glitch",
   "description": "Glitch is the friendly place where everyone builds the web. Start a new blog, play with React, or build new worlds with WebXR.",
   "descriptionOfFreePlan": "Static sites with maximum 1000 active hour that are always on",
-  "siteLink": "https://glitch.com/",
-  "pricingPage": "https://glitch.com/pricing",
-  "thumbnail": "/webdev/paas/glitch.png",
-  "comparisonInfo": {
-    "hourlyLimit": "1,000 hours per month",
-    "appLimit": "Unlimited",
-    "databaseLimit": "false",
-    "requestLimit": "4,000 requests per hour",
-    "freeBandwidth": "false",
-    "cpu": "false",
-    "ram": "512 MB",
-    "supportedLanguage": "NodeJs, Javascript",
-    "supportedDatabase": "SQLite",
-    "persistentStorage": "200MB per app",
-    "https": true,
-    "edgeDeployment": false,
-    "deployFromAnyGithubRepo": false,
-    "customDomain": false,
-    "sleeps": "After 5 minutes of inactivity"
-  }
+  "siteLink": "https://glitch.com/"
 }

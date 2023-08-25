@@ -1,11 +1,5 @@
 {
   "title": "qwik",
   "description": "Qwik is a framework that renders a tree of components resulting in an interactive application. it offers the fastest possible page load times - regardless of the complexity of your website as it loads with minimal javascript",
-  "descriptionOfFreePlan": "",
-  "siteLink": "https://qwik.builder.io/",
-  "thumbnail": "/webdev/frameworks/qwik.png",
-  "githubInfo": {
-    "githubLink": "https://github.com/BuilderIO/qwik",
-    "githubStars": "16.5k"
-  }
+  "siteLink": "https://qwik.builder.io/"
 }

@@ -80,7 +80,7 @@ const ToolsParam: NextPageWithLayout = ({
   return (
     <>
       <Head>
-        <title>{`${pageData.title} - WebPouch`} </title>
+        <title>{`${pageData.title} - WebPouch`}</title>
         <meta
           name="title"
           content={`${pageData.title} - WebPouch`}

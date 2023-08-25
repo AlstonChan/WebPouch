@@ -2,30 +2,5 @@
   "title": "Render",
   "description": "A unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.",
   "descriptionOfFreePlan": "100GB bandwidth with 750 hours of usage",
-  "siteLink": "https://render.com/",
-  "pricingPage": "https://render.com/pricing",
-  "thumbnail": "/webdev/deployment/render.png",
-  "additionalInfo": [
-    {
-      "content": "Free web service will sleeps after 15 minutes of inactivity, so you have to actively ping it to keep it awake, for NodeJs server, consider using <a href=\"https://console.cron-job.org\" rel=\"no-referrer\" target=\"_blank\">cron-job.org</a> as it is free, and I find that node-cron didn't work well as the server goes to sleep even with node-cron self pinging.",
-      "_template": "infoListItem"
-    }
-  ],
-  "comparisonInfo": {
-    "hourlyLimit": "750 hours monthly",
-    "appLimit": "false",
-    "databaseLimit": "false",
-    "requestLimit": "false",
-    "freeBandwidth": "100 GB monthly",
-    "cpu": "0.1 core",
-    "ram": "512 MB",
-    "supportedLanguage": "NodeJs, Python, Go, Rust, Ruby, and Elixir",
-    "supportedDatabase": "false",
-    "persistentStorage": "false",
-    "https": true,
-    "edgeDeployment": false,
-    "deployFromAnyGithubRepo": true,
-    "customDomain": true,
-    "sleeps": "15 minutes of inactivity"
-  }
+  "siteLink": "https://render.com/"
 }

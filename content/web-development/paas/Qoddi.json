@@ -2,24 +2,5 @@
   "title": "Qoddi",
   "description": "An App Platform as a service for web apps, microservices (like APIs) unlimited traffic and has no vendor locking with the use of docker container",
   "descriptionOfFreePlan": "3 free Dev app with unlimited bandwidth and never sleeps",
-  "siteLink": "https://qoddi.com/",
-  "pricingPage": "https://qoddi.com/pricing/",
-  "thumbnail": "/webdev/paas/Qoddi.png",
-  "comparisonInfo": {
-    "hourlyLimit": "false",
-    "appLimit": "3",
-    "databaseLimit": "false",
-    "requestLimit": "false",
-    "freeBandwidth": "Unlimited, 512Mbps Unmetered<",
-    "cpu": "Shared CPU",
-    "ram": "512 MB",
-    "supportedLanguage": "NodeJs, PHP, Python, Docker, Ruby and Rails, Laravel, Java, Rust, Go, Redwood, Gatsby, Gradle, NuxtJs",
-    "supportedDatabase": "Postgres, MariaDB, MongoDB, Redis, MySQL, ArangoDB, ElasticSearch",
-    "persistentStorage": "false",
-    "https": false,
-    "edgeDeployment": true,
-    "deployFromAnyGithubRepo": true,
-    "customDomain": false,
-    "sleeps": "Never"
-  }
+  "siteLink": "https://qoddi.com/"
 }

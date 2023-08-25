@@ -2,29 +2,5 @@
   "title": "Render",
   "description": "A unified cloud to build and run all your apps and websites with free TLS certificates, a global CDN, DDoS protection, private networks, and auto deploys from Git.",
   "descriptionOfFreePlan": "Free static site hosting and web service hosting with 100GB free bandwidth per month",
-  "siteLink": "https://render.com/",
-  "pricingPage": "https://render.com/pricing",
-  "thumbnail": "/webdev/deployment/render.png",
-  "comparisonInfo": {
-    "siteLimit": "Didn't Specified",
-    "freeBandwidth": "100 GB",
-    "additionalBandwidthCost": "$0.10/GB",
-    "freeBuildMinutes": "500 minutes",
-    "concurrentBuilds": "1",
-    "deploymentPreview": true,
-    "serverlessFunctionExecution": "false",
-    "serverlessFunctionInvocations": "false",
-    "serverlessFunctionExecutionTimeout": "false",
-    "edgeFunctionExecution": "false",
-    "globalCdn": true,
-    "customHeaders": true,
-    "https": true,
-    "ddosProtection": true
-  },
-  "additionalInfo": [
-    {
-      "content": "Render does provide free Web Services that have a limit of 750 hours usage, 100 GB bandwidth per month. However, it will sleeps after 15 minutes of inactivity, so you have to actively ping it to keep it awake, for NodeJs server, consider <a href=\"https://www.npmjs.com/package/node-cron\" rel=\"no-referrer\" target=\"_blank\">node-cron</a>.",
-      "_template": "infoListItem"
-    }
-  ]
+  "siteLink": "https://render.com/"
 }
