@@ -7,7 +7,7 @@ import { ReactElement } from "react";
 import { client } from "@/tina/__generated__/client";
 import tools, { toLink, kebabToCamelCase } from "data/toolsItemDetails";
 // MaterialUI Import
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Stack, Divider } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
 import Grid2 from "@mui/material/Unstable_Grid2";
 
@@ -25,6 +25,7 @@ import ToolsLayout from "@/components/ToolsLayout";
 import ToolsTable from "@/components/tools/table/ToolsTable";
 import ToolsMobileStepper from "@/components/tools/ToolsMobileStepper";
 import ToolsAdditionalInfo from "@/components/tools/ToolsAdditionalInfo";
+import ToolsBar from "@/components/tools/ToolsBar";
 
 const ToolsParam: NextPageWithLayout = ({
   data,
@@ -55,6 +56,10 @@ const ToolsParam: NextPageWithLayout = ({
       md: theme.spacing(3),
       xs: theme.spacing(1),
     },
+  };
+  const ToolsBarDivider: SxProps<Theme> = {
+    borderWidth: "2px",
+    borderColor: theme.palette.secondary.main,
   };
 
   // component
@@ -97,41 +102,26 @@ const ToolsParam: NextPageWithLayout = ({
   // tsx return statement
   return (
     <>
-      <Head>
-        <title>{`${pageData.title} - WebPouch`}</title>
-        <meta
-          name="title"
-          content={`${pageData.title} - WebPouch`}
-          key="title"
-        />
-        <meta name="description" content={pageData.metaDescription} />
-      </Head>
-
       <Typography component="h1" variant="h3" sx={PageTitleStyle}>
         {pageData.title}
       </Typography>
       <Typography variant="body1" sx={BodyTextStyle}>
         {pageData.subTitle}
       </Typography>
-      <Grid2 container spacing={2.5} sx={BoxStyle}>
+      <Divider orientation="horizontal" sx={{ my: 2, ...ToolsBarDivider }} />
+      <Stack
+        direction="column"
+        divider={
+          <Divider orientation="horizontal" flexItem sx={ToolsBarDivider} />
+        }
+        spacing={2}
+      >
         {data &&
           data.map((single: any) => {
-            return (
-              <Grid2
-                xl-lg={3}
-                lg-md={4}
-                md={6}
-                sm={6}
-                xs={12}
-                key={single.title}
-              >
-                <ToolsCard data={single} />
-              </Grid2>
-            );
+            return <ToolsBar data={single} key={single.title} />;
           })}
-      </Grid2>
-
-      {showTableIfDataExists}
+      </Stack>
+      <Divider orientation="horizontal" sx={{ my: 2, ...ToolsBarDivider }} />
 
       {showAdditionalInfoIfDataExists}
 

@@ -11,6 +11,7 @@ import { Box, Typography } from "@mui/material";
 import { List, ListItem } from "@mui/material";
 import { ListItemButton, ListItemIcon, ListItemText } from "@mui/material";
 import { useTheme, Theme, SxProps } from "@mui/material/styles";
+import { blue } from "@mui/material/colors";
 
 import ToolsLayout from "@/components/ToolsLayout";
 import ToolsMobileStepper from "@/components/tools/ToolsMobileStepper";
@@ -55,10 +56,13 @@ export default function Tools() {
     my: theme.spacing(0.8),
     border: `1px solid ${theme.palette.secondary.dark}`,
     borderRadius: theme.spacing(1),
-    backgroundColor: theme.palette.info.dark,
+    backgroundColor: blue[800],
     transition: "box-shadow 160ms ease-in-out",
     "&:hover": {
+      backgroundColor: blue[900],
       boxShadow: "0px 4px 31px -12px rgba(2, 136, 209, 0.75)",
+      transition:
+        "box-shadow 200ms ease-in-out, background-color 200ms ease-in-out",
     },
   };
   const ListItemTextStyle: SxProps<Theme> = {
