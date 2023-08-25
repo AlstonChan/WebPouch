@@ -14,8 +14,8 @@
   },
   "scripts": {
     "dev": "tinacms dev -c \"next dev\"",
-    "build": "tinacms dev  -c \"cross-env NODE_ENV=production next build\"",
-    "start": "tinacms dev  -c \"cross-env NODE_ENV=production serve out\"",
+    "build": "tinacms build  -c \"cross-env NODE_ENV=production next build\"",
+    "start": "tinacms build  -c \"cross-env NODE_ENV=production serve out\"",
     "lint": "next lint"
   },
   "dependencies": {
