@@ -25,7 +25,7 @@
                 },
                 {
                     "key": "Access-Control-Allow-Origin",
-                    "value": "https://webpouch.vercel.app"
+                    "value": "https://webpouch.vercel.app, https://identity.tinajs.io"
                 },
                 {
                     "key": "Cross-Origin-Opener-Policy",
