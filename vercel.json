@@ -28,10 +28,6 @@
                     "value": "https://webpouch.vercel.app, https://identity.tinajs.io"
                 },
                 {
-                    "key": "Cross-Origin-Opener-Policy",
-                    "value": "same-origin"
-                },
-                {
                     "key": "Cross-Origin-Embedder-Policy",
                     "value": "require-corp"
                 },
