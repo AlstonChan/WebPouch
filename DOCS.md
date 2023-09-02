@@ -41,3 +41,13 @@ palette: {
     }
 },
 ```
+
+## Production Tina Cloud `/admin` login no response
+
+**Behaviour :** When the application is hosted on Vercel, navigating to `/admin` to log in to the dashboard has some bug. The pop up windows that will authenticate user will not close by it's own and shows _logging in_ forever. A lot of CORS error will be shown in the console at `/admin` and the scripts relating to the Tina Cloud with address `https://identity.tinajs.io` will be 401 unauthorized.
+
+**Problem :** `vercel.json` has set a header `Cross-Origin-Opener-Policy` set to `same-origin`
+
+**Fix :** remove header `Cross-Origin-Opener-Policy` field in `vercel.json`
+
+**Discord Support :** Tina Cloud [Discord](https://discord.com/invite/zumN63Ybpf) channel **#help** with title _`Tina Cloud Authorization no respond`_
